@@ -83,7 +83,7 @@ function UserConsoleContent() {
         <SidebarProvider>
           <UserSidebar />
         <SidebarInset className="h-[calc(100vh-var(--spacing)*4)] min-w-0 overflow-hidden">
-          <header className="flex h-15 shrink-0 items-center gap-2 overflow-hidden">
+          <header className="flex h-15 shrink-0 items-center gap-2 overflow-hidden pt-[env(safe-area-inset-top,0px)]">
             <div className="flex min-w-0 flex-1 items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1 shrink-0" />
               <Separator

@@ -170,6 +170,16 @@ func (b *UsageCapture) handleNonStream() usageResult {
 		result.CachedTokens = resp.Usage.PromptTokensDetails.CachedTokens
 		result.ReasoningTokens = resp.Usage.CompletionTokensDetails.ReasoningTokens
 
+	case "/v1/completions":
+		resp, err := parseOpenAICompletionResponse(data)
+		if err != nil {
+			logger.With("data", string(data), "error", err).WarnContext(b.ctx.ctx, "parse completion usage failed")
+			return result
+		}
+		result.InputTokens = resp.Usage.PromptTokens
+		result.OutputTokens = resp.Usage.CompletionTokens
+		result.ResponseID = resp.ID
+
 	case "/v1/messages":
 		resp, err := parseAnthropicResponse(data)
 		if err != nil {
@@ -265,6 +275,21 @@ func parseOpenAIResponseWrapper(data []byte) (openAIResponseWrapper, error) {
 
 func parseOpenAIChatCompletionResponse(data []byte) (openAIChatCompletionResponse, error) {
 	var resp openAIChatCompletionResponse
+	err := json.Unmarshal(data, &resp)
+	return resp, err
+}
+
+type openAICompletionResponse struct {
+	ID    string `json:"id"`
+	Usage struct {
+		PromptTokens     uint64 `json:"prompt_tokens"`
+		CompletionTokens uint64 `json:"completion_tokens"`
+		TotalTokens      uint64 `json:"total_tokens"`
+	} `json:"usage"`
+}
+
+func parseOpenAICompletionResponse(data []byte) (openAICompletionResponse, error) {
+	var resp openAICompletionResponse
 	err := json.Unmarshal(data, &resp)
 	return resp, err
 }

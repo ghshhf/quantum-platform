@@ -210,6 +210,19 @@ export const Markdown = memo(function Markdown({ children, allowHtml = false, al
     },
     p: MarkdownParagraph,
     pre: ({ children }) => <MarkdownCodeBlock isDark={isDark}>{children}</MarkdownCodeBlock>,
+    table: ({ children, ...props }) => (
+      <div className="overflow-x-auto my-4">
+        <table className="min-w-full" style={{ wordBreak: "normal" }} {...props}>
+          {children}
+        </table>
+      </div>
+    ),
+    th: ({ children, ...props }) => (
+      <th style={{ wordBreak: "normal" }} {...props}>{children}</th>
+    ),
+    td: ({ children, ...props }) => (
+      <td style={{ wordBreak: "normal" }} {...props}>{children}</td>
+    ),
   }), [allowInternalLink, isDark, location.pathname])
 
   return (

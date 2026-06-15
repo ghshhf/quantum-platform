@@ -28,6 +28,7 @@ const upstreamFailureMessage = "连接上游模型失败，请检查模型配置
 
 var allowPaths = map[string]string{
 	"/v1/chat/completions": "/chat/completions",
+	"/v1/completions":      "/completions",
 	"/v1/responses":        "/responses",
 	"/v1/messages":         "/messages",
 }

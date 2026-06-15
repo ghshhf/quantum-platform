@@ -77,7 +77,7 @@ export default function ManagerConsolePage() {
     <SidebarProvider>
       <ManagerSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2">
+        <header className="flex h-16 shrink-0 items-center gap-2 pt-[env(safe-area-inset-top,0px)]">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator

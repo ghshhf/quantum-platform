@@ -34,6 +34,7 @@ func NewHandler(i *do.Injector) (*Handler, error) {
 	h := &Handler{proxy: NewProxy(client, logger, opts...)}
 	g := w.Group("/v1")
 	g.POST("/chat/completions", web.BaseHandler(h.ServeHTTP))
+	g.POST("/completions", web.BaseHandler(h.ServeHTTP))
 	g.POST("/responses", web.BaseHandler(h.ServeHTTP))
 	g.POST("/messages", web.BaseHandler(h.ServeHTTP))
 	return h, nil

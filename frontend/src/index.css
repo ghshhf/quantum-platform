@@ -152,6 +152,9 @@
   body {
     @apply bg-background text-foreground;
     word-break: break-all;
+    /* 移动端安全区适配：防止系统状态栏遮挡顶部内容 */
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     }
   html {
     font-family: var(--font-sans);
