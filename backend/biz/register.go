@@ -10,6 +10,7 @@ import (
 	"github.com/ghshhf/MonkeyCode/backend/biz/host"
 	"github.com/ghshhf/MonkeyCode/backend/biz/localmodel"
 	"github.com/ghshhf/MonkeyCode/backend/biz/notify"
+	"github.com/ghshhf/MonkeyCode/backend/biz/p2phandler"
 	"github.com/ghshhf/MonkeyCode/backend/biz/task"
 	"github.com/ghshhf/MonkeyCode/backend/biz/user"
 	"github.com/ghshhf/MonkeyCode/backend/biz/vmidle"
@@ -31,6 +32,8 @@ func RegisterAll(i *do.Injector) error {
 	vmidle.InvokeVMIdle(i)
 	localmodel.ProvideLocalModel(i)
 	localmodel.InvokeLocalModel(i)
+	p2phandler.Provide(i)
+	p2phandler.Invoke(i)
 	return nil
 }
 
