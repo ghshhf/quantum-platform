@@ -33,6 +33,18 @@ export const apiRequest = async (
 
     const resp = response.data as GithubComGoYokoWebResp;
 
+    // 当后端返回业务错误 (code !== 0) 时，显示后端错误消息
+    // 避免显示 "未知错误" 等泛化提示
+    if (resp.code !== 0) {
+      const errMsg = resp.message || "请求失败"
+      if (onError) {
+        onError(new Error(errMsg))
+      } else {
+        toast.error(errMsg)
+      }
+      return
+    }
+
     if (onSuccess) {
       onSuccess(resp);
     }
