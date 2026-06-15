@@ -16,6 +16,33 @@
   <a href="https://baizhi.cloud/consult">企业咨询</a>
 </p>
 
+## 🦍 最新更新（2026-06-15）
+
+> commit: [`0e1291bd`](https://github.com/ghshhf/MonkeyCode/commit/0e1291bd)
+
+**backend/biz DI 依赖注入标准化重构**
+
+将散落在 `register.go` 中的散列 `Provide`/`Invoke` 调用，统一为 `[]Module` 注册模式，降低维护成本和遗漏风险。
+
+| 改动 | 说明 |
+|------|------|
+| 新增 `biz/di/di.go` | 定义 `Module` 接口（`RegisterServices` + `RegisterRoutes`） |
+| 重构 `biz/register.go` | 主注册函数从 ~130 行散列调用 → 30 行 `for _, m := range modules {...}` |
+| task/notify/host/user | 每个子包的 `register.go` 简化为单一 `Module` 变量 |
+| 方法签名修正 | `taskhook` 的方法参数对齐 `domain.TaskHook` 接口定义 |
+
+**文件变化**：
+```
+ backend/biz/register.go        | +67 / -155   ← 主入口改用 []Module
+ backend/biz/task/register.go   | +29 / -45    ← 简化为 Module 变量
+ backend/biz/notify/register.go | +35 / -60    ← 同上
+ backend/biz/host/register.go   | +25 / -40    ← 同上
+ backend/biz/user/register.go   | +23 / -35    ← 同上
+ backend/biz/di/di.go           | +30 / -0     ← 新增：Module 接口定义
+```
+
+**维护收益**：新增一个 biz 子包只需 `NewModule()` 加入 `[]Module` 数组，不需要在 3 个地方分别添加 `Provide/Invoke`。
+
 ## MonkeyCode 是什么
 
 MonkeyCode 是一款开源的**企业级 AI 开发平台**，内置了开发环境管理、AI 模型管理、AI 任务管理、项目需求管理等能力，区别于其他的 vibe coding 工具，MonkeyCode 是真正面向专业开发团队的 AI 助手。
