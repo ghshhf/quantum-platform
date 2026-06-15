@@ -22,6 +22,7 @@ const (
 	ModelProviderBaiLian     ModelProvider = "BaiLian"
 	ModelProviderVolcengine  ModelProvider = "Volcengine"
 	ModelProviderGoogle      ModelProvider = "Gemini"
+	ModelProviderOther       ModelProvider = "Other"
 )
 
 type InterfaceType string

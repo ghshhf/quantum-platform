@@ -204,7 +204,8 @@ func (u *modelUsecase) GetProviderModelList(ctx context.Context, req *domain.Get
 		consts.ModelProviderSiliconFlow,
 		consts.ModelProviderBaiZhiCloud,
 		consts.ModelProviderBaiLian,
-		consts.ModelProviderGoogle:
+		consts.ModelProviderGoogle,
+		consts.ModelProviderOther:
 		m, err := url.Parse(req.BaseURL)
 		if err != nil {
 			return nil, err

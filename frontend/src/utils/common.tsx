@@ -1070,6 +1070,48 @@ export function deepMerge<T extends Record<string, any>>(target: T, source: Part
 
 
 export const modelProviderList: Record<string, DomainProviderModelListItem[]> = {
+  "https://api.baizhi.cloud/v1": [
+    {"model": "gpt-4o"},
+    {"model": "gpt-4o-mini"},
+    {"model": "gpt-4.1"},
+    {"model": "gpt-4.1-mini"},
+    {"model": "gpt-4.1-nano"},
+    {"model": "deepseek-chat"},
+    {"model": "deepseek-reasoner"},
+    {"model": "o3"},
+    {"model": "o3-mini"},
+    {"model": "claude-sonnet-4-20250514"},
+    {"model": "claude-opus-4-20250514"},
+    {"model": "gemini-2.5-flash"},
+    {"model": "gemini-2.5-pro"},
+    {"model": "qwen3-max"},
+    {"model": "qwen3-coder"},
+  ],
+  "https://api.siliconflow.cn/v1": [
+    {"model": "Qwen/Qwen2.5-7B-Instruct"},
+    {"model": "Qwen/Qwen2.5-72B-Instruct"},
+    {"model": "deepseek-ai/DeepSeek-V3"},
+    {"model": "deepseek-ai/DeepSeek-R1"},
+    {"model": "Pro/DeepSeek-R1"},
+  ],
+  "https://api.deepseek.com/v1": [
+    {"model": "deepseek-chat"},
+    {"model": "deepseek-reasoner"},
+  ],
+  "https://api.moonshot.cn/v1": [
+    {"model": "moonshot-v1-auto"},
+    {"model": "moonshot-v1-8k"},
+    {"model": "moonshot-v1-32k"},
+    {"model": "moonshot-v1-128k"},
+  ],
+  "https://api.openai.com/v1": [
+    {"model": "gpt-4o"},
+    {"model": "gpt-4o-mini"},
+    {"model": "gpt-4.1"},
+    {"model": "o1"},
+    {"model": "o3"},
+    {"model": "o3-mini"},
+  ],
   "https://api.minimax.io/v1": [
     {"model": "MiniMax-M3"},
     {"model": "MiniMax-M2.7"},
@@ -1098,6 +1140,41 @@ export const modelProviderList: Record<string, DomainProviderModelListItem[]> = 
     {"model": "MiniMax-M2.1"},
     {"model": "MiniMax-M2"}
   ]
+}
+
+// Provider 到 URL 的预设映射：选择 Provider 后自动填充推荐 Base URL
+export const modelProviderPresets: Record<ConstsModelProvider, { baseUrl: string; label: string }> = {
+  [ConstsModelProvider.ModelProviderBaiZhiCloud]: { baseUrl: "https://api.baizhi.cloud/v1", label: "百知云（推荐 / 免费可用）" },
+  [ConstsModelProvider.ModelProviderSiliconFlow]: { baseUrl: "https://api.siliconflow.cn/v1", label: "硅基流动 / SiliconFlow" },
+  [ConstsModelProvider.ModelProviderDeepSeek]: { baseUrl: "https://api.deepseek.com/v1", label: "DeepSeek" },
+  [ConstsModelProvider.ModelProviderMoonshot]: { baseUrl: "https://api.moonshot.cn/v1", label: "月之暗面 / Moonshot" },
+  [ConstsModelProvider.ModelProviderOpenAI]: { baseUrl: "https://api.openai.com/v1", label: "OpenAI" },
+  [ConstsModelProvider.ModelProviderOllama]: { baseUrl: "http://localhost:11434/v1", label: "Ollama（本地部署）" },
+  [ConstsModelProvider.ModelProviderHunyuan]: { baseUrl: "https://api.hunyuan.cloud.tencent.com/v1", label: "腾讯混元" },
+  [ConstsModelProvider.ModelProviderBaiLian]: { baseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1", label: "阿里百炼 / 通义百炼" },
+  [ConstsModelProvider.ModelProviderVolcengine]: { baseUrl: "https://ark.cn-beijing.volces.com/api/v3", label: "火山方舟 / 字节豆包" },
+  [ConstsModelProvider.ModelProviderGoogle]: { baseUrl: "https://generativelanguage.googleapis.com/v1beta", label: "Google Gemini" },
+  [ConstsModelProvider.ModelProviderAzureOpenAI]: { baseUrl: "", label: "Azure OpenAI（需自定义 Endpoint）" },
+  [ConstsModelProvider.ModelProviderOther]: { baseUrl: "", label: "其他（自定义 OpenAI 兼容服务）" },
+}
+
+// 按 Provider 列出的品牌模型列表（如果 API 有 /models 问题或需要预设模型名时使用）
+export const modelProviderBrandList: Record<ConstsModelProvider, DomainProviderModelListItem[]> = {
+  [ConstsModelProvider.ModelProviderAzureOpenAI]: [
+    {"model": "gpt-4"},
+    {"model": "gpt-4o"},
+    {"model": "gpt-4o-mini"},
+    {"model": "gpt-4.1"},
+    {"model": "o1"},
+    {"model": "o3"},
+    {"model": "o3-mini"},
+  ],
+  [ConstsModelProvider.ModelProviderVolcengine]: [
+    {"model": "doubao-seed-1.6-250615"},
+    {"model": "doubao-seed-1.6-flash-250615"},
+    {"model": "doubao-seed-1.6-thinking-250615"},
+    {"model": "deepseek-r1-250528"},
+  ],
 }
 
 export function getSkillTagIcon(tag: string): React.ReactNode {

@@ -12,7 +12,7 @@ import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/
 import { apiRequest } from "@/utils/requestUtils"
 import { toast } from "sonner"
 import type { DomainModel, DomainProviderModelListItem } from "@/api/Api"
-import { ConstsInterfaceType } from "@/api/Api"
+import { ConstsInterfaceType, ConstsModelProvider } from "@/api/Api"
 import {
   Select,
   SelectContent,
@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { Spinner } from "@/components/ui/spinner"
-import { getModelDisplayName, getModelUrlDescription, modelProviderList } from "@/utils/common"
+import { getModelDisplayName, getModelUrlDescription, modelProviderList, modelProviderBrandList, modelProviderPresets } from "@/utils/common"
 
 interface EditModelProps {
   open: boolean
@@ -42,6 +42,7 @@ export default function EditModel({
 }: EditModelProps) {
   const [apiToken, setApiToken] = useState("")
   const [baseUrl, setBaseUrl] = useState("")
+  const [provider, setProvider] = useState<ConstsModelProvider>(ConstsModelProvider.ModelProviderBaiZhiCloud)
   const [selectedModel, setSelectedModel] = useState("")
   const [remark, setRemark] = useState("")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
@@ -67,10 +68,21 @@ export default function EditModel({
     modelListAttempted &&
     (modelListFetchFailed || modelList.length === 0)
 
+  // 切换 Provider 时自动填入推荐 Base URL，并重置模型列表
+  const handleProviderChange = (p: ConstsModelProvider) => {
+    setProvider(p)
+    const preset = modelProviderPresets[p]
+    if (preset?.baseUrl) {
+      setBaseUrl(preset.baseUrl)
+    }
+    resetModelListState()
+  }
+
   useEffect(() => {
     if (model && open) {
       setApiToken(model.api_key || "")
-      setBaseUrl(model.base_url || "https://api.openai.com/v1")
+      setBaseUrl(model.base_url || "")
+      setProvider(model.provider || ConstsModelProvider.ModelProviderBaiZhiCloud)
       setSelectedModel(model.model || "")
       setRemark(model.remark || "")
       setInterfaceType(model.interface_type || ConstsInterfaceType.InterfaceTypeOpenAIChat)
@@ -106,6 +118,13 @@ export default function EditModel({
     setModelListAttempted(true)
     setModelListFetchFailed(false)
 
+    // 优先检查品牌/Provider 预设列表
+    if (modelProviderBrandList[provider]) {
+      setModelList(modelProviderBrandList[provider])
+      return
+    }
+
+    // 其次检查 URL 预设列表
     if (modelProviderList[baseUrl.trim()]) {
       setModelList(modelProviderList[baseUrl.trim()])
       return
@@ -114,8 +133,8 @@ export default function EditModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
       api_key: apiToken.trim(),
-      base_url: baseUrl.trim() || model?.base_url || "https://api.openai.com/v1",
-      provider: model?.provider || "BaiZhiCloud",
+      base_url: baseUrl.trim() || model?.base_url || "https://api.baizhi.cloud/v1",
+      provider: model?.provider || provider,
     }, [], (resp) => {
       if (resp.code === 0) {
         const models = resp.data?.models || []
@@ -165,13 +184,13 @@ export default function EditModel({
     setSaving(true)
 
     // 先进行健康检查
-    const provider = model.provider || "BaiZhiCloud"
+    const currentProvider = model?.provider || provider
     const healthCheckData = {
       api_key: apiToken.trim(),
       model: selectedModel.trim(),
       base_url: baseUrl.trim(),
       interface_type: interfaceType,
-      provider: provider,
+      provider: currentProvider,
     }
 
     await apiRequest('v1UsersModelsHealthCheckCreate', healthCheckData, [], async (resp) => {
@@ -278,6 +297,23 @@ export default function EditModel({
           <DialogTitle>修改 AI 大模型</DialogTitle>
         </DialogHeader>
         <div className="grid min-h-0 flex-1 gap-4 overflow-y-auto overscroll-contain pr-1">
+          <Field>
+            <FieldLabel>模型服务（Provider）</FieldLabel>
+            <FieldContent>
+              <Select value={model?.provider || provider} onValueChange={handleProviderChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="请选择模型服务提供商" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(modelProviderPresets).map(([key, preset]) => (
+                    <SelectItem key={key} value={key}>
+                      {preset.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FieldContent>
+          </Field>
           <Field>
             <FieldLabel>接口格式</FieldLabel>
             <FieldContent>

@@ -13,7 +13,7 @@ import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/
 import { apiRequest } from "@/utils/requestUtils"
 import { toast } from "sonner"
 import type { DomainProviderModelListItem } from "@/api/Api"
-import { ConstsInterfaceType } from "@/api/Api"
+import { ConstsInterfaceType, ConstsModelProvider } from "@/api/Api"
 import {
   Select,
   SelectContent,
@@ -26,7 +26,7 @@ import {
 import { Switch } from "@/components/ui/switch"
 import { Spinner } from "@/components/ui/spinner"
 import { CircleQuestionMark, CircleAlert } from 'lucide-react'
-import { getModelDisplayName, getModelUrlDescription, modelProviderList } from "@/utils/common"
+import { getModelDisplayName, getModelUrlDescription, modelProviderList, modelProviderBrandList, modelProviderPresets } from "@/utils/common"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 
 interface AddModelProps {
@@ -43,8 +43,9 @@ export default function AddModel({
   const [model, setModel] = useState("")
   const [remark, setRemark] = useState("")
   const [apiToken, setApiToken] = useState("")
-  const [baseUrl, setBaseUrl] = useState("https://api.openai.com/v1")
+  const [baseUrl, setBaseUrl] = useState("https://api.baizhi.cloud/v1")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
+  const [provider, setProvider] = useState<ConstsModelProvider>(ConstsModelProvider.ModelProviderBaiZhiCloud)
   const [contextLimit, setContextLimit] = useState("200000")
   const [outputLimit, setOutputLimit] = useState("32000")
   const [thinkingEnabled, setThinkingEnabled] = useState(true)
@@ -62,6 +63,16 @@ export default function AddModel({
       setModelListFetchFailed(false)
     }
   }, [open])
+
+  // 切换 Provider 时自动填入推荐 Base URL，并重置模型列表
+  const handleProviderChange = (p: ConstsModelProvider) => {
+    setProvider(p)
+    const preset = modelProviderPresets[p]
+    if (preset?.baseUrl) {
+      setBaseUrl(preset.baseUrl)
+    }
+    resetModelListState()
+  }
 
   const resetModelListState = () => {
     setModelList([])
@@ -97,6 +108,13 @@ export default function AddModel({
     setModelListAttempted(true)
     setModelListFetchFailed(false)
 
+    // 优先检查品牌/Provider 预设列表
+    if (modelProviderBrandList[provider]) {
+      setModelList(modelProviderBrandList[provider])
+      return
+    }
+
+    // 其次检查 URL 预设列表
     if (modelProviderList[baseUrl.trim()]) {
       setModelList(modelProviderList[baseUrl.trim()])
       return
@@ -105,8 +123,8 @@ export default function AddModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
         api_key: apiToken.trim(),
-        base_url: baseUrl.trim() || "https://api.openai.com/v1",
-        provider: "BaiZhiCloud",
+        base_url: baseUrl.trim() || "https://api.baizhi.cloud/v1",
+        provider: provider,
       }, [], (resp) => {
         if (resp.code === 0) {
           const models = resp.data?.models || []
@@ -156,7 +174,7 @@ export default function AddModel({
       model: model.trim(),
       base_url: baseUrl.trim(),
       interface_type: interfaceType,
-      provider: "BaiZhiCloud",
+      provider: provider,
     }
 
     await apiRequest('v1UsersModelsHealthCheckCreate', healthCheckData, [], async (resp) => {
@@ -164,7 +182,7 @@ export default function AddModel({
         if (resp.data?.success) {
           // 健康检查通过，继续保存
           const requestData: any = {
-            provider: "BaiZhiCloud",
+            provider: provider,
             model: model.trim(),
             remark: remark.trim(),
             base_url: baseUrl.trim(),
@@ -182,7 +200,8 @@ export default function AddModel({
               setModel("")
               setRemark("")
               setApiToken("")
-              setBaseUrl("https://api.openai.com/v1")
+              setBaseUrl("https://api.baizhi.cloud/v1")
+              setProvider(ConstsModelProvider.ModelProviderBaiZhiCloud)
               setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
               setContextLimit("200000")
               setOutputLimit("32000")
@@ -208,7 +227,8 @@ export default function AddModel({
     setModel("")
     setRemark("")
     setApiToken("")
-    setBaseUrl("https://api.openai.com/v1")
+    setBaseUrl("https://api.baizhi.cloud/v1")
+    setProvider(ConstsModelProvider.ModelProviderBaiZhiCloud)
     setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
     setContextLimit("200000")
     setOutputLimit("32000")
@@ -259,6 +279,23 @@ export default function AddModel({
           <DialogTitle>绑定 AI 大模型</DialogTitle>
         </DialogHeader>
         <div className="grid min-h-0 flex-1 gap-4 overflow-y-auto overscroll-contain pr-1">
+          <Field>
+            <FieldLabel>模型服务（Provider）</FieldLabel>
+            <FieldContent>
+              <Select value={provider} onValueChange={handleProviderChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="请选择模型服务提供商" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(modelProviderPresets).map(([key, preset]) => (
+                    <SelectItem key={key} value={key}>
+                      {preset.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FieldContent>
+          </Field>
           <Field>
             <FieldLabel>接口格式</FieldLabel>
             <FieldContent>
