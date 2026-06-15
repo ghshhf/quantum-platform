@@ -25,8 +25,9 @@ import {
 } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { Spinner } from "@/components/ui/spinner"
-import { CircleQuestionMark } from 'lucide-react'
+import { CircleQuestionMark, CircleAlert } from 'lucide-react'
 import { getModelDisplayName, getModelUrlDescription, modelProviderList } from "@/utils/common"
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 
 interface AddModelProps {
   open: boolean
@@ -73,6 +74,9 @@ export default function AddModel({
     !loadingModels &&
     modelListAttempted &&
     (modelListFetchFailed || modelList.length === 0)
+
+  // 检测 Qwen3 模型名，提示 vLLM 部署时需要工具调用解析器参数
+  const isQwenModel = /qwen3|qwen/i.test(model.trim())
 
   const parsePositiveInteger = (value: string, label: string) => {
     const parsedValue = Number(value.trim())
@@ -381,6 +385,19 @@ export default function AddModel({
               )}
             </FieldContent>
           </Field>
+          {isQwenModel && (
+            <Alert variant="default">
+              <CircleAlert className="size-4" />
+              <AlertTitle>Qwen3 模型工具调用兼容性提示</AlertTitle>
+              <AlertDescription>
+                Qwen3-Coder 系列模型通过 vLLM 部署时，需要添加以下启动参数才能正常支持工具调用（如 apply_diff、write_to_file 等）：
+                <code className="mt-1 block rounded bg-muted px-2 py-1 font-mono text-xs">
+                  --enable-auto-tool-choice --tool-call-parser qwen3_coder
+                </code>
+                如果缺失此参数，模型对话可正常进行，但工具调用将出现 &quot;required parameter &apos;path&apos;&quot; 等错误。
+              </AlertDescription>
+            </Alert>
+          )}
           <Field>
             <FieldLabel>备注</FieldLabel>
             <FieldContent>

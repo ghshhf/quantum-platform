@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { CircularProgress } from "@/components/ui/circular-progress"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import {
@@ -74,6 +75,9 @@ export default function TaskDetailPage() {
   const [activeSidePanel, setActiveSidePanel] = React.useState<SidePanelType | null>(null)
   const [terminalPanelOpen, setTerminalPanelOpen] = React.useState(false)
   const [previewDialogOpen, setPreviewDialogOpen] = React.useState(false)
+  const [previewDialogDismissed, setPreviewDialogDismissed] = React.useState(() => {
+    return localStorage.getItem("mkcode-preview-dialog-dismissed") === "true"
+  })
   const [streamStatus, setStreamStatus] = React.useState<TaskMessageHandlerStatus>("inited")
   const [availableCommands, setAvailableCommands] = React.useState<AvailableCommands | null>(null)
   const [plan, setPlan] = React.useState<TaskPlan>({
@@ -538,6 +542,10 @@ export default function TaskDetailPage() {
   const handlePortChange = React.useCallback(async (opened: boolean) => {
     await fetchPortForwards()
     if (!opened || cancelledRef.current) {
+      return
+    }
+
+    if (localStorage.getItem("mkcode-preview-dialog-dismissed") === "true") {
       return
     }
 
@@ -1486,6 +1494,23 @@ export default function TaskDetailPage() {
             disabled={!taskInteractive}
             embedded
           />
+          <div className="flex items-center gap-2 pt-2 border-t">
+            <Checkbox
+              id="preview-dialog-dismiss"
+              checked={previewDialogDismissed}
+              onCheckedChange={(checked) => {
+                const value = checked === true
+                setPreviewDialogDismissed(value)
+                localStorage.setItem("mkcode-preview-dialog-dismissed", String(value))
+              }}
+            />
+            <label
+              htmlFor="preview-dialog-dismiss"
+              className="text-sm text-muted-foreground cursor-pointer select-none"
+            >
+              不再自动弹出
+            </label>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

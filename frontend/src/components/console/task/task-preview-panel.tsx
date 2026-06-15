@@ -78,6 +78,15 @@ export function TaskPreviewPanel({
         <ItemGroup className="gap-2">
           {ports.map((port: DomainVMPort) => {
             const canAccess = Boolean(port.preview_url)
+            const displayPort = (() => {
+              if (port.preview_url) {
+                try {
+                  const parsed = new URL(port.preview_url)
+                  if (parsed.port) return Number(parsed.port)
+                } catch { /* ignore URL parse errors */ }
+              }
+              return port.port
+            })()
             return (
             <Item
               variant="outline"
@@ -88,7 +97,7 @@ export function TaskPreviewPanel({
               <ItemContent>
                 <ItemTitle>
                   <span>
-                    {port.port}
+                    {displayPort}
                   </span>
                   {port.error_message && (
                     <Tooltip>

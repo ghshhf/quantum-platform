@@ -187,7 +187,7 @@ export function MembershipBalanceIndicator() {
   } = useCommonData()
   const plan = normalizePlan(subscription?.plan)
   const planLabel = getSubscriptionPlanLabel(subscription?.plan)
-  const balanceLabel = Math.floor(balance).toLocaleString("zh-CN")
+  const balanceLabel = Math.ceil(balance).toLocaleString("zh-CN")
   const canUpgradePlan = plan !== "ultra"
   const canRenewPlan = plan !== "basic"
 
