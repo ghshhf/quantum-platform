@@ -6,15 +6,18 @@ import Cap from "@cap.js/widget"
 import { HoverCardContent } from "@/components/ui/hover-card"
 import { ConstsGitPlatform, ConstsHostStatus, ConstsInterfaceType, ConstsOwnerType, ConstsProjectIssueStatus, GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType, TaskflowVirtualMachineStatus, type DomainGitIdentity, type DomainHost, type DomainImage, type DomainModel, type DomainOwner, type DomainProjectTask, type DomainProviderModelListItem, type DomainSubscriptionResp, type DomainUser, type DomainVirtualMachine, type GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition } from "@/api/Api"
 import { apiRequest } from "./requestUtils"
+import { githubAppName, githubAppDevName } from "./config"
 import { remark } from "remark"
 import strip from "strip-markdown"
 
 /** GitHub App 安装地址：window.location.origin 用正式环境，其他域名用开发环境 */
 export function getGithubAppInstallUrl(): string {
-  if (typeof window !== "undefined" && window.location.origin === "window.location.origin") {
-    return "https://github.com/apps/monkeycode-ai/installations/new"
+  const isProd = typeof window !== "undefined" && window.location.origin === "window.location.origin"
+  const appName = isProd ? githubAppName : githubAppDevName
+  if (appName && appName.trim()) {
+    return `https://github.com/apps/${appName}/installations/new`
   }
-  return "https://github.com/apps/mcai-dev-nb/installations/new"
+  return ""
 }
 
 export function getHostStatusBadge(status?: string) {

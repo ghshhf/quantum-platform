@@ -42,7 +42,7 @@ export default function EditModel({
 }: EditModelProps) {
   const [apiToken, setApiToken] = useState("")
   const [baseUrl, setBaseUrl] = useState("")
-  const [provider, setProvider] = useState<ConstsModelProvider>(ConstsModelProvider.ModelProviderBaiZhiCloud)
+  const [provider, setProvider] = useState<ConstsModelProvider>("")
   const [selectedModel, setSelectedModel] = useState("")
   const [remark, setRemark] = useState("")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
@@ -133,7 +133,7 @@ export default function EditModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
       api_key: apiToken.trim(),
-      base_url: baseUrl.trim() || model?.base_url || "https://api.baizhi.cloud/v1",
+      base_url: baseUrl.trim() || model.base_url || "",
       provider: model?.provider || provider,
     }, [], (resp) => {
       if (resp.code === 0) {

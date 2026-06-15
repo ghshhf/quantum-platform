@@ -43,9 +43,9 @@ export default function AddModel({
   const [model, setModel] = useState("")
   const [remark, setRemark] = useState("")
   const [apiToken, setApiToken] = useState("")
-  const [baseUrl, setBaseUrl] = useState("https://api.baizhi.cloud/v1")
+  const [baseUrl, setBaseUrl] = useState("")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
-  const [provider, setProvider] = useState<ConstsModelProvider>(ConstsModelProvider.ModelProviderBaiZhiCloud)
+  const [provider, setProvider] = useState<ConstsModelProvider>("")
   const [contextLimit, setContextLimit] = useState("200000")
   const [outputLimit, setOutputLimit] = useState("32000")
   const [thinkingEnabled, setThinkingEnabled] = useState(true)
@@ -123,7 +123,7 @@ export default function AddModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
         api_key: apiToken.trim(),
-        base_url: baseUrl.trim() || "https://api.baizhi.cloud/v1",
+        base_url: baseUrl.trim(),
         provider: provider,
       }, [], (resp) => {
         if (resp.code === 0) {
@@ -200,8 +200,8 @@ export default function AddModel({
               setModel("")
               setRemark("")
               setApiToken("")
-              setBaseUrl("https://api.baizhi.cloud/v1")
-              setProvider(ConstsModelProvider.ModelProviderBaiZhiCloud)
+              setBaseUrl("")
+              setProvider("")
               setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
               setContextLimit("200000")
               setOutputLimit("32000")
@@ -227,8 +227,8 @@ export default function AddModel({
     setModel("")
     setRemark("")
     setApiToken("")
-    setBaseUrl("https://api.baizhi.cloud/v1")
-    setProvider(ConstsModelProvider.ModelProviderBaiZhiCloud)
+    setBaseUrl("")
+    setProvider("")
     setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
     setContextLimit("200000")
     setOutputLimit("32000")

@@ -320,7 +320,7 @@ func Init(dir string) (*Config, error) {
 	v.SetDefault("object_storage.access_endpoint", "")
 	v.SetDefault("object_storage.access_key", "")
 	v.SetDefault("object_storage.access_key_secret", "")
-	v.SetDefault("object_storage.bucket", "monkeycode-ai")
+	v.SetDefault("object_storage.bucket", "")
 	v.SetDefault("object_storage.region", "us-east-1")
 	v.SetDefault("object_storage.max_size", 50<<20)
 	v.SetDefault("object_storage.avatar_prefix", "avatar")
