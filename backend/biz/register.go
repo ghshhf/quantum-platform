@@ -8,6 +8,7 @@ import (
 
 	"github.com/ghshhf/MonkeyCode/backend/biz/di"
 	"github.com/ghshhf/MonkeyCode/backend/biz/host"
+	"github.com/ghshhf/MonkeyCode/backend/biz/localmodel"
 	"github.com/ghshhf/MonkeyCode/backend/biz/notify"
 	"github.com/ghshhf/MonkeyCode/backend/biz/task"
 	"github.com/ghshhf/MonkeyCode/backend/biz/user"
@@ -28,6 +29,8 @@ func RegisterAll(i *do.Injector) error {
 	)
 	vmidle.ProvideVMIdle(i)
 	vmidle.InvokeVMIdle(i)
+	localmodel.ProvideLocalModel(i)
+	localmodel.InvokeLocalModel(i)
 	return nil
 }
 

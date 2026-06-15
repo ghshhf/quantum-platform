@@ -49,8 +49,10 @@ import Identities from "./identities"
 import VmsPage from "./vms"
 import Notifications from "./notifications"
 import ToolsAndMcp from "./tools-mcp"
+import LocalModels from "../local-models"
 
 const SETTINGS_NAV = [
+  { id: "local-models", name: "本地模型", icon: HardDrive },
   { id: "identities", name: "Git 身份", icon: IconPasswordFingerprint },
   { id: "tools-mcp", name: "MCP 与工具", icon: Blocks },
   { id: "models", name: "AI 大模型", icon: Bot },
@@ -64,6 +66,8 @@ type SettingsSectionId = (typeof SETTINGS_NAV)[number]["id"]
 
 function SettingsContent({ section }: { section: SettingsSectionId }) {
   switch (section) {
+    case "local-models":
+      return <LocalModels />
     case "identities":
       return <Identities />
     case "tools-mcp":
@@ -79,7 +83,7 @@ function SettingsContent({ section }: { section: SettingsSectionId }) {
     case "notifications":
       return <Notifications />
     default:
-      return <Identities />
+      return <LocalModels />
   }
 }
 
