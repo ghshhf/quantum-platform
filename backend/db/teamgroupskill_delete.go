@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
-	"github.com/chaitin/MonkeyCode/backend/db/teamgroupskill"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupskill"
 )
 
 // TeamGroupSkillDelete is the builder for deleting a TeamGroupSkill entity.

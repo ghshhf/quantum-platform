@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
 )
 
 // Tree 实现 GitClienter 接口。

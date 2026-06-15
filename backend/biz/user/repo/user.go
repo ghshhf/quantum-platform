@@ -8,15 +8,15 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/notifychannel"
-	"github.com/chaitin/MonkeyCode/backend/db/teamoidcconfig"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg/crypto"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifychannel"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamoidcconfig"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/crypto"
 )
 
 type userRepo struct {

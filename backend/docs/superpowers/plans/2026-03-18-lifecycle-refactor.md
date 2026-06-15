@@ -403,8 +403,8 @@ import (
     "context"
     "log/slog"
 
-    "github.com/chaitin/MonkeyCode/backend/consts"
-    "github.com/chaitin/MonkeyCode/backend/domain"
+    "github.com/ghshhf/MonkeyCode/backend/consts"
+    "github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 // VMTaskHook VM 状态变更时更新关联任务状态
@@ -508,7 +508,7 @@ import (
     "context"
     "testing"
     "github.com/stretchr/assert"
-    "github.com/chaitin/MonkeyCode/backend/domain"
+    "github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 func TestVMTaskHook_OnStateChange(t *testing.T) {
@@ -572,8 +572,8 @@ import (
     "context"
     "log/slog"
 
-    "github.com/chaitin/MonkeyCode/backend/domain"
-    "github.com/chaitin/MonkeyCode/backend/pkg/notify/dispatcher"
+    "github.com/ghshhf/MonkeyCode/backend/domain"
+    "github.com/ghshhf/MonkeyCode/backend/pkg/notify/dispatcher"
 )
 
 // TaskNotifyHook 任务状态变更时发送通知
@@ -710,7 +710,7 @@ do.Provide(i, func(i *do.Injector) (*lifecycle.Manager[lifecycle.VMState, lifecy
 ```go
 import (
     // ... existing imports
-    "github.com/chaitin/MonkeyCode/backend/pkg/lifecycle"
+    "github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"
 )
 ```
 

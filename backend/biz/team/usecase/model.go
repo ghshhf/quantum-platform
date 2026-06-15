@@ -7,11 +7,11 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg/cvt"
-	"github.com/chaitin/MonkeyCode/backend/pkg/llm"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/llm"
 )
 
 type teamModelUsecase struct {

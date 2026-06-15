@@ -70,7 +70,7 @@ export default function EditModel({
   useEffect(() => {
     if (model && open) {
       setApiToken(model.api_key || "")
-      setBaseUrl(model.base_url || "https://model-square.app.baizhi.cloud/v1")
+      setBaseUrl(model.base_url || "https://api.openai.com/v1")
       setSelectedModel(model.model || "")
       setRemark(model.remark || "")
       setInterfaceType(model.interface_type || ConstsInterfaceType.InterfaceTypeOpenAIChat)
@@ -114,7 +114,7 @@ export default function EditModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
       api_key: apiToken.trim(),
-      base_url: baseUrl.trim() || model?.base_url || "https://model-square.app.baizhi.cloud/v1",
+      base_url: baseUrl.trim() || model?.base_url || "https://api.openai.com/v1",
       provider: model?.provider || "BaiZhiCloud",
     }, [], (resp) => {
       if (resp.code === 0) {

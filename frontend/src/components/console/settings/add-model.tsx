@@ -43,7 +43,7 @@ export default function AddModel({
   const [model, setModel] = useState("")
   const [remark, setRemark] = useState("")
   const [apiToken, setApiToken] = useState("")
-  const [baseUrl, setBaseUrl] = useState("https://model-square.app.baizhi.cloud/v1")
+  const [baseUrl, setBaseUrl] = useState("https://api.openai.com/v1")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
   const [contextLimit, setContextLimit] = useState("200000")
   const [outputLimit, setOutputLimit] = useState("32000")
@@ -105,7 +105,7 @@ export default function AddModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
         api_key: apiToken.trim(),
-        base_url: baseUrl.trim() || "https://model-square.app.baizhi.cloud/v1",
+        base_url: baseUrl.trim() || "https://api.openai.com/v1",
         provider: "BaiZhiCloud",
       }, [], (resp) => {
         if (resp.code === 0) {
@@ -182,7 +182,7 @@ export default function AddModel({
               setModel("")
               setRemark("")
               setApiToken("")
-              setBaseUrl("https://model-square.app.baizhi.cloud/v1")
+              setBaseUrl("https://api.openai.com/v1")
               setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
               setContextLimit("200000")
               setOutputLimit("32000")
@@ -208,7 +208,7 @@ export default function AddModel({
     setModel("")
     setRemark("")
     setApiToken("")
-    setBaseUrl("https://model-square.app.baizhi.cloud/v1")
+    setBaseUrl("https://api.openai.com/v1")
     setInterfaceType(ConstsInterfaceType.InterfaceTypeOpenAIChat)
     setContextLimit("200000")
     setOutputLimit("32000")
@@ -307,7 +307,7 @@ export default function AddModel({
                 asChild
                 className="h-auto p-0 text-foreground"
               >
-                <a href="https://monkeycode.docs.baizhi.cloud/" target="_blank">
+                <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">
                   <CircleQuestionMark />如何获得
                 </a>
               </Button>

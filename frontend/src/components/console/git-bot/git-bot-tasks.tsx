@@ -120,7 +120,7 @@ export const GitBotTasks = forwardRef<GitBotTasksRef>(function GitBotTasks(_, re
                 刷新
               </Button>
               <Button variant="default" asChild>
-                <a href="https://monkeycode.docs.baizhi.cloud/node/019bd94c-2fd8-7276-9382-74e3a0d4a397" target="_blank">
+                <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">
                   <BookOpenIcon />
                   如何使用？
                 </a>

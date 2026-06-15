@@ -32,7 +32,7 @@ export default function NavInvite() {
   const [invitationCount, setInvitationCount] = React.useState(0)
   const [isInvitationsLoading, setIsInvitationsLoading] = React.useState(false)
   const [hasLoadedInvitations, setHasLoadedInvitations] = React.useState(false)
-  const invitationLink = `https://monkeycode-ai.com/?ic=${user.id || ""}`
+  const invitationLink = `window.location.origin${user.id || ""}`
 
   const formatPoints = (value: number) => Math.ceil(value).toLocaleString()
   const getInvitationInitial = (name?: string) => name?.trim().charAt(0).toUpperCase() || "?"

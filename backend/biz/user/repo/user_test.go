@@ -9,11 +9,11 @@ import (
 	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db/enttest"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg/crypto"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/crypto"
 )
 
 func TestPasswordLoginRejectsSubAccountWhenOIDCDisablesPassword(t *testing.T) {

@@ -12,10 +12,10 @@ import (
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/dialect/sql/sqljson"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db/notifychannel"
-	"github.com/chaitin/MonkeyCode/backend/db/notifysubscription"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifychannel"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifysubscription"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
 	"github.com/google/uuid"
 )
 

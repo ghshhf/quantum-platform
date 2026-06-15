@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/schema/index"
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
 )
 
 // NotifySendLog records each notification send attempt for auditing and dedup.

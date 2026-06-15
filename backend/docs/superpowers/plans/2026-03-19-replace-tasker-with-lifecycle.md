@@ -132,7 +132,7 @@ import (
     "github.com/google/uuid"
     "github.com/redis/go-redis/v9"
 
-    "github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+    "github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 // TaskCreateHook 在 TaskStateRunning 时从 Redis 读取 CreateTaskReq 并创建 taskflow 任务
@@ -293,7 +293,7 @@ import (
     "github.com/redis/go-redis/v9"
     "github.com/stretchr/testify/assert"
 
-    "github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+    "github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 func TestTaskCreateHook_OnStateChange(t *testing.T) {

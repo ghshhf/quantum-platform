@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/schema/field"
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
 )
 
 // GitBot holds the schema definition for the GitBot entity.

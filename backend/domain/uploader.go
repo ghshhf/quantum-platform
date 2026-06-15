@@ -3,7 +3,7 @@ package domain
 import (
 	"mime/multipart"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
 )
 
 type UploadReq struct {

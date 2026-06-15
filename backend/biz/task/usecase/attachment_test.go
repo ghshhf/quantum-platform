@@ -3,8 +3,8 @@ package usecase
 import (
 	"testing"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 func TestValidateAttachmentsAllowsEmpty(t *testing.T) {

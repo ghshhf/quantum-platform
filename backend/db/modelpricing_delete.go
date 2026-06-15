@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/modelpricing"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/modelpricing"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
 )
 
 // ModelPricingDelete is the builder for deleting a ModelPricing entity.

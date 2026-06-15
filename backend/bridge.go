@@ -7,15 +7,15 @@ import (
 	"github.com/samber/do"
 	"golang.org/x/text/language"
 
-	"github.com/chaitin/MonkeyCode/backend/biz"
-	hostrepo "github.com/chaitin/MonkeyCode/backend/biz/host/repo"
-	hostusecase "github.com/chaitin/MonkeyCode/backend/biz/host/usecase"
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg"
-	"github.com/chaitin/MonkeyCode/backend/pkg/captcha"
-	"github.com/chaitin/MonkeyCode/backend/pkg/tasker"
+	"github.com/ghshhf/MonkeyCode/backend/biz"
+	hostrepo "github.com/ghshhf/MonkeyCode/backend/biz/host/repo"
+	hostusecase "github.com/ghshhf/MonkeyCode/backend/biz/host/usecase"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/captcha"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/tasker"
 )
 
 // BridgeOption 桥接可选配置

@@ -10,9 +10,9 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db/notifychannel"
-	"github.com/chaitin/MonkeyCode/backend/db/notifysubscription"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifychannel"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifysubscription"
 	"github.com/google/uuid"
 )
 

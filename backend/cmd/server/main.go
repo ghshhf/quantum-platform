@@ -10,11 +10,11 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/biz"
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/pkg"
-	"github.com/chaitin/MonkeyCode/backend/pkg/service"
-	"github.com/chaitin/MonkeyCode/backend/pkg/store"
+	"github.com/ghshhf/MonkeyCode/backend/biz"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/pkg"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/service"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/store"
 )
 
 func main() {

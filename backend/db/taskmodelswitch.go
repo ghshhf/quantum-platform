@@ -9,10 +9,10 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/chaitin/MonkeyCode/backend/db/model"
-	"github.com/chaitin/MonkeyCode/backend/db/task"
-	"github.com/chaitin/MonkeyCode/backend/db/taskmodelswitch"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/db/model"
+	"github.com/ghshhf/MonkeyCode/backend/db/task"
+	"github.com/ghshhf/MonkeyCode/backend/db/taskmodelswitch"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
 	"github.com/google/uuid"
 )
 

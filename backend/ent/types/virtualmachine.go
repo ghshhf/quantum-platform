@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/chaitin/MonkeyCode/backend/pkg/cvt"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 // ConditionStatus 条件状态

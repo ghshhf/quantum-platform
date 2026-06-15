@@ -67,7 +67,7 @@ export default function WalletDialog() {
 
   const formatPoints = (value: number) => Math.ceil(value).toLocaleString()
   const getInvitationInitial = (name?: string) => name?.trim().charAt(0).toUpperCase() || "?"
-  const invitationLink = `https://monkeycode-ai.com/?ic=${user.id}`
+  const invitationLink = `window.location.origin${user.id}`
   const rechargeOptions = [
     { credits: 2000, price: 10, discountLabel: "无折扣" },
     { credits: 15000, price: 50, discountLabel: "6.7 折" },

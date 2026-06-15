@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/pkg/logger"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/logger"
 )
 
 type Config struct {

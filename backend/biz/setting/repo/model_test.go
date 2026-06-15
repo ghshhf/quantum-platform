@@ -8,10 +8,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/enttest"
-	"github.com/chaitin/MonkeyCode/backend/db/modelapikey"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
+	"github.com/ghshhf/MonkeyCode/backend/db/modelapikey"
 )
 
 func TestModelRepoGetDoesNotLoadRuntimeApikeys(t *testing.T) {

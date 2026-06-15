@@ -11,7 +11,7 @@
       "policy": "fingerprint"
     },
     "updates": {
-      "url": "https://monkeycode-ai.com/mobile/app/manifest",
+      "url": "https://your-server.example.com/mobile/app/manifest",
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0
@@ -19,7 +19,7 @@
     "ios": {
       "supportsTablet": true,
       "usesAppleSignIn": true,
-      "bundleIdentifier": "com.chaitin.baizhi.monkeycode",
+      "bundleIdentifier": "com.monkeycode.selfhosted",
       "buildNumber": "1",
       "icon": {
         "light": "./assets/icon.png",
@@ -36,7 +36,7 @@
       "appleTeamId": "8Z56KX83T3"
     },
     "android": {
-      "package": "com.chaitin.baizhi.monkeycode",
+      "package": "com.monkeycode.selfhosted",
       "versionCode": 1,
       "permissions": [
         "RECORD_AUDIO"
@@ -96,7 +96,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "updatesServer": "https://release.monkeycode-ai.com"
+      "updatesServer": "https://github.com/ghshhf/MonkeyCode/releases"
     }
   }
 }

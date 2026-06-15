@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/gitbot"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/gitbot"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
 )
 
 // GitBotDelete is the builder for deleting a GitBot entity.

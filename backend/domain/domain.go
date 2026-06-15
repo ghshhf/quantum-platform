@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
 )
 
 // IDReq 通用 ID 请求

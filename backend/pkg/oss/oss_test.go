@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/config"
 )
 
 func TestObjectKeyJoinsPrefixAndFilename(t *testing.T) {

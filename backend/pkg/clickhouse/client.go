@@ -21,7 +21,7 @@ import (
 	"github.com/golang-migrate/migrate/v4/source"
 	"github.com/golang-migrate/migrate/v4/source/iofs"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/config"
 )
 
 const (

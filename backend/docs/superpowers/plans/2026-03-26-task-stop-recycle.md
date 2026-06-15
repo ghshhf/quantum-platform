@@ -94,11 +94,11 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/pkg/delayqueue"
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/delayqueue"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 const (
@@ -357,7 +357,7 @@ func (a *TaskUsecase) Stop(ctx context.Context, user *domain.User, id uuid.UUID)
 }
 ```
 
-注意：需要在文件顶部 import 中确认已有 `lifecycle` 包的导入（`"github.com/chaitin/MonkeyCode/backend/pkg/lifecycle"`），当前文件已导入。
+注意：需要在文件顶部 import 中确认已有 `lifecycle` 包的导入（`"github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"`），当前文件已导入。
 
 - [ ] **Step 2: 改造 `Delete()` — 去掉限制并回收 VM**
 

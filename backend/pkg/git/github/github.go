@@ -14,8 +14,8 @@ import (
 	"github.com/palantir/go-githubapp/githubapp"
 	"golang.org/x/oauth2"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 // Github GitHub 客户端（PAT 模式）

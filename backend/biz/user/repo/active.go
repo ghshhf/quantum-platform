@@ -9,8 +9,8 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 // UserActiveRepo 用户活跃记录数据访问层

@@ -6,8 +6,8 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 
-const docsLink = "https://monkeycode.docs.baizhi.cloud/";
-const githubLink = "https://github.com/chaitin/MonkeyCode";
+const docsLink = "https://github.com/ghshhf/MonkeyCode#readme";
+const githubLink = "https://github.com/ghshhf/MonkeyCode";
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
@@ -254,7 +254,7 @@ const Header = () => {
                   <Link to="/playground">广场</Link>
                 </Button>
                 <Button variant="link" className={cn(isPixelPage && "justify-start text-slate-900 no-underline")} asChild>
-                  <Link to="https://monkeycode.docs.baizhi.cloud/" target="_blank">使用文档</Link>
+                  <Link to="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">使用文档</Link>
                 </Button>
               </div>
             </DrawerContent>
@@ -282,7 +282,7 @@ const Header = () => {
             <Link to="/playground">广场</Link>
           </Button>
           <Button variant={"link"} className={cn(isPixelPage ? "rounded-none border-2 border-transparent text-slate-900 no-underline hover:bg-amber-50" : "text-foreground")}>
-            <Link to="https://monkeycode.docs.baizhi.cloud/" target="_blank">使用文档</Link>
+            <Link to="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">使用文档</Link>
           </Button>
         </div>
         <div className="flex flex-row items-center gap-2 sm:gap-3">

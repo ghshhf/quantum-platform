@@ -61,8 +61,8 @@
 
 说明：
 
-- `文档` / `使用文档` 当前跳转到外部文档站：`https://monkeycode.docs.baizhi.cloud/`
-- `开源` / GitHub 当前跳转：`https://github.com/chaitin/MonkeyCode`
+- `文档` / `使用文档` 当前跳转到外部文档站：`https://github.com/ghshhf/MonkeyCode#readme
+- `开源` / GitHub 当前跳转：`https://github.com/ghshhf/MonkeyCode`
 - 访问首页时如果 URL 带 `?ic=...`，前端会把邀请码写入 `localStorage`，注册登录入口会携带该邀请 ID
 - 移动端导航收纳在抽屉菜单中
 
@@ -108,7 +108,7 @@
 
 下载统一跳转：
 
-- `https://github.com/chaitin/MonkeyCode/releases`
+- `https://github.com/ghshhf/MonkeyCode/releases`
 
 但当前首页实际渲染的是新版 `TerminalNativePage`，不再直接展示旧版客户端下载区块。
 
@@ -478,7 +478,7 @@
 
 邀请注册：
 
-- 系统生成个人邀请链接：`https://monkeycode-ai.com/?ic=当前用户ID`
+- 系统生成个人邀请链接：`window.location.origin当前用户ID`
 - 点击 `复制邀请链接` 会复制完整链接
 - 好友通过该链接注册后，邀请人获得 `5000 积分`
 - 支持展开查看最近邀请用户列表

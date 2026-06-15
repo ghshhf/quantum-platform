@@ -17,12 +17,12 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/middleware"
-	"github.com/chaitin/MonkeyCode/backend/pkg/oss"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/oss"
 )
 
 const defaultUploadMaxSize = 50 << 20

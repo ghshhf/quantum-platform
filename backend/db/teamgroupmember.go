@@ -9,9 +9,9 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/chaitin/MonkeyCode/backend/db/teamgroup"
-	"github.com/chaitin/MonkeyCode/backend/db/teamgroupmember"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmember"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
 	"github.com/google/uuid"
 )
 

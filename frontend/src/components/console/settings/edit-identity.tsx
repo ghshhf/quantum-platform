@@ -223,7 +223,7 @@ export default function EditIdentity({
                   asChild
                   className="h-auto p-0 text-foreground"
                 >
-                  <a href="https://monkeycode.docs.baizhi.cloud/node/019a95ee-6277-7412-842a-587f25330ae6" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank" rel="noopener noreferrer">
                     <CircleQuestionMark />如何获取
                   </a>
                 </Button>

@@ -15,10 +15,10 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 // GiteeWebhookHandler Gitee Webhook 处理器

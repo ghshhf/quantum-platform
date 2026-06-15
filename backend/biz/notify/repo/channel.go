@@ -9,12 +9,12 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/notifychannel"
-	"github.com/chaitin/MonkeyCode/backend/db/notifysubscription"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifychannel"
+	"github.com/ghshhf/MonkeyCode/backend/db/notifysubscription"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
 )
 
 var wechatMPFixedSubscriptionID = uuid.MustParse("00000000-0000-0000-0000-00000000c001")

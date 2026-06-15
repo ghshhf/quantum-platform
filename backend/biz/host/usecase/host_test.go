@@ -14,12 +14,12 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/enttest"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 func TestGetInstallCommandStoresTokenForTwoHours(t *testing.T) {
@@ -76,7 +76,7 @@ func TestInstallScriptDefaultsToOnlineInstaller(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(script, "release.baizhi.cloud/monkeycode/runner/$ARCH/installer") {
+	if !strings.Contains(script, "github.com/ghshhf/MonkeyCode/raw/main/runner/$ARCH/installer") {
 		t.Fatalf("script missing online installer: %s", script)
 	}
 	if !strings.Contains(script, "--env GRPC_URL=121.41.208.82:50443") {
@@ -142,8 +142,10 @@ func TestInstallScriptUsesOfflineBundle(t *testing.T) {
 	if strings.Contains(script, "docker load") || strings.Contains(script, "docker compose") {
 		t.Fatalf("bootstrap script should not install host directly: %s", script)
 	}
-	if strings.Contains(script, "release.baizhi.cloud") {
-		t.Fatalf("script should not download public installer: %s", script)
+	if strings.Contains(script, "release.baizhi.cloud") ||
+		strings.Contains(script, "monkeycode-ai.com") ||
+		strings.Contains(script, "your-server.example.com") {
+		t.Fatalf("script should use dynamic server URL, not hardcoded: %s", script)
 	}
 	assertInstallScriptChecksAVX(t, script)
 }

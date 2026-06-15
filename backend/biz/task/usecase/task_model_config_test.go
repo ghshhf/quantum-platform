@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
 )
 
 func TestOpencodeNpmPackage(t *testing.T) {

@@ -3,10 +3,10 @@ package notify
 import (
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/biz/di"
-	v1 "github.com/chaitin/MonkeyCode/backend/biz/notify/handler/v1"
-	"github.com/chaitin/MonkeyCode/backend/biz/notify/repo"
-	"github.com/chaitin/MonkeyCode/backend/biz/notify/usecase"
+	"github.com/ghshhf/MonkeyCode/backend/biz/di"
+	v1 "github.com/ghshhf/MonkeyCode/backend/biz/notify/handler/v1"
+	"github.com/ghshhf/MonkeyCode/backend/biz/notify/repo"
+	"github.com/ghshhf/MonkeyCode/backend/biz/notify/usecase"
 )
 
 // Module 描述 notify 模块的 DI 注册行为。

@@ -6,7 +6,7 @@ import (
 
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 type TeamDashboardUsecase struct {

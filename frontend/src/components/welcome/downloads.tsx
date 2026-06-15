@@ -6,7 +6,7 @@ import {
   IconDeviceMobile,
 } from "@tabler/icons-react";
 
-const RELEASE_URL = "https://github.com/chaitin/MonkeyCode/releases";
+const RELEASE_URL = "https://github.com/ghshhf/MonkeyCode/releases";
 
 const clients = [
   {

@@ -6,8 +6,8 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/middleware"
 )
 
 type TeamOIDCHandler struct {

@@ -10,5 +10,5 @@ Disallow: /api/
 Disallow: /assets/
 
 # 站点地图
-Sitemap: https://monkeycode-ai.com/sitemap.xml
+Sitemap: window.location.origin/sitemap.xml
 

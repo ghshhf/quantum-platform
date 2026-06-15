@@ -18,9 +18,9 @@ import { spacing, useTheme } from '@/theme';
 const PROVIDER = 'BaiZhiCloud';
 // 默认 API 地址按接口格式区分；用户改过地址后切换接口格式不再覆盖
 const DEFAULT_BASE_URLS: Record<ModelInterfaceType, string> = {
-  openai_chat: 'https://ai-models.app.baizhi.cloud/api/openai',
-  openai_responses: 'https://ai-models.app.baizhi.cloud/api/openai',
-  anthropic: 'https://ai-models.app.baizhi.cloud/api/anthropic',
+  openai_chat: 'https://api.openai.com/v1',
+  openai_responses: 'https://api.openai.com/v1',
+  anthropic: 'https://api.anthropic.com/v1',
 };
 const DEFAULT_CONTEXT_LIMIT = '200000';
 const DEFAULT_OUTPUT_LIMIT = '32000';

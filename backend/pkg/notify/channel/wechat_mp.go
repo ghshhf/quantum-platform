@@ -6,10 +6,10 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/pkg/msgpush"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/msgpush"
 )
 
 // WechatMPSender 微信公众号模板消息推送。
@@ -31,7 +31,7 @@ type WechatMPSender struct {
 	wechatClient *msgpush.WechatClient
 }
 
-const quotaJumpURL = "https://monkeycode-ai.com"
+const quotaJumpURL = "https://your-server.example.com"
 
 func NewWechatMPSender(cfg *config.Config, wechatClient *msgpush.WechatClient) *WechatMPSender {
 	return &WechatMPSender{cfg: cfg, wechatClient: wechatClient}

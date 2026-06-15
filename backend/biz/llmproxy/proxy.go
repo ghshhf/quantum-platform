@@ -18,10 +18,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/modelapikey"
-	"github.com/chaitin/MonkeyCode/backend/db/taskvirtualmachine"
-	"github.com/chaitin/MonkeyCode/backend/pkg/modelusage"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/modelapikey"
+	"github.com/ghshhf/MonkeyCode/backend/db/taskvirtualmachine"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/modelusage"
 )
 
 const upstreamFailureMessage = "连接上游模型失败，请检查模型配置，或重试"

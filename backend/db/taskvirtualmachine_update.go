@@ -11,10 +11,10 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
-	"github.com/chaitin/MonkeyCode/backend/db/task"
-	"github.com/chaitin/MonkeyCode/backend/db/taskvirtualmachine"
-	"github.com/chaitin/MonkeyCode/backend/db/virtualmachine"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/task"
+	"github.com/ghshhf/MonkeyCode/backend/db/taskvirtualmachine"
+	"github.com/ghshhf/MonkeyCode/backend/db/virtualmachine"
 	"github.com/google/uuid"
 )
 

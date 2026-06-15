@@ -8,9 +8,9 @@ import (
 	gocap "github.com/ackcoder/go-cap"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg/captcha"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/captcha"
 )
 
 type CaptchaHandler struct {

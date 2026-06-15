@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
-	"github.com/chaitin/MonkeyCode/backend/db/teamhost"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamhost"
 )
 
 // TeamHostDelete is the builder for deleting a TeamHost entity.

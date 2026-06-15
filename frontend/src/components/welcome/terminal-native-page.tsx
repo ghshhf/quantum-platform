@@ -7,8 +7,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TerminalFooter, TerminalHeader } from "./terminal-chrome";
 
-const GITHUB_LINK = "https://github.com/chaitin/MonkeyCode/";
-const CONSULT_LINK = "https://baizhi.cloud/consult";
+const GITHUB_LINK = "https://github.com/ghshhf/MonkeyCode/";
+const CONSULT_LINK = "#";
 
 const themeVars = {
   "--a-bg": "#0a0d0a",
@@ -116,7 +116,7 @@ const mobileClientItems = [
   {
     platform: "Android",
     icon: IconBrandAndroid,
-    href: "https://release.monkeycode-ai.com/public/mobile/app/monkeycode-latest.apk",
+    href: "https://github.com/ghshhf/MonkeyCode/releases",
     cta: "下载 Android APK",
   },
   {
@@ -127,7 +127,7 @@ const mobileClientItems = [
   },
 ];
 
-const SELF_HOSTING_DOC_LINK = "https://monkeycode.docs.baizhi.cloud/node/019eb0f3-9424-7c93-9489-4e584f989527";
+const SELF_HOSTING_DOC_LINK = "https://github.com/ghshhf/MonkeyCode#readme";
 
 const selfHostingAdvantages = [
   "部署在企业内网，代码仓库、任务记录和研发数据留在自己的网络边界内。",

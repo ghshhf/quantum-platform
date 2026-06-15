@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
 )
 
 type Gateway struct {

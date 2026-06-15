@@ -10,8 +10,8 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/chaitin/MonkeyCode/backend/db/mcptool"
-	"github.com/chaitin/MonkeyCode/backend/db/mcpupstream"
+	"github.com/ghshhf/MonkeyCode/backend/db/mcptool"
+	"github.com/ghshhf/MonkeyCode/backend/db/mcpupstream"
 	"github.com/google/uuid"
 )
 

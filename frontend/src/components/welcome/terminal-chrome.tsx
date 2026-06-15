@@ -4,13 +4,13 @@ import { IconArrowRight, IconMenu2, IconPointFilled } from "@tabler/icons-react"
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DOCS_LINK = "https://monkeycode.docs.baizhi.cloud/";
-const GITHUB_LINK = "https://github.com/chaitin/MonkeyCode/";
-const FORUM_LINK = "https://bbs.baizhi.cloud/";
-const MODEL_SQUARE_LINK = "https://baizhi.cloud/landing/model-square";
+const DOCS_LINK = "https://github.com/ghshhf/MonkeyCode#readme";
+const GITHUB_LINK = "https://github.com/ghshhf/MonkeyCode/";
+const FORUM_LINK = "#";
+const MODEL_SQUARE_LINK = "#";
 const SHOWCASE_LINK = "https://showcase.monkeycode-ai.online/";
-const CHAITIN_LINK = "https://www.chaitin.cn/";
-const BAIZHI_LINK = "https://www.baizhi.cloud/";
+const CHAITIN_LINK = "#";
+const BAIZHI_LINK = "#";
 
 const resourceLinks = [
   { title: "产品文档", href: DOCS_LINK },

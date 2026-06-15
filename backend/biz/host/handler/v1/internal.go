@@ -16,17 +16,17 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	gituc "github.com/chaitin/MonkeyCode/backend/biz/git/usecase"
-	vmidle "github.com/chaitin/MonkeyCode/backend/biz/vmidle/usecase"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	etypes "github.com/chaitin/MonkeyCode/backend/ent/types"
-	"github.com/chaitin/MonkeyCode/backend/pkg/cvt"
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
-	"github.com/chaitin/MonkeyCode/backend/pkg/lifecycle"
-	"github.com/chaitin/MonkeyCode/backend/pkg/taskflow"
-	"github.com/chaitin/MonkeyCode/backend/pkg/ws"
+	gituc "github.com/ghshhf/MonkeyCode/backend/biz/git/usecase"
+	vmidle "github.com/ghshhf/MonkeyCode/backend/biz/vmidle/usecase"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	etypes "github.com/ghshhf/MonkeyCode/backend/ent/types"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/ws"
 )
 
 // InternalHostHandler 处理 taskflow 回调的 host/VM 相关接口

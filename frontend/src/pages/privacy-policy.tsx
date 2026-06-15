@@ -90,11 +90,11 @@ const sections: LegalSection[] = [
     footer: (
       <>
         官方渠道：
-        <a className="text-[var(--a-accent)] hover:underline" href="https://www.chaitin.cn/" target="_blank" rel="noreferrer">
+        <a className="text-[var(--a-accent)] hover:underline" href="#" target="_blank" rel="noreferrer">
           长亭科技官网
         </a>
         {" "}或{" "}
-        <a className="text-[var(--a-accent)] hover:underline" href="https://www.baizhi.cloud/" target="_blank" rel="noreferrer">
+        <a className="text-[var(--a-accent)] hover:underline" href="#" target="_blank" rel="noreferrer">
           长亭百智云官网
         </a>
         。

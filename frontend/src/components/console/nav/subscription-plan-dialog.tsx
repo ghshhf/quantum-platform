@@ -186,7 +186,7 @@ const teamPlanFeatures: AccountPlanFeature[] = [
   { label: "专属方案，按团队规模和模型需求配置" },
   { label: "咨询留资，销售专人跟进" },
 ]
-const TEAM_CONSULT_URL = "https://baizhi.cloud/consult"
+const TEAM_CONSULT_URL = "#"
 
 const monthlyPeriodCounts = Array.from({ length: 12 }, (_, index) => index + 1)
 const yearlyPeriodCounts = Array.from({ length: 5 }, (_, index) => index + 1)

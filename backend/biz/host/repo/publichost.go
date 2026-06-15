@@ -5,10 +5,10 @@ import (
 
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 type PublicHostRepo struct {

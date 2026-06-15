@@ -5,7 +5,7 @@ import (
 
 	gocache "github.com/patrickmn/go-cache"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 // CachedGitClient wraps a GitClienter and adds in-memory caching for Repositories.

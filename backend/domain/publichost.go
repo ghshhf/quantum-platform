@@ -3,7 +3,7 @@ package domain
 import (
 	"context"
 
-	"github.com/chaitin/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db"
 )
 
 // PublicHostUsecase 公共主机业务逻辑接口

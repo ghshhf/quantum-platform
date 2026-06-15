@@ -10,12 +10,12 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/chaitin/MonkeyCode/backend/db/gitidentity"
-	"github.com/chaitin/MonkeyCode/backend/db/host"
-	"github.com/chaitin/MonkeyCode/backend/db/model"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
-	"github.com/chaitin/MonkeyCode/backend/db/virtualmachine"
-	"github.com/chaitin/MonkeyCode/backend/ent/types"
+	"github.com/ghshhf/MonkeyCode/backend/db/gitidentity"
+	"github.com/ghshhf/MonkeyCode/backend/db/host"
+	"github.com/ghshhf/MonkeyCode/backend/db/model"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/db/virtualmachine"
+	"github.com/ghshhf/MonkeyCode/backend/ent/types"
 	"github.com/google/uuid"
 )
 

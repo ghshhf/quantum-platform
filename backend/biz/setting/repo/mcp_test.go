@@ -7,10 +7,10 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db/enttest"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 	"github.com/google/uuid"
 )
 

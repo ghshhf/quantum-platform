@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 const TaskActivityRefreshInterval = 5 * time.Minute

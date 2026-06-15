@@ -105,7 +105,7 @@ export function solveChallenges(challenge: ChallengeResp): number[] {
 
 /**
  * 完整跑一遍验证码流程，返回可用于登录的 captcha_token。
- * baseUrl 形如 https://monkeycode-ai.com（无尾斜杠）。
+ * baseUrl 形如 https://your-server.example.com（无尾斜杠）。
  */
 export async function obtainCaptchaToken(baseUrl: string): Promise<string> {
   const jsonHeaders = { 'Content-Type': 'application/json', ...authHeaders() };

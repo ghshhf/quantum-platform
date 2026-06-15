@@ -11,7 +11,7 @@ import (
 	"github.com/golang-migrate/migrate/v4/source"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/config"
 )
 
 func TestApplyPoolOptions(t *testing.T) {

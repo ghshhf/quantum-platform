@@ -7,19 +7,19 @@ const LINKS = [
     links: [
       {
         title: "产品文档",
-        href: "https://monkeycode.docs.baizhi.cloud/"
+        href: "https://github.com/ghshhf/MonkeyCode#readme"
       },
       {
         title: "技术论坛",
-        href: "https://bbs.baizhi.cloud/"
+        href: "#"
       },
       {
         title: "开源仓库",
-        href: "https://github.com/chaitin/MonkeyCode/"
+        href: "https://github.com/ghshhf/MonkeyCode/"
       },
       {
         title: "模型广场",
-        href: "https://baizhi.cloud/landing/model-square"
+        href: "#"
       }
     ]
   },
@@ -28,11 +28,11 @@ const LINKS = [
     links: [
       {
         title: "长亭科技",
-        href: "https://www.chaitin.cn/"
+        href: "#"
       },
       {
         title: "长亭百智云",
-        href: "https://www.baizhi.cloud/"
+        href: "#"
       },
       {
         title: "隐私政策",

@@ -75,11 +75,11 @@ import (
 
 	"entgo.io/ent"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/hook"
-	"github.com/chaitin/MonkeyCode/backend/db/task"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/hook"
+	"github.com/ghshhf/MonkeyCode/backend/db/task"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
 )
 
 // TaskConcurrencyHook prevents a user from creating more than one active task
@@ -147,7 +147,7 @@ git commit -m "feat(task): implement TaskConcurrencyHook with advisory lock"
 同时在 import 中添加：
 
 ```go
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
 ```
 
 - [ ] **Step 2: 验证编译**

@@ -11,7 +11,7 @@ import (
 	"entgo.io/ent/schema/index"
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
 )
 
 type MCPTool struct {

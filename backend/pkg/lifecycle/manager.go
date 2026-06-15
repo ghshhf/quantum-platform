@@ -11,7 +11,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/chaitin/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
 )
 
 // Manager 泛型生命周期管理器

@@ -13,12 +13,12 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/gitidentity"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
-	"github.com/chaitin/MonkeyCode/backend/db/project"
-	"github.com/chaitin/MonkeyCode/backend/db/projecttask"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
-	"github.com/chaitin/MonkeyCode/backend/db/virtualmachine"
+	"github.com/ghshhf/MonkeyCode/backend/db/gitidentity"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/project"
+	"github.com/ghshhf/MonkeyCode/backend/db/projecttask"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/db/virtualmachine"
 	"github.com/google/uuid"
 )
 

@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/chaitin/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db"
 )
 
 type TeamDashboardUsecase interface {

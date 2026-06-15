@@ -11,11 +11,11 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/coder/websocket"
 
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/middleware"
-	"github.com/chaitin/MonkeyCode/backend/pkg/asr"
-	"github.com/chaitin/MonkeyCode/backend/pkg/ws"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/asr"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/ws"
 )
 
 // SpeechToText 语音转文字

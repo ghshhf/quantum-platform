@@ -12,10 +12,10 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/chaitin/MonkeyCode/backend/db/predicate"
-	"github.com/chaitin/MonkeyCode/backend/db/teamgroup"
-	"github.com/chaitin/MonkeyCode/backend/db/teamgroupmember"
-	"github.com/chaitin/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
+	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmember"
+	"github.com/ghshhf/MonkeyCode/backend/db/user"
 	"github.com/google/uuid"
 )
 

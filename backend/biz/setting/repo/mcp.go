@@ -9,15 +9,15 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/config"
-	"github.com/chaitin/MonkeyCode/backend/db"
-	"github.com/chaitin/MonkeyCode/backend/db/mcptool"
-	"github.com/chaitin/MonkeyCode/backend/db/mcpupstream"
-	"github.com/chaitin/MonkeyCode/backend/db/mcpusertoolsetting"
-	"github.com/chaitin/MonkeyCode/backend/domain"
-	"github.com/chaitin/MonkeyCode/backend/errcode"
-	"github.com/chaitin/MonkeyCode/backend/pkg/cvt"
-	"github.com/chaitin/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/MonkeyCode/backend/db/mcptool"
+	"github.com/ghshhf/MonkeyCode/backend/db/mcpupstream"
+	"github.com/ghshhf/MonkeyCode/backend/db/mcpusertoolsetting"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
+	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
 )
 
 type mcpRepo struct {

@@ -6,14 +6,14 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/chaitin/MonkeyCode/backend/biz/di"
-	"github.com/chaitin/MonkeyCode/backend/biz/host"
-	"github.com/chaitin/MonkeyCode/backend/biz/notify"
-	"github.com/chaitin/MonkeyCode/backend/biz/task"
-	"github.com/chaitin/MonkeyCode/backend/biz/user"
-	"github.com/chaitin/MonkeyCode/backend/biz/vmidle"
-	"github.com/chaitin/MonkeyCode/backend/consts"
-	"github.com/chaitin/MonkeyCode/backend/domain"
+	"github.com/ghshhf/MonkeyCode/backend/biz/di"
+	"github.com/ghshhf/MonkeyCode/backend/biz/host"
+	"github.com/ghshhf/MonkeyCode/backend/biz/notify"
+	"github.com/ghshhf/MonkeyCode/backend/biz/task"
+	"github.com/ghshhf/MonkeyCode/backend/biz/user"
+	"github.com/ghshhf/MonkeyCode/backend/biz/vmidle"
+	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/MonkeyCode/backend/domain"
 )
 
 // RegisterAll 注册核心业务模块。

@@ -42,7 +42,7 @@ const Banner = () => {
               </Link>
             </Button>
             <Button size="lg" variant="secondary" className="pixel-button h-12 border-slate-900 bg-white px-6 text-slate-900 hover:bg-slate-50" asChild>
-              <a href="https://github.com/chaitin/MonkeyCode" target="_blank" rel="noreferrer">
+              <a href="https://github.com/ghshhf/MonkeyCode" target="_blank" rel="noreferrer">
                 <IconCodeDots className="size-4" />
                 查看开源仓库
               </a>

@@ -3,8 +3,8 @@ package uploader
 import (
 	"github.com/samber/do"
 
-	v1 "github.com/chaitin/MonkeyCode/backend/biz/uploader/handler/http/v1"
-	"github.com/chaitin/MonkeyCode/backend/config"
+	v1 "github.com/ghshhf/MonkeyCode/backend/biz/uploader/handler/http/v1"
+	"github.com/ghshhf/MonkeyCode/backend/config"
 )
 
 func ProvideUploader(i *do.Injector) {

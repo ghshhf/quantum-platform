@@ -24,7 +24,7 @@ const FinalCTA = () => {
               </Link>
             </Button>
             <Button size="lg" variant="secondary" className="pixel-button h-12 border-slate-950 px-6 bg-white text-slate-900 hover:bg-slate-50" asChild>
-              <a href="https://monkeycode.docs.baizhi.cloud/" target="_blank" rel="noreferrer">
+              <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank" rel="noreferrer">
                 <IconBook2 className="size-4" />
                 查看文档
               </a>
