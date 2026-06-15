@@ -32,13 +32,28 @@ import PrivacyPolicyPage from "./pages/privacy-policy"
 import UserAgreementPage from "./pages/user-agreement"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { IS_OFFLINE_EDITION } from "@/utils/edition"
+import SetupWizard from "@/components/setup-wizard"
+
+const SETUP_DONE_KEY = "mcai_setup_done"
 
 function TaskDetailRoute() {
   const { taskId } = useParams()
   return <TaskDetailPage key={taskId} />
 }
 
+function isSetupDone(): boolean {
+  try {
+    return localStorage.getItem(SETUP_DONE_KEY) === "1"
+  } catch {
+    return false
+  }
+}
+
 function App() {
+  if (!isSetupDone()) {
+    return <SetupWizard />
+  }
+
   return (
     <ThemeProvider defaultTheme="system" storageKey="monkeycode-theme">
       <TooltipProvider>
