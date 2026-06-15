@@ -72,6 +72,11 @@ func healthCheckOpenAIChat(ctx context.Context, cfg Config) error {
 		"max_tokens": 1,
 	}
 
+	// qwen3 models require enable_thinking=false for non-streaming calls
+	if strings.Contains(cfg.Model, "qwen3") {
+		body["enable_thinking"] = false
+	}
+
 	respBody, err := doRequest(ctx, baseURL+"/chat/completions", cfg.APIKey, body)
 	if err != nil {
 		return err
