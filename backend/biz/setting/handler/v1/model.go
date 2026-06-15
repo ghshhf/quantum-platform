@@ -188,6 +188,9 @@ func (h *ModelHandler) CheckByID(c *web.Context, req domain.CheckModelReq) error
 	resp, err := h.usecase.Check(c.Request().Context(), user.ID, req.ID)
 	if err != nil {
 		h.logger.ErrorContext(c.Request().Context(), "failed to check model by id", "error", err, "user_id", user.ID, "model_id", req.ID)
+		if strings.Contains(err.Error(), "not found") {
+			return errcode.ErrModelNotFound.Wrap(err)
+		}
 		return errcode.ErrDatabaseOperation.Wrap(err)
 	}
 	return c.Success(resp)

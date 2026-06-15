@@ -121,6 +121,9 @@ func (p *Proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 		return
 	}
+	// Strip 'metadata' field from request body to avoid errors with
+	// local/self-hosted models that don't support it without 'store'.
+	body = stripRequestBodyField(body, "metadata")
 	r.Body = io.NopCloser(bytes.NewReader(body))
 	r.ContentLength = int64(len(body))
 
@@ -246,6 +249,20 @@ func (p *Proxy) modifyResponse(resp *http.Response) error {
 	if !ok || ctx == nil || ctx.model == nil {
 		return nil
 	}
+
+	// For non-streaming /v1/completions, strip markdown code fences from response text.
+	if strings.HasSuffix(ctx.upstreamPath, "/completions") && !ctx.stream {
+		data, err := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		if err == nil {
+			cleaned := cleanCompletionBody(p.logger, data)
+			resp.Body = io.NopCloser(bytes.NewReader(cleaned))
+			resp.ContentLength = int64(len(cleaned))
+		} else {
+			p.logger.With("error", err).WarnContext(resp.Request.Context(), "read completion body for cleaning failed")
+		}
+	}
+
 	resp.Body = NewUsageCapture(p.logger, resp.Body, &UsageCaptureContext{
 		ctx:      resp.Request.Context(),
 		path:     normalizeUsageCapturePath(resp.Request.URL.Path),
@@ -260,6 +277,8 @@ func normalizeUsageCapturePath(path string) string {
 	switch {
 	case strings.HasSuffix(path, "/chat/completions"):
 		return "/v1/chat/completions"
+	case strings.HasSuffix(path, "/completions"):
+		return "/v1/completions"
 	case strings.HasSuffix(path, "/responses"):
 		return "/v1/responses"
 	case strings.HasSuffix(path, "/messages"):
@@ -340,6 +359,25 @@ func extractToken(req *http.Request) (string, bool) {
 type requestMeta struct {
 	Model  string `json:"model"`
 	Stream bool   `json:"stream"`
+}
+
+// stripRequestBodyField removes a top-level field from a JSON body.
+// If the JSON is invalid or the field doesn't exist, the original body
+// is returned unchanged.
+func stripRequestBodyField(body []byte, field string) []byte {
+	var raw map[string]json.RawMessage
+	if err := json.Unmarshal(body, &raw); err != nil {
+		return body
+	}
+	if _, exists := raw[field]; !exists {
+		return body
+	}
+	delete(raw, field)
+	out, err := json.Marshal(raw)
+	if err != nil {
+		return body
+	}
+	return out
 }
 
 func readRequestMeta(body []byte) (requestMeta, error) {

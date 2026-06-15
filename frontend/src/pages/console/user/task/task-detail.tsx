@@ -49,7 +49,7 @@ import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 import { canUseModelBySubscription, formatTokens, getBrandFromModel, getBuiltinModelName, getModelDisplayName, getOwnerTypeBadge, getTaskDisplayName, isBuiltinPublicModelPackage, stripBuiltinPublicModelPackagePrefix } from "@/utils/common"
 import { apiRequest } from "@/utils/requestUtils"
-import { IconChevronDown, IconDeviceDesktop, IconFile, IconReload, IconTerminal2 } from "@tabler/icons-react"
+import { IconChevronDown, IconDeviceDesktop, IconFile, IconPlayerStopFilled, IconReload, IconTerminal2 } from "@tabler/icons-react"
 import React from "react"
 import { useParams } from "react-router-dom"
 import { toast } from "sonner"
@@ -111,6 +111,8 @@ export default function TaskDetailPage() {
   const [restartAgentDialogOpen, setRestartAgentDialogOpen] = React.useState(false)
   const [restartAgentSubmitting, setRestartAgentSubmitting] = React.useState(false)
   const [restartAgentClearContext, setRestartAgentClearContext] = React.useState(false)
+  const [stopDialogOpen, setStopDialogOpen] = React.useState(false)
+  const [stopping, setStopping] = React.useState(false)
   const [modelSwitchDialogOpen, setModelSwitchDialogOpen] = React.useState(false)
   const [modelSwitchSubmitting, setModelSwitchSubmitting] = React.useState(false)
   const [pendingSwitchModel, setPendingSwitchModel] = React.useState<DomainModel | null>(null)
@@ -912,6 +914,31 @@ export default function TaskDetailPage() {
     streamClientRef.current?.sendCancel()
   }, [])
 
+  const handleStopTask = React.useCallback(() => {
+    if (!taskId || stopping) return
+    setStopping(true)
+    apiRequest(
+      "v1UsersTasksStopUpdate",
+      { id: taskId },
+      [],
+      (resp) => {
+        setStopping(false)
+        setStopDialogOpen(false)
+        if (resp.code === 0) {
+          toast.success("任务已终止")
+          setTask((prev) => prev ? { ...prev, status: ConstsTaskStatus.TaskStatusError } : prev)
+        } else {
+          toast.error(resp.message || "终止任务失败")
+        }
+      },
+      () => {
+        setStopping(false)
+        setStopDialogOpen(false)
+        toast.error("终止任务失败")
+      }
+    )
+  }, [taskId, stopping])
+
   const handleResetSession = React.useCallback(async () => {
     const success = await taskControlClientRef.current?.restart(false)
     return !!success
@@ -1275,6 +1302,17 @@ export default function TaskDetailPage() {
               <IconDeviceDesktop className="size-3.5" />
               预览{previewPortCount > 0 ? ` (${previewPortCount})` : ""}
             </Button>
+            {(task?.status === ConstsTaskStatus.TaskStatusPending || task?.status === ConstsTaskStatus.TaskStatusProcessing) && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 min-w-0 gap-1 px-2 text-sm font-normal text-destructive hover:text-destructive"
+                onClick={() => setStopDialogOpen(true)}
+              >
+                <IconPlayerStopFilled className="size-3.5" />
+                终止任务
+              </Button>
+            )}
           </div>
         </div>
       </div>
@@ -1374,6 +1412,34 @@ export default function TaskDetailPage() {
             >
               {restartAgentSubmitting && <Spinner className="mr-2 size-4" />}
               确认
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      <AlertDialog
+        open={stopDialogOpen}
+        onOpenChange={(open) => {
+          if (stopping) return
+          setStopDialogOpen(open)
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>终止任务</AlertDialogTitle>
+            <AlertDialogDescription>
+              确定要终止任务「{getTaskDisplayName(task)}」吗？任务终止后无法恢复。
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={stopping}>取消</AlertDialogCancel>
+            <Button
+              variant="destructive"
+              type="button"
+              onClick={() => { void handleStopTask() }}
+              disabled={stopping}
+            >
+              {stopping && <Spinner className="mr-2 size-4" />}
+              {stopping ? "终止中..." : "确认终止"}
             </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
