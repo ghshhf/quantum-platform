@@ -252,7 +252,20 @@ type openAIChatCompletionResponse struct {
 		TotalTokens             uint64            `json:"total_tokens"`
 		PromptTokensDetails     tokenDetails      `json:"prompt_tokens_details"`
 		CompletionTokensDetails completionDetails `json:"completion_tokens_details"`
+		// Bailian qwen3 2507 alternative naming (Responses API convention)
+		InputTokens  uint64 `json:"input_tokens"`
+		OutputTokens uint64 `json:"output_tokens"`
 	} `json:"usage"`
+}
+
+// normalizeUsage merges alternative usage field names used by Bailian qwen3 2507
+func (r *openAIChatCompletionResponse) normalizeUsage() {
+	if r.Usage.PromptTokens == 0 && r.Usage.InputTokens > 0 {
+		r.Usage.PromptTokens = r.Usage.InputTokens
+	}
+	if r.Usage.CompletionTokens == 0 && r.Usage.OutputTokens > 0 {
+		r.Usage.CompletionTokens = r.Usage.OutputTokens
+	}
 }
 
 type anthropicResponse struct {
@@ -276,6 +289,9 @@ func parseOpenAIResponseWrapper(data []byte) (openAIResponseWrapper, error) {
 func parseOpenAIChatCompletionResponse(data []byte) (openAIChatCompletionResponse, error) {
 	var resp openAIChatCompletionResponse
 	err := json.Unmarshal(data, &resp)
+	if err == nil {
+		resp.normalizeUsage()
+	}
 	return resp, err
 }
 
