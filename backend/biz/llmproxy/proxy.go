@@ -144,7 +144,25 @@ func (p *Proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ctx := context.WithValue(r.Context(), contextKey{}, &proxyContext{
+	// Create a cancellable context so that when the client disconnects,
+	// we can abort the upstream request immediately instead of leaking
+	// connections that eventually exhaust the connection pool.
+	ctx, cancel := context.WithCancel(r.Context())
+	defer cancel()
+
+	// Monitor client disconnection: when the HTTP server detects that the
+	// client has closed the connection, r.Context() is cancelled. Propagate
+	// this cancellation to abort any in-flight upstream request so the
+	// proxy transport can release the HTTP connection promptly.
+	go func() {
+		select {
+		case <-r.Context().Done():
+			cancel()
+		case <-ctx.Done():
+		}
+	}()
+
+	ctx = context.WithValue(ctx, contextKey{}, &proxyContext{
 		model:        m,
 		upstreamPath: upstreamPath,
 		stream:       reqMeta.Stream,

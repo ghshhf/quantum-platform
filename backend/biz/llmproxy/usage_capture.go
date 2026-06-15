@@ -329,7 +329,14 @@ type sseDecoder struct {
 }
 
 func newSSEDecoder(r io.Reader) *sseDecoder {
-	return &sseDecoder{scanner: bufio.NewScanner(r)}
+	scanner := bufio.NewScanner(r)
+	// Increase buffer from default 64KB to 1MB to handle large SSE data
+	// lines (e.g. long code blocks in streaming responses). Without this,
+	// bufio.Scanner silently stops when a line exceeds 64KB, causing the
+	// SSE stream to appear "stuck" mid-response.
+	buf := make([]byte, 0, 64*1024)
+	scanner.Buffer(buf, 1024*1024)
+	return &sseDecoder{scanner: scanner}
 }
 
 func (d *sseDecoder) Next() bool {
@@ -362,6 +369,11 @@ func (d *sseDecoder) Next() bool {
 			d.lastData = []byte(chunk)
 			data.WriteByte('\n')
 		}
+	}
+	// Check for scanner errors (e.g. line too long, even after buffer increase).
+	// Without this, the error is silently ignored and the stream appears stuck.
+	if err := d.scanner.Err(); err != nil {
+		return false
 	}
 	if eventType != "" || data.Len() > 0 {
 		d.current = sseEvent{Type: eventType, Data: bytes.TrimSuffix(data.Bytes(), []byte("\n"))}
