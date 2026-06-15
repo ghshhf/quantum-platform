@@ -68,8 +68,8 @@ func (g *GitTaskUsecase) Create(ctx context.Context, req domain.CreateGitTaskReq
 			Git: taskflow.Git{
 				// Codeup 仓库 URL 必须带 .git 后缀才能 clone，做一次兜底归一化
 				URL:      giturl.NormalizeCloneURL(req.Repo.URL),
-				Username: "MonkeyCode-AI",
-				Email:    "monkeycode-ai@chaitin.com",
+				Username: "monkeycode",
+				Email:    "monkeycode@local.dev",
 				Branch:   branch,
 				Token:    req.Git.Token,
 			},

@@ -27,7 +27,7 @@ import type {
 } from './types';
 import { base64Encode } from '@/messages/base64';
 
-export const DEFAULT_BASE_URL = 'https://your-server.example.com';
+export const DEFAULT_BASE_URL = 'http://localhost:11180';
 
 let baseUrl = DEFAULT_BASE_URL;
 let basicAuth = ''; // 形如 "user:pass"，用于连接带 HTTP Basic Auth 的测试环境（反向代理层鉴权）

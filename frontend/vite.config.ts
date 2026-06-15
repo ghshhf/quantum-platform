@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "0.0.0.0",
       port: devPort,
-      allowedHosts: ['.monkeycode-ai.online'],
+      allowedHosts: true,  // 自托管：允许任何主机访问（部署时可配置为特定域名）
       proxy: {
         '/api': {
           target: env.TARGET,

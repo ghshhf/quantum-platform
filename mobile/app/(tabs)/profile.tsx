@@ -57,7 +57,7 @@ function Appearance({ t }: { t: Theme }) {
 
 // 产品相关入口（开源、AI 编程助手 MonkeyCode）
 const ABOUT_LINKS: { icon: string; label: string; sub: string; url: string }[] = [
-  { icon: 'globe', label: '官方网站', sub: 'self-hosted', url: 'https://your-server.example.com' },
+  { icon: 'globe', label: '当前服务器', sub: 'localhost:11180', url: 'http://localhost:11180' },
   { icon: 'file', label: '帮助文档', sub: 'github.com/ghshhf/MonkeyCode', url: 'https://github.com/ghshhf/MonkeyCode#readme' },
   { icon: 'github', label: 'GitHub 开源仓库', sub: 'ghshhf/MonkeyCode', url: 'https://github.com/ghshhf/MonkeyCode' },
 ];

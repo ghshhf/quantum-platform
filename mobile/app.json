@@ -11,7 +11,7 @@
       "policy": "fingerprint"
     },
     "updates": {
-      "url": "https://your-server.example.com/mobile/app/manifest",
+      "url": "http://localhost:11180/mobile/app/manifest",
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0

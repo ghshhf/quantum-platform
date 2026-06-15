@@ -660,7 +660,7 @@ func (a *TaskUsecase) buildMCPConfigs(taskID uuid.UUID, token string) []taskflow
 	if token != "" {
 		mcps = append(mcps, taskflow.McpServerConfig{
 			Type: "http",
-			Name: "monkeycode-ai",
+			Name: "self-hosted",
 			Url:  proto.String(fmt.Sprintf("%s/mcp", strings.TrimRight(a.cfg.Server.BaseURL, "/"))),
 			Headers: []*taskflow.McpHttpHeader{
 				{

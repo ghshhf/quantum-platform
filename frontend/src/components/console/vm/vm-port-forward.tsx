@@ -113,9 +113,8 @@ export function VmPortForwardDialog({
 
   const getMyIP = async (): Promise<string | null> => {
     try {
-      const resp = await fetch('https://monkeycode-ai.online/get-my-ip', {
+      const resp = await fetch(`${window.location.origin}/api/get-my-ip`, {
         method: 'GET',
-        mode: 'cors',
       })
       if (!resp.ok) {
         throw new Error()
@@ -123,7 +122,8 @@ export function VmPortForwardDialog({
       const data = await resp.json()
       return data.ip
     } catch (e) {
-      return null
+      // 自托管：回退到本地回环地址，用户可在白名单中自行编辑
+      return '127.0.0.1'
     }
   }
 

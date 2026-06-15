@@ -66,10 +66,10 @@ func (r *mcpRepo) ListUserUpstreams(ctx context.Context, uid uuid.UUID, _ domain
 	platform := &domain.MCPUpstream{
 		ID: uuid.Max,
 		User: &domain.User{
-			Name: "monkeycode-ai",
+			Name: "self-hosted",
 		},
-		Name:    "monkeycode-ai",
-		Slug:    "monkeycode-ai",
+		Name:    "self-hosted",
+		Slug:    "self-hosted",
 		Scope:   mcpupstream.ScopePlatform,
 		Type:    "",
 		URL:     fmt.Sprintf("%s/mcp", strings.TrimSuffix(r.cfg.Server.BaseURL, "/")),
