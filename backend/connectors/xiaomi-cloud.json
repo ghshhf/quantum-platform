@@ -1,0 +1,73 @@
+{
+  "name": "xiaomi-cloud",
+  "label": "小米云",
+  "description": "小米云服务的通用 API 接入层（示例/占位），演示如何把一个公网服务的多个接口描述为 connector 的 action 列表。",
+  "type": "http",
+  "version": "1.0",
+  "vendor": "Xiaomi",
+  "tags": ["cloud", "iot", "example"],
+  "base_url": "https://api.io.mi.com",
+  "auth": {
+    "type": "bearer",
+    "login_action": "login",
+    "token_path": "data.access_token",
+    "expires_in": 86400
+  },
+  "actions": [
+    {
+      "action": "login",
+      "label": "登录",
+      "description": "使用账号密码登录并获取 access token",
+      "method": "POST",
+      "path": "/home/login",
+      "category": "认证",
+      "params": [
+        { "name": "username", "label": "账号", "type": "string", "in": "body", "required": true },
+        { "name": "password", "label": "密码", "type": "string", "in": "body", "required": true }
+      ]
+    },
+    {
+      "action": "list_devices",
+      "label": "列出设备",
+      "description": "列出账号下绑定的所有智能设备",
+      "method": "GET",
+      "path": "/home/device_list",
+      "category": "设备",
+      "requires_auth": true,
+      "response_filter": "data.list"
+    },
+    {
+      "action": "get_device_status",
+      "label": "查询设备状态",
+      "description": "根据 did 查询指定设备当前的属性状态",
+      "method": "GET",
+      "path": "/home/device_status",
+      "category": "设备",
+      "requires_auth": true,
+      "params": [
+        { "name": "did", "label": "设备 ID", "type": "string", "in": "query", "required": true }
+      ]
+    },
+    {
+      "action": "control_device",
+      "label": "控制设备",
+      "description": "向指定设备下发控制指令，如开关、亮度、温度等",
+      "method": "POST",
+      "path": "/home/rpc",
+      "category": "控制",
+      "requires_auth": true,
+      "params": [
+        { "name": "did", "label": "设备 ID", "type": "string", "in": "body", "required": true },
+        { "name": "method", "label": "方法名", "type": "string", "in": "body", "required": true, "default": "set_power" },
+        { "name": "params", "label": "参数", "type": "string", "in": "body", "required": false, "default": "[\"on\"]" }
+      ]
+    },
+    {
+      "action": "ping",
+      "label": "连通性测试",
+      "description": "最小 action：只返回响应，用于验证 base_url 可访问",
+      "method": "GET",
+      "path": "/"
+    }
+  ]
+}

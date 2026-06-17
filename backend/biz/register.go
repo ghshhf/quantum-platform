@@ -6,11 +6,13 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
+	"github.com/ghshhf/MonkeyCode/backend/biz/connector"
 	"github.com/ghshhf/MonkeyCode/backend/biz/di"
 	"github.com/ghshhf/MonkeyCode/backend/biz/host"
 	"github.com/ghshhf/MonkeyCode/backend/biz/localmodel"
 	"github.com/ghshhf/MonkeyCode/backend/biz/notify"
 	"github.com/ghshhf/MonkeyCode/backend/biz/p2phandler"
+	"github.com/ghshhf/MonkeyCode/backend/biz/quantum"
 	"github.com/ghshhf/MonkeyCode/backend/biz/task"
 	"github.com/ghshhf/MonkeyCode/backend/biz/user"
 	"github.com/ghshhf/MonkeyCode/backend/biz/vmidle"
@@ -34,6 +36,10 @@ func RegisterAll(i *do.Injector) error {
 	localmodel.InvokeLocalModel(i)
 	p2phandler.Provide(i)
 	p2phandler.Invoke(i)
+	connector.Provide(i)
+	connector.Invoke(i)
+	quantum.Provide(i)
+	quantum.Invoke(i)
 	return nil
 }
 
