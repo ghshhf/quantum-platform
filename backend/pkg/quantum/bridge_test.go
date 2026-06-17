@@ -7,9 +7,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/llm/providers"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/quantum"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
+	"github.com/ghshhf/quantum-platform/backend/pkg/llm/providers"
+	"github.com/ghshhf/quantum-platform/backend/pkg/quantum"
 )
 
 // ---------- 测试辅助：模拟 AI provider ----------

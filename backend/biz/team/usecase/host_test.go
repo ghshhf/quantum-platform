@@ -11,8 +11,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 func TestGetInstallCommandStoresTokenForTwoHours(t *testing.T) {
@@ -28,7 +28,7 @@ func TestGetInstallCommandStoresTokenForTwoHours(t *testing.T) {
 			Server: struct {
 				Addr    string `mapstructure:"addr"`
 				BaseURL string `mapstructure:"base_url"`
-			}{BaseURL: "http://monkeycode.local"},
+			}{BaseURL: "http://quantum-platform.local"},
 		},
 		redis: rdb,
 	}

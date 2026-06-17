@@ -7,7 +7,7 @@ import (
 
 	"entgo.io/ent/entc"
 	"entgo.io/ent/entc/gen"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 		"./schema",
 		&gen.Config{
 			Target:  "../db",
-			Package: "github.com/ghshhf/MonkeyCode/backend/db",
+			Package: "github.com/ghshhf/quantum-platform/backend/db",
 			Features: []gen.Feature{
 				gen.FeatureUpsert,
 				gen.FeatureModifier,

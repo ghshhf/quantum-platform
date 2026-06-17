@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/task/service"
+	"github.com/ghshhf/quantum-platform/backend/biz/task/service"
 )
 
 func TestControlKeepAliveRefreshesImmediately(t *testing.T) {

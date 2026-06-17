@@ -3,9 +3,9 @@ package team
 import (
 	"github.com/samber/do"
 
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/team/handler/http/v1"
-	"github.com/ghshhf/MonkeyCode/backend/biz/team/repo"
-	"github.com/ghshhf/MonkeyCode/backend/biz/team/usecase"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/team/handler/http/v1"
+	"github.com/ghshhf/quantum-platform/backend/biz/team/repo"
+	"github.com/ghshhf/quantum-platform/backend/biz/team/usecase"
 )
 
 // ProvideTeam 注册 team 模块的服务工厂

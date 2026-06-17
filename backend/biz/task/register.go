@@ -3,11 +3,11 @@ package task
 import (
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/di"
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/task/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/biz/task/repo"
-	"github.com/ghshhf/MonkeyCode/backend/biz/task/service"
-	"github.com/ghshhf/MonkeyCode/backend/biz/task/usecase"
+	"github.com/ghshhf/quantum-platform/backend/biz/di"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/task/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/biz/task/repo"
+	"github.com/ghshhf/quantum-platform/backend/biz/task/service"
+	"github.com/ghshhf/quantum-platform/backend/biz/task/usecase"
 )
 
 // Module 描述 task 模块的 DI 注册行为。

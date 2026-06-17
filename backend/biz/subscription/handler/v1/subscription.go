@@ -6,9 +6,9 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
 )
 
 type Handler struct {
@@ -33,7 +33,7 @@ func NewHandler(i *do.Injector) (*Handler, error) {
 //	@Tags			【用户】会员
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Success		200	{object}	web.Resp{data=domain.SubscriptionResp}	"成功"
 //	@Failure		401	{object}	web.Resp								"未授权，用户未登录"
 //	@Router			/api/v1/users/subscription [get]

@@ -5,10 +5,10 @@ import (
 
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 type PublicHostRepo struct {

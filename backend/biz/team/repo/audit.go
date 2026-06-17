@@ -8,11 +8,11 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/audit"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammember"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/audit"
+	"github.com/ghshhf/quantum-platform/backend/db/teammember"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
 )
 
 // AuditRepo 审计日志仓库

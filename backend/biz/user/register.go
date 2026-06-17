@@ -3,10 +3,10 @@ package user
 import (
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/di"
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/user/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/biz/user/repo"
-	"github.com/ghshhf/MonkeyCode/backend/biz/user/usecase"
+	"github.com/ghshhf/quantum-platform/backend/biz/di"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/user/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/biz/user/repo"
+	"github.com/ghshhf/quantum-platform/backend/biz/user/usecase"
 )
 
 // Module 描述 user 模块的 DI 注册行为。

@@ -7,15 +7,15 @@ import (
 	"github.com/samber/do"
 	"golang.org/x/text/language"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz"
-	hostrepo "github.com/ghshhf/MonkeyCode/backend/biz/host/repo"
-	hostusecase "github.com/ghshhf/MonkeyCode/backend/biz/host/usecase"
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/captcha"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/tasker"
+	"github.com/ghshhf/quantum-platform/backend/biz"
+	hostrepo "github.com/ghshhf/quantum-platform/backend/biz/host/repo"
+	hostusecase "github.com/ghshhf/quantum-platform/backend/biz/host/usecase"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg"
+	"github.com/ghshhf/quantum-platform/backend/pkg/captcha"
+	"github.com/ghshhf/quantum-platform/backend/pkg/tasker"
 )
 
 // BridgeOption 桥接可选配置

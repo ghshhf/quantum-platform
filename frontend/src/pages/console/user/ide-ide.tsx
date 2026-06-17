@@ -28,14 +28,14 @@ export default function IDEIDE() {
       <EmptyContent>
         <div className="flex gap-2">
           <Button asChild variant="outline">
-            <a href="https://github.com/ghshhf/MonkeyCode" target="_blank">
+            <a href="https://github.com/ghshhf/quantum-platform" target="_blank">
               <ExternalLink />
               开源仓库
             </a>
           </Button>
           <Button>
             <BookOpenIcon />
-            <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">阅读文档</a>
+            <a href="https://github.com/ghshhf/quantum-platform#readme" target="_blank">阅读文档</a>
           </Button>
         </div>
       </EmptyContent>

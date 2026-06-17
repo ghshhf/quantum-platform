@@ -11,8 +11,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 func TestPackageSkillMarkdownContentCreatesRootSkillMarkdown(t *testing.T) {

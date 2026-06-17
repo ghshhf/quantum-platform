@@ -8,7 +8,7 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
 )
 
 func TestNewHandlerRegistersSubscriptionRoute(t *testing.T) {

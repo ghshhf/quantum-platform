@@ -6,9 +6,9 @@ import (
 
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
 )
 
 type TeamPolicyUsecase struct {

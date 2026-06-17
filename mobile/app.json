@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "MonkeyCode",
-    "slug": "monkeycode",
+    "name": "量子平台",
+    "slug": "quantum-platform",
     "version": "260608",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "monkeycode",
+    "scheme": "quantum-platform",
     "userInterfaceStyle": "automatic",
     "runtimeVersion": {
       "policy": "fingerprint"
@@ -19,7 +19,7 @@
     "ios": {
       "supportsTablet": true,
       "usesAppleSignIn": true,
-      "bundleIdentifier": "com.monkeycode.selfhosted",
+      "bundleIdentifier": "com.quantum-platform.selfhosted",
       "buildNumber": "1",
       "icon": {
         "light": "./assets/icon.png",
@@ -36,7 +36,7 @@
       "appleTeamId": "8Z56KX83T3"
     },
     "android": {
-      "package": "com.monkeycode.selfhosted",
+      "package": "com.quantum-platform.selfhosted",
       "versionCode": 1,
       "permissions": [
         "RECORD_AUDIO"
@@ -96,7 +96,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "updatesServer": "https://github.com/ghshhf/MonkeyCode/releases"
+      "updatesServer": "https://github.com/ghshhf/quantum-platform/releases"
     }
   }
 }

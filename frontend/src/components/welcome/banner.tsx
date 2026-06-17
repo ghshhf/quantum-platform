@@ -26,7 +26,7 @@ const Banner = () => {
 
           <div className="flex flex-col gap-4">
             <h1 className="max-w-3xl text-balance text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              MonkeyCode 是
+              量子平台 是
               <span className="block text-primary">在线 AI 编程平台</span>
             </h1>
             <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
@@ -42,7 +42,7 @@ const Banner = () => {
               </Link>
             </Button>
             <Button size="lg" variant="secondary" className="pixel-button h-12 border-slate-900 bg-white px-6 text-slate-900 hover:bg-slate-50" asChild>
-              <a href="https://github.com/ghshhf/MonkeyCode" target="_blank" rel="noreferrer">
+              <a href="https://github.com/ghshhf/quantum-platform" target="_blank" rel="noreferrer">
                 <IconCodeDots className="size-4" />
                 查看开源仓库
               </a>
@@ -80,10 +80,10 @@ const Banner = () => {
           <div className="pixel-panel pixel-grid border-slate-900 bg-[#fffdf8] p-3 sm:p-4">
             <div className="flex items-center justify-between border-2 border-slate-900 bg-slate-950 px-4 py-3 text-white">
               <div className="flex items-center gap-3">
-                <img src="/logo-light.png" className="size-8 border border-white/15 bg-white p-1" alt="MonkeyCode Logo" />
+                <img src="/logo-light.png" className="size-8 border border-white/15 bg-white p-1" alt="量子平台 Logo" />
                 <div>
                   <div className="font-pixel text-[10px] text-amber-200">TASK RUNNING</div>
-                  <div className="mt-2 text-xs text-slate-300">MonkeyCode Workspace</div>
+                  <div className="mt-2 text-xs text-slate-300">量子平台 Workspace</div>
                 </div>
               </div>
               <div className="font-terminal text-2xl leading-none text-emerald-300">ONLINE</div>
@@ -92,7 +92,7 @@ const Banner = () => {
             <div className="mt-4 border-2 border-slate-900 bg-slate-950 p-2">
               <img
                 src="/task-1.png"
-                alt="MonkeyCode 任务执行界面"
+                alt="量子平台 任务执行界面"
                 className="w-full border border-white/10 object-cover"
               />
             </div>

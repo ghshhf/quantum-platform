@@ -10,8 +10,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/request"
 )
 
 // Tree 实现 GitClienter 接口。

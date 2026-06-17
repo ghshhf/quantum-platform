@@ -12,9 +12,9 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/host"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgrouphost"
+	"github.com/ghshhf/quantum-platform/backend/db/host"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroup"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgrouphost"
 	"github.com/google/uuid"
 )
 

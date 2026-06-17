@@ -68,7 +68,7 @@ type TaskMetadata struct {
 ### 2. 创建 Manager 并注册 Hooks
 
 ```go
-import "github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"
+import "github.com/ghshhf/quantum-platform/backend/pkg/lifecycle"
 
 // 创建 Manager（Task 用 uuid.UUID 作 ID）
 taskMgr := lifecycle.NewManager[uuid.UUID, TaskState, TaskMetadata](

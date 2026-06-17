@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
-	"github.com/ghshhf/MonkeyCode/backend/db/taskmodelswitch"
+	"github.com/ghshhf/quantum-platform/backend/db/predicate"
+	"github.com/ghshhf/quantum-platform/backend/db/taskmodelswitch"
 )
 
 // TaskModelSwitchDelete is the builder for deleting a TaskModelSwitch entity.

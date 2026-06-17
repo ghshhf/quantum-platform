@@ -11,7 +11,7 @@ import (
 	"github.com/golang-migrate/migrate/v4/source"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/config"
 )
 
 func TestApplyPoolOptions(t *testing.T) {
@@ -89,14 +89,14 @@ func TestNormalizeModelUsageTableRejectsUnsafeName(t *testing.T) {
 func TestBuildDSNUsesSingleChproxyEndpoint(t *testing.T) {
 	dsn, err := buildDSN(config.ClickHouse{
 		Addr:         "chproxy:9000",
-		Database:     "monkeycode",
+		Database:     "quantum-platform",
 		ReadUsername: "mc_reader",
 		ReadPassword: "reader-secret",
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if dsn != "clickhouse://mc_reader:reader-secret@chproxy:9000/monkeycode" {
+	if dsn != "clickhouse://mc_reader:reader-secret@chproxy:9000/quantum-platform" {
 		t.Fatalf("dsn = %q, want chproxy endpoint", dsn)
 	}
 }
@@ -119,14 +119,14 @@ func TestBuildDSNPreservesHTTPChproxyEndpoint(t *testing.T) {
 func TestBuildDSNFallsBackToLegacyCredentials(t *testing.T) {
 	dsn, err := buildDSN(config.ClickHouse{
 		Addr:     "chproxy:9000",
-		Database: "monkeycode",
+		Database: "quantum-platform",
 		Username: "legacy",
 		Password: "legacy-secret",
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if dsn != "clickhouse://legacy:legacy-secret@chproxy:9000/monkeycode" {
+	if dsn != "clickhouse://legacy:legacy-secret@chproxy:9000/quantum-platform" {
 		t.Fatalf("dsn = %q, want legacy credentials", dsn)
 	}
 }
@@ -134,7 +134,7 @@ func TestBuildDSNFallsBackToLegacyCredentials(t *testing.T) {
 func TestBuildBootstrapDSNOmitsDatabase(t *testing.T) {
 	dsn, err := buildBootstrapDSN(config.ClickHouse{
 		Addr:     "chproxy:9000",
-		Database: "monkeycode-ai",
+		Database: "quantum-platform-ai",
 		Username: "mc_writer",
 		Password: "writer-secret",
 	})
@@ -149,7 +149,7 @@ func TestBuildBootstrapDSNOmitsDatabase(t *testing.T) {
 func TestBuildBootstrapDSNUsesWriteCredentials(t *testing.T) {
 	dsn, err := buildBootstrapDSN(config.ClickHouse{
 		Addr:         "chproxy:9000",
-		Database:     "monkeycode-ai",
+		Database:     "quantum-platform-ai",
 		Username:     "mc_writer",
 		Password:     "writer-secret",
 		ReadUsername: "mc_reader",
@@ -176,12 +176,12 @@ func TestShouldInitSchemaUsesConfigSwitch(t *testing.T) {
 }
 
 func TestQuoteIdentifierEscapesDatabaseName(t *testing.T) {
-	identifier, err := quoteIdentifier("monkeycode-ai")
+	identifier, err := quoteIdentifier("quantum-platform-ai")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if identifier != "`monkeycode-ai`" {
-		t.Fatalf("identifier = %q, want `monkeycode-ai`", identifier)
+	if identifier != "`quantum-platform-ai`" {
+		t.Fatalf("identifier = %q, want `quantum-platform-ai`", identifier)
 	}
 }
 

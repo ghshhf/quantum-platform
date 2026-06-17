@@ -2,4 +2,4 @@
 
 package db
 
-// The schema-stitching logic is generated in github.com/ghshhf/MonkeyCode/backend/db/runtime/runtime.go
+// The schema-stitching logic is generated in github.com/ghshhf/quantum-platform/backend/db/runtime/runtime.go

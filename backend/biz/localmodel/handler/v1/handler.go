@@ -8,8 +8,8 @@ import (
     "github.com/GoYoko/web"
     "github.com/samber/do"
 
-    "github.com/ghshhf/MonkeyCode/backend/errcode"
-    "github.com/ghshhf/MonkeyCode/backend/pkg/modeldownloader"
+    "github.com/ghshhf/quantum-platform/backend/errcode"
+    "github.com/ghshhf/quantum-platform/backend/pkg/modeldownloader"
 )
 
 // LocalModelHandler 本地模型下载与管理

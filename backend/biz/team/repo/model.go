@@ -9,16 +9,16 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/model"
-	"github.com/ghshhf/MonkeyCode/backend/db/team"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmodel"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammodel"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/model"
+	"github.com/ghshhf/quantum-platform/backend/db/team"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroup"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupmodel"
+	"github.com/ghshhf/quantum-platform/backend/db/teammodel"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg/cvt"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
 )
 
 type teamModelRepo struct {

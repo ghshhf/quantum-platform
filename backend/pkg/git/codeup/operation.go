@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/request"
 )
 
 // Tree 实现 GitClienter 接口
@@ -255,7 +255,7 @@ func (c *Codeup) CreateWebhook(ctx context.Context, opts *domain.CreateWebhookOp
 		"mergeRequestsEvents": true,
 		"tagPushEvents":       true,
 		"noteEvents":          true,
-		"description":         "MonkeyCode webhook",
+		"description":         "量子平台 webhook",
 	}
 
 	body, err := json.Marshal(payload)

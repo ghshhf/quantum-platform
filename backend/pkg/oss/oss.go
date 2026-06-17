@@ -17,7 +17,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	s3types "github.com/aws/aws-sdk-go-v2/service/s3/types"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/config"
 )
 
 const (

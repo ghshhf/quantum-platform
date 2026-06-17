@@ -10,12 +10,12 @@ import (
 	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 
-	taskrepo "github.com/ghshhf/MonkeyCode/backend/biz/task/repo"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	taskrepo "github.com/ghshhf/quantum-platform/backend/biz/task/repo"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/enttest"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 func TestTaskHook_OnStateChange_FinishedUpdatesTaskStatusAndCompletedAt(t *testing.T) {

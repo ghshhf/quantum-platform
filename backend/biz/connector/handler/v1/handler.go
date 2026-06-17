@@ -4,8 +4,8 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
 )
 
 // ConnectorHandler connector 模块的 HTTP 入口。

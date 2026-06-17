@@ -11,9 +11,9 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/notify/usecase"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/msgpush"
+	"github.com/ghshhf/quantum-platform/backend/biz/notify/usecase"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/msgpush"
 )
 
 // 微信回调的默认回复文案。usecase 返回非空文本时优先用 usecase 的；为空时回退到这里。

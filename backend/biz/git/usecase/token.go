@@ -11,12 +11,12 @@ import (
 	"github.com/patrickmn/go-cache"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/git/github"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/git/oauth"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/git/github"
+	"github.com/ghshhf/quantum-platform/backend/pkg/git/oauth"
 )
 
 const tokenCacheTTL = 50 * time.Minute // 略小于 GitHub App 1h 有效期

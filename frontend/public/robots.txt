@@ -1,4 +1,4 @@
-# MonkeyCode AI 搜索引擎爬虫规则
+# 量子平台 AI 搜索引擎爬虫规则
 
 User-agent: *
 Allow: /

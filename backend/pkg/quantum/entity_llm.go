@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/llm/providers"
+	"github.com/ghshhf/quantum-platform/backend/pkg/llm/providers"
 )
 
 // LLMEntity 是"一个 AI 大模型"本身作为 Entity。

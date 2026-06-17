@@ -190,7 +190,7 @@ const server = http.createServer((req, res) => {
       info = 'platforms: ' + Object.keys(m.fileMetadata || {}).join(', ');
     } catch { /* ignore */ }
     res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' });
-    res.end(`MonkeyCode OTA server\nDIST=${DIST}\n${info}\n\nGET /manifest  (headers: expo-platform, expo-runtime-version)\nGET /assets?p=<relpath>`);
+    res.end(`量子平台 OTA server\nDIST=${DIST}\n${info}\n\nGET /manifest  (headers: expo-platform, expo-runtime-version)\nGET /assets?p=<relpath>`);
     return;
   }
   res.writeHead(404).end('not found');

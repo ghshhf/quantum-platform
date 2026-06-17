@@ -6,7 +6,7 @@ const items = [
     index: "01",
     title: "不限额度免费使用，先上手再判断",
     description:
-      "这是首页最该被看见的卖点之一。用户可以先用真实任务验证 MonkeyCode 是否适合自己，而不是一开始就被额度和试用门槛卡住。",
+      "这是首页最该被看见的卖点之一。用户可以先用真实任务验证 量子平台 是否适合自己，而不是一开始就被额度和试用门槛卡住。",
   },
   {
     icon: IconCloudCode,
@@ -20,7 +20,7 @@ const items = [
     index: "03",
     title: "不连接本地开发机，也能在线完成开发",
     description:
-      "MonkeyCode 更像一个随时可用的在线开发入口。无论是临时验证、远程协作还是快速演示，都不用先占用自己的本地机器。",
+      "量子平台 更像一个随时可用的在线开发入口。无论是临时验证、远程协作还是快速演示，都不用先占用自己的本地机器。",
   },
 ];
 
@@ -30,13 +30,13 @@ const Highlights = () => {
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10">
         <div className="mx-auto max-w-3xl text-center">
           <div className="pixel-badge font-pixel inline-flex items-center border-slate-900 bg-amber-100 px-3 py-2 text-[10px] text-slate-900">
-            WHY MONKEYCODE
+            WHY QUANTUMPLATFORM
           </div>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
             先把上手门槛降下来，再让 AI 真正参与编程
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-            对开发者来说，很多 AI 工具真正卡住的不是不会生成代码，而是开始前还要先买额度、准备环境、接本地机器、切换一堆工具。MonkeyCode 把这些前置成本尽量收进平台里。
+            对开发者来说，很多 AI 工具真正卡住的不是不会生成代码，而是开始前还要先买额度、准备环境、接本地机器、切换一堆工具。量子平台 把这些前置成本尽量收进平台里。
           </p>
         </div>
 

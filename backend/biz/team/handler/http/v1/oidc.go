@@ -6,8 +6,8 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
 )
 
 type TeamOIDCHandler struct {
@@ -40,7 +40,7 @@ func NewTeamOIDCHandler(i *do.Injector) (*TeamOIDCHandler, error) {
 //	@Tags			【Team 管理员】企业登录
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Success		200	{object}	web.Resp{data=domain.TeamOIDCConfigResp}
 //	@Router			/api/v1/teams/oidc [get]
 func (h *TeamOIDCHandler) Get(c *web.Context) error {
@@ -58,7 +58,7 @@ func (h *TeamOIDCHandler) Get(c *web.Context) error {
 //	@Tags			【Team 管理员】企业登录
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Param			req	body		domain.SaveTeamOIDCConfigReq	true	"请求参数"
 //	@Success		200	{object}	web.Resp{data=domain.TeamOIDCConfigResp}
 //	@Router			/api/v1/teams/oidc [put]
@@ -77,7 +77,7 @@ func (h *TeamOIDCHandler) Save(c *web.Context, req domain.SaveTeamOIDCConfigReq)
 //	@Tags			【Team 管理员】企业登录
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Param			req	body		domain.SaveTeamOIDCConfigReq	true	"请求参数"
 //	@Success		200	{object}	web.Resp{data=domain.TeamOIDCTestResp}
 //	@Router			/api/v1/teams/oidc/test [post]

@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/llm/providers"
+	"github.com/ghshhf/quantum-platform/backend/pkg/llm/providers"
 )
 
 // Bridge 是"量子超距交互"的中枢。

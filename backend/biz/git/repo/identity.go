@@ -7,10 +7,10 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/gitidentity"
-	"github.com/ghshhf/MonkeyCode/backend/db/project"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/gitidentity"
+	"github.com/ghshhf/quantum-platform/backend/db/project"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // GitIdentityRepo Git 身份认证仓储

@@ -7,7 +7,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TerminalFooter, TerminalHeader } from "./terminal-chrome";
 
-const GITHUB_LINK = "https://github.com/ghshhf/MonkeyCode/";
+const GITHUB_LINK = "https://github.com/ghshhf/quantum-platform/";
 const CONSULT_LINK = "#";
 
 const themeVars = {
@@ -63,49 +63,49 @@ const featureItems = [
     key: "06",
     cmd: "--self-host --air-gapped",
     title: "私有化离线部署",
-    body: "对数据隐私要求高的企业和团队，可以把 MonkeyCode 独立部署到自己的内网中，数据不出本地。",
+    body: "对数据隐私要求高的企业和团队，可以把 量子平台 独立部署到自己的内网中，数据不出本地。",
   },
 ];
 
 const useCaseItems = [
   {
     tag: "game",
-    cmd: '$ monkey task "用 canvas 做一个俄罗斯方块"',
+    cmd: '$ platform task "用 canvas 做一个俄罗斯方块"',
     title: "做个小游戏",
     body: "一句话描述玩法，AI 帮你搭框架、处理碰撞检测、补音效，一个下午就能跑出可玩的版本。",
     stack: ["HTML5 · Canvas", "TypeScript", "零依赖"],
   },
   {
     tag: "feature",
-    cmd: '$ monkey task "给后台加一个用户导出 CSV 的接口"',
+    cmd: '$ platform task "给后台加一个用户导出 CSV 的接口"',
     title: "实现一个需求",
     body: "把需求丢进去，AI 读你的代码仓库、理解项目约定，直接改文件、跑测试、开 PR。",
     stack: ["读懂代码风格", "自动写单测", "一键开 PR"],
   },
   {
     tag: "security",
-    cmd: "$ monkey scan --security ./my-repo",
+    cmd: "$ platform scan --security ./my-repo",
     title: "安全审查",
     body: "上线前做一次体检。AI 扫常见漏洞、硬编码密钥、依赖风险，输出可修复的清单。",
     stack: ["OWASP Top 10", "依赖 CVE", "SAST 规则"],
   },
   {
     tag: "paper",
-    cmd: '$ monkey write --paper "基于 XX 方法的 XX 研究"',
+    cmd: '$ platform write --paper "基于 XX 方法的 XX 研究"',
     title: "写毕业论文",
     body: "帮你查文献、列提纲、补实验代码、跑数据、画图、排版 LaTeX，从选题到定稿都能接力。",
     stack: ["文献检索", "实验脚本", "LaTeX 排版"],
   },
   {
     tag: "data",
-    cmd: "$ monkey analyze sales_2026.csv",
+    cmd: "$ platform analyze sales_2026.csv",
     title: "数据分析",
     body: "丢一份 CSV 或 Parquet，描述你想看的角度。AI 自动清洗、建模、画图，再写一段可读结论。",
     stack: ["Pandas / Polars", "Matplotlib", "自动写结论"],
   },
   {
     tag: "research",
-    cmd: '$ monkey research "2026 年最佳向量数据库对比"',
+    cmd: '$ platform research "2026 年最佳向量数据库对比"',
     title: "产品 / 技术调研",
     body: "AI 拉公开资料、跑 benchmark、出对比报告，带引用链接，适合做技术选型和产品预研。",
     stack: ["公开资料聚合", "横向对比", "带引用"],
@@ -116,7 +116,7 @@ const mobileClientItems = [
   {
     platform: "Android",
     icon: IconBrandAndroid,
-    href: "https://github.com/ghshhf/MonkeyCode/releases",
+    href: "https://github.com/ghshhf/quantum-platform/releases",
     cta: "下载 Android APK",
   },
   {
@@ -127,7 +127,7 @@ const mobileClientItems = [
   },
 ];
 
-const SELF_HOSTING_DOC_LINK = "https://github.com/ghshhf/MonkeyCode#readme";
+const SELF_HOSTING_DOC_LINK = "https://github.com/ghshhf/quantum-platform#readme";
 
 const selfHostingAdvantages = [
   "部署在企业内网，代码仓库、任务记录和研发数据留在自己的网络边界内。",
@@ -136,7 +136,7 @@ const selfHostingAdvantages = [
   "可按在线或离线方式安装，适合有网络隔离、合规要求或本地算力资源的团队。",
 ];
 
-const compareColumns = ["MonkeyCode", "Cursor", "Claude Code", "Codex"];
+const compareColumns = ["量子平台", "Cursor", "Claude Code", "Codex"];
 
 const compareRows = [
   { label: "在线使用", values: [1, 1, 1, 1] },
@@ -166,43 +166,43 @@ const testimonialItems: Array<{
   },
   {
     quote:
-      "Vibe Coding 是一个全新的时代，告别闷热、逼窒的小格子，到更广阔的天地去，呼吸着自由的空气。即使是出差在路上，也只需带一个轻薄本或 iPad，使用 MonkeyCode，轻松在云端跑着复杂的编码工作。",
+      "Vibe Coding 是一个全新的时代，告别闷热、逼窒的小格子，到更广阔的天地去，呼吸着自由的空气。即使是出差在路上，也只需带一个轻薄本或 iPad，使用 量子平台，轻松在云端跑着复杂的编码工作。",
     name: "弈韬",
     role: "和旭电商 · 电商运营",
   },
   {
     quote:
-      "MonkeyCode 的云开发环境体验出色，Agent 能连接终端自主思考执行，真正实现“甩手掌柜”式编程。免费提供 MiniMax 和千问模型，响应快、调用无限制，相比别家月底掐算 Token 的日子一去不复返。",
+      "量子平台 的云开发环境体验出色，Agent 能连接终端自主思考执行，真正实现“甩手掌柜”式编程。免费提供 MiniMax 和千问模型，响应快、调用无限制，相比别家月底掐算 Token 的日子一去不复返。",
     name: "Full",
     role: "安全工程师",
   },
   {
     quote:
-      "MonkeyCode 是一款定位独特的 AI 编程平台，它不仅仅是一个代码补全工具，更致力于成为一个覆盖“需求 → 设计 → 开发 → 评审”全流程的 AI 研发基础设施。其核心价值在于通过自动化和云端环境，改变传统的研发工作流，尤其适合我们这种传统性开发公司，提供了全流程支撑。",
+      "量子平台 是一款定位独特的 AI 编程平台，它不仅仅是一个代码补全工具，更致力于成为一个覆盖“需求 → 设计 → 开发 → 评审”全流程的 AI 研发基础设施。其核心价值在于通过自动化和云端环境，改变传统的研发工作流，尤其适合我们这种传统性开发公司，提供了全流程支撑。",
     name: "李宏喜",
     role: "零商界网络科技 · 总经理",
   },
   {
     quote:
-      "很喜欢 MonkeyCode 这种云端轻量级开发模式，开发都不用打开本地 IDE，未跑完的任务手机打开也可以接着跑，满足随时随地都可以开发的需求，而且还内置了各种主流模型、Skills、MCP 等供开发者自由选择，这也是未来的趋势。",
+      "很喜欢 量子平台 这种云端轻量级开发模式，开发都不用打开本地 IDE，未跑完的任务手机打开也可以接着跑，满足随时随地都可以开发的需求，而且还内置了各种主流模型、Skills、MCP 等供开发者自由选择，这也是未来的趋势。",
     name: "Clever",
     role: "中国电信 · 全栈工程师",
   },
   {
     quote:
-      "MonkeyCode 是我日常写项目、做课设的首选，AI 辅助生成效率很高，环境秒级启动，不用折腾本地配置。对学生党特别友好，很多复杂功能拖拽加描述就能搞定，节省了大量查文档的时间。",
+      "量子平台 是我日常写项目、做课设的首选，AI 辅助生成效率很高，环境秒级启动，不用折腾本地配置。对学生党特别友好，很多复杂功能拖拽加描述就能搞定，节省了大量查文档的时间。",
     name: "司徒北",
     role: "独立开发者",
   },
   {
     quote:
-      "之前让其他 AI 写代码还要自己不断测试，现在直接让 MonkeyCode 接入我的服务器自动进行写代码和测试就可以，还能自动根据测试的内容给我进行反馈，节省很多人为时间。",
+      "之前让其他 AI 写代码还要自己不断测试，现在直接让 量子平台 接入我的服务器自动进行写代码和测试就可以，还能自动根据测试的内容给我进行反馈，节省很多人为时间。",
     name: "sinian-liu",
     role: "37VPS · 创始人",
   },
   {
     quote:
-      "以往光配置环境就耗费大量时间，低效又繁琐。使用 MonkeyCode 后省去大量无效劳动，开箱即用，可直接专注业务开发，流程顺畅，大幅提升开发体验与效率。",
+      "以往光配置环境就耗费大量时间，低效又繁琐。使用 量子平台 后省去大量无效劳动，开箱即用，可直接专注业务开发，流程顺畅，大幅提升开发体验与效率。",
     name: "时光旅人",
     role: "独立开发者",
   },
@@ -214,13 +214,13 @@ const testimonialItems: Array<{
   },
   {
     quote:
-      "MonkeyCode 是一款 AI 本位的开发工具，提供可落地的 AI + Dev 全链路开发能力。它不仅能帮助我写代码，还能理解项目、执行任务、协助调试，让我把更多时间和精力留给创意。",
+      "量子平台 是一款 AI 本位的开发工具，提供可落地的 AI + Dev 全链路开发能力。它不仅能帮助我写代码，还能理解项目、执行任务、协助调试，让我把更多时间和精力留给创意。",
     name: "小谈谈",
     role: "OPC 创业者",
   },
   {
     quote:
-      "以前带新人做项目，第一步总是先花半天配环境。现在直接把需求和仓库交给 MonkeyCode，大家在同一套云端环境里推进，少了很多无意义的折腾，协作效率高很多。",
+      "以前带新人做项目，第一步总是先花半天配环境。现在直接把需求和仓库交给 量子平台，大家在同一套云端环境里推进，少了很多无意义的折腾，协作效率高很多。",
     name: "南山",
     role: "阿里巴巴 · 技术负责人",
   },
@@ -260,7 +260,7 @@ type PricingTier = {
 const pricingTiers: PricingTier[] = [
   {
     name: "基础会员",
-    cmd: "monkey account --free",
+    cmd: "platform account --free",
     monthlyPrice: "¥0",
     monthlyUnit: "永久免费",
     yearlyPrice: "¥0",
@@ -283,7 +283,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: "专业会员",
-    cmd: "monkey account --pro",
+    cmd: "platform account --pro",
     monthlyPrice: "¥99",
     monthlyUnit: "/ 月",
     yearlyPrice: "¥999",
@@ -305,7 +305,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: "旗舰会员",
-    cmd: "monkey account --ultra",
+    cmd: "platform account --ultra",
     monthlyPrice: "¥499",
     monthlyUnit: "/ 月",
     yearlyPrice: "¥4999",
@@ -367,7 +367,7 @@ const faqItems = [
   },
   {
     question: "和 Cursor / Copilot / Codex 有什么不同？",
-    answer: "它们更偏本地 IDE 插件或 CLI，环境仍然由你自己维护。MonkeyCode 是云端 agent + 云端运行时，你只需要浏览器。",
+    answer: "它们更偏本地 IDE 插件或 CLI，环境仍然由你自己维护。量子平台 是云端 agent + 云端运行时，你只需要浏览器。",
   },
   {
     question: "我能用在生产项目上吗？",
@@ -455,7 +455,7 @@ function PromptLine({
 }) {
   return (
     <div className={cn("text-[13px] leading-7 text-[var(--a-fg)]", className)}>
-      <span className="text-[var(--a-accent)]">dev@monkey</span>
+      <span className="text-[var(--a-accent)]">dev@platform</span>
       <span className="text-[var(--a-fg-dim)]">:</span>
       <span className="text-[var(--a-info)]">{path}</span>
       <span className="text-[var(--a-fg-dim)]"> $ </span>
@@ -552,7 +552,7 @@ export default function TerminalNativePage() {
               <div className="pointer-events-none absolute left-[18%] top-[8%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(124,242,156,0.12),transparent_70%)] blur-3xl" />
               <div className="relative">
                 <h1 className="text-4xl font-semibold leading-[1.03] tracking-[-0.04em] text-white sm:text-5xl lg:text-[68px]">
-                  <span>Monkey</span>
+                  <span>platform</span>
                   <span className="text-[var(--a-accent)] [text-shadow:0_0_24px_rgba(124,242,156,0.35)]">Code</span>
                 </h1>
                 <p className="mt-4 max-w-[540px] text-2xl font-medium leading-[1.08] tracking-[-0.03em] text-[var(--a-fg)] sm:text-[30px]">
@@ -589,7 +589,7 @@ export default function TerminalNativePage() {
           index="01"
           label="FEATURES"
           title="功能与特色"
-          subtitle="你不需要自己拼工具、搭环境、来回切流程。把需求交给 MonkeyCode，它会从开发到验证一路接住，真正把 AI 编程变成可持续的工作流。"
+          subtitle="你不需要自己拼工具、搭环境、来回切流程。把需求交给 量子平台，它会从开发到验证一路接住，真正把 AI 编程变成可持续的工作流。"
         >
           <div className="grid gap-px overflow-hidden rounded-md border border-[var(--a-line)] bg-[var(--a-line)] md:grid-cols-2 lg:grid-cols-3">
             {featureItems.map((item) => (
@@ -616,8 +616,8 @@ export default function TerminalNativePage() {
           id="usecases"
           index="02"
           label="USE CASES"
-          title="能在 MonkeyCode 上做什么？"
-          subtitle="从正经项目到灵感试验，从白天的工作任务到晚上的个人想法，只要你说清目标，MonkeyCode 就能陪你把它真正做出来。"
+          title="能在 量子平台 上做什么？"
+          subtitle="从正经项目到灵感试验，从白天的工作任务到晚上的个人想法，只要你说清目标，量子平台 就能陪你把它真正做出来。"
         >
           <div className="grid gap-px overflow-hidden rounded-md border border-[var(--a-line-2)] bg-[var(--a-line)] md:grid-cols-2 lg:grid-cols-3">
             {useCaseItems.map((item, index) => (
@@ -689,7 +689,7 @@ export default function TerminalNativePage() {
           index="04"
           label="SELF HOSTING"
           title="私有化部署"
-          subtitle="当团队需要把 AI 开发能力放进企业内网，MonkeyCode 可以独立部署，统一管理研发团队、开发环境和模型配置。"
+          subtitle="当团队需要把 AI 开发能力放进企业内网，量子平台 可以独立部署，统一管理研发团队、开发环境和模型配置。"
           action={
             <HeaderAction href={SELF_HOSTING_DOC_LINK} external>
               <IconArrowRight className="size-4" />
@@ -699,7 +699,7 @@ export default function TerminalNativePage() {
         >
           <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-md border border-[var(--a-line)] bg-[var(--a-panel)] p-6">
-              <div className="text-[10px] tracking-[0.12em] text-[var(--a-accent)]">$ monkey deploy --self-hosted</div>
+              <div className="text-[10px] tracking-[0.12em] text-[var(--a-accent)]">$ platform deploy --self-hosted</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-[var(--a-fg)]">
                 给团队一套可控的 AI 研发平台
               </h3>
@@ -723,9 +723,9 @@ export default function TerminalNativePage() {
         <SectionShell
           id="why"
           index="05"
-          label="WHY MONKEYCODE"
+          label="WHY QUANTUMPLATFORM"
           title="和其他 Coding 工具的区别"
-          subtitle="和依赖本地 IDE、CLI 或开发环境的工具不同，MonkeyCode 打开浏览器就能随时开始开发，并支持围绕同一个项目持续迭代、长期管理与协作。"
+          subtitle="和依赖本地 IDE、CLI 或开发环境的工具不同，量子平台 打开浏览器就能随时开始开发，并支持围绕同一个项目持续迭代、长期管理与协作。"
         >
           <div className="overflow-x-auto rounded-md border border-[var(--a-line-2)] bg-[var(--a-panel)]">
             <table className="min-w-[900px] w-full border-collapse">
@@ -1050,7 +1050,7 @@ export default function TerminalNativePage() {
         <section className="mx-auto max-w-[1280px] px-5 pb-10 pt-6 text-center sm:px-8 sm:pb-14 sm:pt-10">
           <div className="pointer-events-none absolute left-1/2 h-[280px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(124,242,156,0.15),transparent_70%)] blur-3xl" />
           <div className="relative">
-            <div className="text-[11px] tracking-[0.12em] text-[var(--a-accent)]">┌─ START WITH MONKEYCODE ─┐</div>
+            <div className="text-[11px] tracking-[0.12em] text-[var(--a-accent)]">┌─ START WITH QUANTUMPLATFORM ─┐</div>
             <h2 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px]">
               现在就开始，
               <br />
@@ -1089,7 +1089,7 @@ function HeroTerminalCard() {
             <span className="size-2.5 rounded-full bg-[#ffbd2e]" />
             <span className="size-2.5 rounded-full bg-[#27c93f]" />
           </div>
-          <div className="text-[9px] text-[var(--a-fg-dim)] sm:text-[10px]">MonkeyCode · 开发一个网页版《我的世界》游戏</div>
+          <div className="text-[9px] text-[var(--a-fg-dim)] sm:text-[10px]">量子平台 · 开发一个网页版《我的世界》游戏</div>
           <div className="ml-auto flex items-center gap-2 text-[8.5px] text-[var(--a-accent)]">
             <span className="size-[5px] rounded-full bg-[var(--a-accent)] shadow-[0_0_5px_var(--a-accent)]" />
             LIVE

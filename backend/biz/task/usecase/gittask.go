@@ -11,13 +11,13 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/git/giturl"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/git/giturl"
+	"github.com/ghshhf/quantum-platform/backend/pkg/lifecycle"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 // GitTaskUsecase GitTask 业务逻辑实现
@@ -46,8 +46,8 @@ func NewGitTaskUsecase(i *do.Injector) (domain.GitTaskUsecase, error) {
 
 // Create implements domain.GitTaskUsecase.
 func (g *GitTaskUsecase) Create(ctx context.Context, req domain.CreateGitTaskReq) (*domain.GitTask, error) {
-	if strings.Contains(req.Body, "> 我是 [MonkeyCode AI 编程助手]") {
-		g.logger.With("comment", req.Subject.ID).Info("ignore comment from MonkeyCode AI 编程助手")
+	if strings.Contains(req.Body, "> 我是 [量子平台 AI 编程助手]") {
+		g.logger.With("comment", req.Subject.ID).Info("ignore comment from 量子平台 AI 编程助手")
 		return nil, nil
 	}
 
@@ -68,8 +68,8 @@ func (g *GitTaskUsecase) Create(ctx context.Context, req domain.CreateGitTaskReq
 			Git: taskflow.Git{
 				// Codeup 仓库 URL 必须带 .git 后缀才能 clone，做一次兜底归一化
 				URL:      giturl.NormalizeCloneURL(req.Repo.URL),
-				Username: "monkeycode",
-				Email:    "monkeycode@local.dev",
+				Username: "quantum-platform",
+				Email:    "quantum-platform@local.dev",
 				Branch:   branch,
 				Token:    req.Git.Token,
 			},

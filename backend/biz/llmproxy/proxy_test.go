@@ -14,10 +14,10 @@ import (
 	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/modelusage"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/enttest"
+	"github.com/ghshhf/quantum-platform/backend/pkg/modelusage"
 )
 
 func newProxyTestDB(t *testing.T) *db.Client {

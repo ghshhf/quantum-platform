@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db"
 )
 
 func WithTx2(ctx context.Context, client *db.Client, fn func(tx *db.Tx) error) error {

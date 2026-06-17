@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
       <LegalTerminalPage
         eyebrow="PRIVACY POLICY"
         title="隐私政策"
-        subtitle="我们重视您的个人信息与数据安全。本页面用于说明 MonkeyCode 在提供产品与服务过程中，如何收集、使用、存储、共享和保护与您相关的信息，以及您可以如何管理这些信息。"
+        subtitle="我们重视您的个人信息与数据安全。本页面用于说明 量子平台 在提供产品与服务过程中，如何收集、使用、存储、共享和保护与您相关的信息，以及您可以如何管理这些信息。"
         lastUpdated="2026-03-24"
         tags={["适用于官网与控制台服务", "建议定期查看更新内容"]}
         sections={sections}

@@ -18,23 +18,23 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	gituc "github.com/ghshhf/MonkeyCode/backend/biz/git/usecase"
-	"github.com/ghshhf/MonkeyCode/backend/biz/task/service"
-	vmidle "github.com/ghshhf/MonkeyCode/backend/biz/vmidle/usecase"
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/git/giturl"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/lifecycle"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/loki"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/notify/dispatcher"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/vmstatus"
-	"github.com/ghshhf/MonkeyCode/backend/templates"
+	gituc "github.com/ghshhf/quantum-platform/backend/biz/git/usecase"
+	"github.com/ghshhf/quantum-platform/backend/biz/task/service"
+	vmidle "github.com/ghshhf/quantum-platform/backend/biz/vmidle/usecase"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg/cvt"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/pkg/git/giturl"
+	"github.com/ghshhf/quantum-platform/backend/pkg/lifecycle"
+	"github.com/ghshhf/quantum-platform/backend/pkg/loki"
+	"github.com/ghshhf/quantum-platform/backend/pkg/notify/dispatcher"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/pkg/vmstatus"
+	"github.com/ghshhf/quantum-platform/backend/templates"
 )
 
 const defaultCreateReqTTL = 10 * time.Minute
@@ -770,7 +770,7 @@ func (a *TaskUsecase) getCodingConfigs(cli consts.CliName, m *db.Model, skillIDs
 		"npm_package":      npmPackage,
 		"thinking_enabled": thinkingEnabled,
 		"support_image":    m.SupportImage,
-		"force_reasoning":  strings.HasPrefix(m.Model, "monkeycode-ultra"),
+		"force_reasoning":  strings.HasPrefix(m.Model, "quantum-platform-ultra"),
 		"context_limit":    contextLimit,
 		"output_limit":     outputLimit,
 	}); err != nil {

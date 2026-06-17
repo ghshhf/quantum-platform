@@ -6,10 +6,10 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/msgpush"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/msgpush"
 )
 
 // WechatMPSender 微信公众号模板消息推送。
@@ -144,7 +144,7 @@ func (s *WechatMPSender) buildQuotaRefreshedFields(event *domain.NotifyEvent) ma
 	}
 	return map[string]msgpush.TemplateMessageData{
 		"thing20": {Value: userName},
-		"thing9":  {Value: "MonkeyCode"},
+		"thing9":  {Value: "量子平台"},
 		"thing12": {Value: "会员免费额度已刷新"},
 		"time7":   {Value: time.Now().Format("2006-01-02 15:04:05")},
 	}
@@ -152,7 +152,7 @@ func (s *WechatMPSender) buildQuotaRefreshedFields(event *domain.NotifyEvent) ma
 
 // buildQuotaFields 构造 quota 类模板的 4 个字段：
 //
-//	thing17.DATA 平台名称 → "MonkeyCode"
+//	thing17.DATA 平台名称 → "量子平台"
 //	thing8.DATA  账户名称 → event.Payload.UserName（rune 截到 20）
 //	const4.DATA  异常原因 → 按 EventType 4 选 1 的固定枚举值
 //	time10.DATA  当前时间
@@ -163,7 +163,7 @@ func (s *WechatMPSender) buildQuotaFields(event *domain.NotifyEvent) map[string]
 		userName = truncateRune(event.Payload.UserName, thingMax)
 	}
 	return map[string]msgpush.TemplateMessageData{
-		"thing17": {Value: "MonkeyCode"},
+		"thing17": {Value: "量子平台"},
 		"thing8":  {Value: userName},
 		"const4":  {Value: quotaReason(event.EventType)},
 		"time10":  {Value: time.Now().Format("2006-01-02 15:04:05")},

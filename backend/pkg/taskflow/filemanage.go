@@ -11,7 +11,7 @@ import (
 
 	"github.com/coder/websocket"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/quantum-platform/backend/pkg/request"
 )
 
 type fileManageClient struct {

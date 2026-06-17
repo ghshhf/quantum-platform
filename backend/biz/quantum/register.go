@@ -11,9 +11,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	handler "github.com/ghshhf/MonkeyCode/backend/biz/quantum/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/quantum"
+	handler "github.com/ghshhf/quantum-platform/backend/biz/quantum/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
+	"github.com/ghshhf/quantum-platform/backend/pkg/quantum"
 )
 
 // errNotFound 当 Get 找不到时返回。

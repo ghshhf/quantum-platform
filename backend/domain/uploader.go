@@ -3,7 +3,7 @@ package domain
 import (
 	"mime/multipart"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/consts"
 )
 
 type UploadReq struct {

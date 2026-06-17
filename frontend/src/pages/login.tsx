@@ -162,7 +162,7 @@ export default function LoginPage({
       <div className="w-full max-w-sm">
         <div className={cn("flex flex-col gap-6", className)} {...props}>
           <Link to="/">
-            <h1 className="text-2xl hover:font-bold">MonkeyCode 智能开发平台</h1>
+            <h1 className="text-2xl hover:font-bold">量子平台 智能开发平台</h1>
           </Link>
           <Card>
             <CardContent>
@@ -243,7 +243,7 @@ export default function LoginPage({
                             <FieldLabel htmlFor="user-email">账号</FieldLabel>
                             <Input
                               value={userEmail}
-                              placeholder="monkeycode@example.com"
+                              placeholder="quantum-platform@example.com"
                               onChange={(e) => setUserEmail(e.target.value)}
                               id="user-email"
                               type="email"
@@ -299,7 +299,7 @@ export default function LoginPage({
                         <FieldLabel htmlFor="email">账号</FieldLabel>
                         <Input
                           value={teamManagerEmail}
-                          placeholder="monkeycode@example.com"
+                          placeholder="quantum-platform@example.com"
                           onChange={(e) => setTeamManagerEmail(e.target.value)}
                           id="email"
                           type="email"

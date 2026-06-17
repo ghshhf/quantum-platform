@@ -9,18 +9,18 @@ import (
 	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
-	"github.com/ghshhf/MonkeyCode/backend/db/image"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupimage"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmember"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamimage"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammember"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/crypto"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/enttest"
+	"github.com/ghshhf/quantum-platform/backend/db/image"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroup"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupimage"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupmember"
+	"github.com/ghshhf/quantum-platform/backend/db/teamimage"
+	"github.com/ghshhf/quantum-platform/backend/db/teammember"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/pkg/crypto"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
 )
 
 func newTeamRepoTestDB(t *testing.T) *db.Client {
@@ -38,7 +38,7 @@ func TestInitTeamCreatesConfiguredImage(t *testing.T) {
 		logger: slog.New(slog.NewTextHandler(io.Discard, nil)),
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", "ghcr.io/chaitin/monkeycode-runner/devbox:latest"); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", "ghcr.io/chaitin/quantum-platform-runner/devbox:latest"); err != nil {
 		t.Fatal(err)
 	}
 
@@ -53,7 +53,7 @@ func TestInitTeamCreatesConfiguredImage(t *testing.T) {
 		t.Fatal(err)
 	}
 	img, err := client.Image.Query().
-		Where(image.UserIDEQ(admin.ID), image.NameEQ("ghcr.io/chaitin/monkeycode-runner/devbox:latest")).
+		Where(image.UserIDEQ(admin.ID), image.NameEQ("ghcr.io/chaitin/quantum-platform-runner/devbox:latest")).
 		First(ctx)
 	if err != nil {
 		t.Fatal(err)
@@ -83,10 +83,10 @@ func TestInitTeamCreatesConfiguredImage(t *testing.T) {
 		t.Fatal("default group image relation was not created")
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", "ghcr.io/chaitin/monkeycode-runner/devbox:latest"); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", "ghcr.io/chaitin/quantum-platform-runner/devbox:latest"); err != nil {
 		t.Fatal(err)
 	}
-	if count, err := client.Image.Query().Where(image.NameEQ("ghcr.io/chaitin/monkeycode-runner/devbox:latest")).Count(ctx); err != nil {
+	if count, err := client.Image.Query().Where(image.NameEQ("ghcr.io/chaitin/quantum-platform-runner/devbox:latest")).Count(ctx); err != nil {
 		t.Fatal(err)
 	} else if count != 1 {
 		t.Fatalf("image count = %d, want 1", count)
@@ -106,7 +106,7 @@ func TestInitTeamSkipsImageWhenConfigEmpty(t *testing.T) {
 		logger: slog.New(slog.NewTextHandler(io.Discard, nil)),
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", ""); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", ""); err != nil {
 		t.Fatal(err)
 	}
 
@@ -125,7 +125,7 @@ func TestInitTeamCreatesMemberInDefaultGroup(t *testing.T) {
 		logger: slog.New(slog.NewTextHandler(io.Discard, nil)),
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", ""); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", ""); err != nil {
 		t.Fatal(err)
 	}
 
@@ -180,7 +180,7 @@ func TestInitTeamCreatesMemberInDefaultGroup(t *testing.T) {
 		t.Fatal("member was not added to default group")
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", ""); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", ""); err != nil {
 		t.Fatal(err)
 	}
 	if count, err := client.User.Query().Where(user.EmailEQ("admin@example.com")).Count(ctx); err != nil {
@@ -221,7 +221,7 @@ func TestInitTeamAddsImageForExistingTeam(t *testing.T) {
 	}
 	if _, err := client.Team.Create().
 		SetID(teamID).
-		SetName("MonkeyCode").
+		SetName("量子平台").
 		SetMemberLimit(1000).
 		Save(ctx); err != nil {
 		t.Fatal(err)
@@ -235,7 +235,7 @@ func TestInitTeamAddsImageForExistingTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if err := repo.InitTeam(ctx, "admin@example.com", "MonkeyCode", "password", "ghcr.io/chaitin/monkeycode-runner/devbox:latest"); err != nil {
+	if err := repo.InitTeam(ctx, "admin@example.com", "量子平台", "password", "ghcr.io/chaitin/quantum-platform-runner/devbox:latest"); err != nil {
 		t.Fatal(err)
 	}
 

@@ -858,7 +858,7 @@ export default function CreateDefaultTaskDialog({
                               {!IS_OFFLINE_EDITION && (
                                 <SelectItem value="public_host">
                                   <div className="flex items-center gap-2">
-                                    <span>MonkeyCode</span>
+                                    <span>量子平台</span>
                                     <Badge className="!text-primary-foreground">免费</Badge>
                                   </div>
                                 </SelectItem>

@@ -100,12 +100,12 @@ jobs:
 
       - name: Rename Windows artifact
         shell: bash
-        run: cp "$(ls desktop/release/*.exe | head -1)" desktop/release/MonkeyCode-windows.exe
+        run: cp "$(ls desktop/release/*.exe | head -1)" desktop/release/量子平台-windows.exe
 
       - uses: actions/upload-artifact@v4
         with:
           name: electron-windows-x64
-          path: desktop/release/MonkeyCode-windows.exe
+          path: desktop/release/量子平台-windows.exe
           if-no-files-found: error
 
   electron-macos:
@@ -172,15 +172,15 @@ jobs:
         run: |
           ARM64=$(ls desktop/release/*arm64*.dmg 2>/dev/null | head -1)
           X64=$(ls desktop/release/*.dmg | grep -v arm64 | head -1)
-          [ -n "$ARM64" ] && cp "$ARM64" desktop/release/MonkeyCode-macos-arm64.dmg
-          [ -n "$X64" ]   && cp "$X64"   desktop/release/MonkeyCode-macos-x86.dmg
+          [ -n "$ARM64" ] && cp "$ARM64" desktop/release/量子平台-macos-arm64.dmg
+          [ -n "$X64" ]   && cp "$X64"   desktop/release/量子平台-macos-x86.dmg
 
       - uses: actions/upload-artifact@v4
         with:
           name: electron-macos-universal
           path: |
-            desktop/release/MonkeyCode-macos-arm64.dmg
-            desktop/release/MonkeyCode-macos-x86.dmg
+            desktop/release/量子平台-macos-arm64.dmg
+            desktop/release/量子平台-macos-x86.dmg
           if-no-files-found: error
 
   mobile-android:
@@ -250,7 +250,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p mobile/release-apk
-          cp mobile/android/app/build/outputs/apk/release/app-release.apk mobile/release-apk/MonkeyCode-android.apk
+          cp mobile/android/app/build/outputs/apk/release/app-release.apk mobile/release-apk/量子平台-android.apk
           ls -lh mobile/release-apk/
 
       - uses: actions/upload-artifact@v4
@@ -261,7 +261,7 @@ jobs:
 
   # iOS（Expo）：用 xcodebuild archive+export，复用与原 CI 相同的签名 Secrets：
   #   IOS_CERTIFICATE_BASE64 / IOS_CERTIFICATE_PASSWORD / IOS_PROVISIONING_PROFILE_BASE64 / IOS_TEAM_ID
-  # 证书的 bundleId 必须是 com.monkeycode.selfhosted；导出方式默认 app-store（上 TestFlight/商店），
+  # 证书的 bundleId 必须是 com.quantum-platform.selfhosted；导出方式默认 app-store（上 TestFlight/商店），
   # 想直接装真机改成 ad-hoc。
   # 注意：不要设 RCT_USE_PREBUILT_RNCORE=1。它强制用预编译 React.framework（依赖 ReactNativeDependencies.framework），
   # 与 app.json 的 ios.buildReactNativeFromSource=true 冲突 → ReactNativeDependencies.framework 没被嵌入 .app，
@@ -356,7 +356,7 @@ jobs:
           IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
         run: |
           set -euo pipefail
-          BUNDLE_ID="com.monkeycode.selfhosted"
+          BUNDLE_ID="com.quantum-platform.selfhosted"
           cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -373,15 +373,15 @@ jobs:
           </dict>
           </plist>
           PLIST
-          xcodebuild -workspace MonkeyCode.xcworkspace -scheme MonkeyCode \
+          xcodebuild -workspace 量子平台.xcworkspace -scheme 量子平台 \
             -configuration Release -sdk iphoneos -destination "generic/platform=iOS" \
-            -archivePath "$RUNNER_TEMP/MonkeyCode.xcarchive" \
+            -archivePath "$RUNNER_TEMP/量子平台.xcarchive" \
             DEVELOPMENT_TEAM="$IOS_TEAM_ID" CODE_SIGN_STYLE=Manual \
             CODE_SIGN_IDENTITY="$IOS_SIGNING_IDENTITY" \
             PROVISIONING_PROFILE_SPECIFIER="$IOS_PROFILE_NAME" \
             archive
           xcodebuild -exportArchive \
-            -archivePath "$RUNNER_TEMP/MonkeyCode.xcarchive" \
+            -archivePath "$RUNNER_TEMP/量子平台.xcarchive" \
             -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
             -exportPath "$RUNNER_TEMP/export"
           ls -lh "$RUNNER_TEMP/export"
@@ -393,7 +393,7 @@ jobs:
           mkdir -p mobile/release-ios
           IPA="$(find "$RUNNER_TEMP/export" -name '*.ipa' | head -1)"
           test -n "$IPA"
-          cp "$IPA" mobile/release-ios/MonkeyCode-ios.ipa
+          cp "$IPA" mobile/release-ios/量子平台-ios.ipa
           ls -lh mobile/release-ios/
 
       - uses: actions/upload-artifact@v4
@@ -439,7 +439,7 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: MonkeyCode ${{ github.ref_name }}
+          name: 量子平台 ${{ github.ref_name }}
           generate_release_notes: true
           fail_on_unmatched_files: false
           files: |

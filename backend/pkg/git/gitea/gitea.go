@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // Gitea 客户端

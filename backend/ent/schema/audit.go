@@ -8,7 +8,7 @@ import (
 	"entgo.io/ent/schema"
 	"entgo.io/ent/schema/edge"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
 	"github.com/google/uuid"
 )
 

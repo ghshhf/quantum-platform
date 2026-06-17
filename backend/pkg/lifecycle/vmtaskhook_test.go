@@ -10,7 +10,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/consts"
 )
 
 func TestVMTaskHook_OnStateChange_FailedTransitionsTaskToError(t *testing.T) {

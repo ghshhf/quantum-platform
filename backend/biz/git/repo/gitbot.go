@@ -8,12 +8,12 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/gitbot"
-	"github.com/ghshhf/MonkeyCode/backend/db/gitbottask"
-	"github.com/ghshhf/MonkeyCode/backend/db/gitbotuser"
-	"github.com/ghshhf/MonkeyCode/backend/db/projectgitbot"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/gitbot"
+	"github.com/ghshhf/quantum-platform/backend/db/gitbottask"
+	"github.com/ghshhf/quantum-platform/backend/db/gitbotuser"
+	"github.com/ghshhf/quantum-platform/backend/db/projectgitbot"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // GitBotRepo GitBot 仓储

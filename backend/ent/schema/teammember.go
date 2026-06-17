@@ -10,7 +10,7 @@ import (
 	"entgo.io/ent/schema/field"
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/consts"
 )
 
 // TeamMember holds the schema definition for the TeamMember entity.

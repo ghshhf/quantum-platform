@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/ghshhf/MonkeyCode/backend/db/taskusagestat"
+	"github.com/ghshhf/quantum-platform/backend/db/taskusagestat"
 	"github.com/google/uuid"
 )
 

@@ -10,7 +10,7 @@ package doubao
 import (
 	"log/slog"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/config"
 )
 
 const (

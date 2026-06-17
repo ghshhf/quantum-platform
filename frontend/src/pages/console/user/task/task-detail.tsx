@@ -58,9 +58,9 @@ type SidePanelType = "files"
 type AskUserQuestionStatus = "pending" | "queued" | "submitting" | "completed" | "expired"
 
 const BUILTIN_TASK_MODEL_OPTIONS = [
-  { model: "monkeycode-basic", label: "基础模型", badge: "免费使用", badgeVariant: "default" as const, iconName: "gift" },
-  { model: "monkeycode-pro", label: "专业模型", badge: "专业会员可免费使用", badgeVariant: "secondary" as const, iconName: "vip-1" },
-  { model: "monkeycode-ultra", label: "旗舰模型", badge: "旗舰会员可免费使用", badgeVariant: "secondary" as const, iconName: "vip-2" },
+  { model: "quantum-platform-basic", label: "基础模型", badge: "免费使用", badgeVariant: "default" as const, iconName: "gift" },
+  { model: "quantum-platform-pro", label: "专业模型", badge: "专业会员可免费使用", badgeVariant: "secondary" as const, iconName: "vip-1" },
+  { model: "quantum-platform-ultra", label: "旗舰模型", badge: "旗舰会员可免费使用", badgeVariant: "secondary" as const, iconName: "vip-2" },
 ] as const
 const OPEN_WALLET_DIALOG_EVENT = "open-wallet-dialog"
 type MessageSource = "live" | "history"
@@ -775,9 +775,9 @@ export default function TaskDetailPage() {
       : normalizedModelName
 
     if (
-      (builtinModelName === "monkeycode-basic" && nestedModelName === "qwen3.5-plus")
-      || (builtinModelName === "monkeycode-pro" && nestedModelName === "qwen3.6-plus")
-      || (builtinModelName === "monkeycode-ultra" && nestedModelName === "gpt-5.5")
+      (builtinModelName === "quantum-platform-basic" && nestedModelName === "qwen3.5-plus")
+      || (builtinModelName === "quantum-platform-pro" && nestedModelName === "qwen3.6-plus")
+      || (builtinModelName === "quantum-platform-ultra" && nestedModelName === "gpt-5.5")
     ) {
       return "推荐"
     }

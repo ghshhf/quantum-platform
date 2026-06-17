@@ -28,14 +28,14 @@ const proofs = [
   {
     icon: IconShieldLock,
     title: "可走私有化部署方向",
-    description: "如果团队更看重数据边界和内网部署，MonkeyCode 也保留了离线版与私有化落地路径。",
+    description: "如果团队更看重数据边界和内网部署，量子平台 也保留了离线版与私有化落地路径。",
   },
 ];
 
 const platformTags = ["GitHub", "GitLab", "Gitea", "Gitee", "Codeup", "CNB", "GitCode", "远程协助", "离线部署"];
 
 const GitBot = () => {
-  const typewriterText = "@monkeycode-ai 你好，请帮我 review 这个 PR";
+  const typewriterText = "@quantum-platform-ai 你好，请帮我 review 这个 PR";
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const GitBot = () => {
             不只是在网页上在线写代码，还能接回真实协作
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-            MonkeyCode 的价值不只是“在线生成代码”，还包括 Git Review、开源透明度、远程协作和私有化路径。这些才是开发者会长期关心的部分。
+            量子平台 的价值不只是“在线生成代码”，还包括 Git Review、开源透明度、远程协作和私有化路径。这些才是开发者会长期关心的部分。
           </p>
         </div>
 
@@ -162,7 +162,7 @@ const GitBot = () => {
                 <span className="font-pixel text-[10px]">SYSTEM READY</span>
               </div>
               <p className="mt-4 text-sm leading-7 text-slate-300">
-                如果你真正关心的是能不能接入仓库、能不能协作、能不能离线部署，那 MonkeyCode 给出的不是抽象概念，而是明确的产品路径。
+                如果你真正关心的是能不能接入仓库、能不能协作、能不能离线部署，那 量子平台 给出的不是抽象概念，而是明确的产品路径。
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {platformTags.map((tag) => (

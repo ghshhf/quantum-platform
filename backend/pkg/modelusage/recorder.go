@@ -7,10 +7,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/task"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammember"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/clickhouse"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/task"
+	"github.com/ghshhf/quantum-platform/backend/db/teammember"
+	"github.com/ghshhf/quantum-platform/backend/pkg/clickhouse"
 )
 
 type ClickHouse interface {

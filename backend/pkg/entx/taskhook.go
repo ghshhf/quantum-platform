@@ -6,11 +6,11 @@ import (
 
 	"entgo.io/ent"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/hook"
-	"github.com/ghshhf/MonkeyCode/backend/db/task"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/hook"
+	"github.com/ghshhf/quantum-platform/backend/db/task"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
 )
 
 func taskConcurrencyExceeded(count, limit int) bool {

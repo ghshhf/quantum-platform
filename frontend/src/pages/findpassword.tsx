@@ -48,7 +48,7 @@ export default function FindPasswordPage() {
       <div className="w-full max-w-sm">
         <div className="flex flex-col gap-6">
           <Link to="/">
-            <h1 className="text-2xl hover:font-bold">MonkeyCode 智能开发平台</h1>
+            <h1 className="text-2xl hover:font-bold">量子平台 智能开发平台</h1>
           </Link>
           <Card>
             <CardContent>

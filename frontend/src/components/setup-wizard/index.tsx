@@ -298,9 +298,9 @@ export default function SetupWizard() {
 
   const renderStep1 = () => (
     <div className="flex flex-col items-center text-center">
-      <div className="text-4xl font-bold">欢迎使用 MonkeyCode</div>
+      <div className="text-4xl font-bold">欢迎使用 量子平台</div>
       <p className="mt-4 max-w-xl text-muted-foreground">
-        MonkeyCode 是一个支持本地与局域网部署的 AI 开发平台。你可以用自己的大模型
+        量子平台 是一个支持本地与局域网部署的 AI 开发平台。你可以用自己的大模型
         （通过 Ollama 在本机跑），也可以接入云端厂商的 API。下面用几步配置好你的模型。
       </p>
       <div className="mt-8 flex gap-3">
@@ -472,7 +472,7 @@ export default function SetupWizard() {
       <Alert>
         <AlertTitle>使用提示</AlertTitle>
         <AlertDescription>
-          启用模型后，MonkeyCode 会创建一条记录（Provider=Ollama，base_url=http://localhost:11434/v1）。
+          启用模型后，量子平台 会创建一条记录（Provider=Ollama，base_url=http://localhost:11434/v1）。
           如果你还没 <code className="rounded bg-muted px-1.5 py-0.5 text-xs">ollama pull qwen2.5:7b</code>，请先在终端执行。
         </AlertDescription>
       </Alert>
@@ -581,7 +581,7 @@ export default function SetupWizard() {
       </div>
       <div className="mt-4 text-3xl font-bold">🎉 准备好了！</div>
       <p className="mt-3 max-w-md text-muted-foreground">
-        你的 MonkeyCode 已经配置完成，现在可以开始使用 AI 协助开发了。
+        你的 量子平台 已经配置完成，现在可以开始使用 AI 协助开发了。
       </p>
       <Button size="lg" className="mt-8" onClick={handleGotoConsole}>
         开始使用
@@ -632,7 +632,7 @@ export default function SetupWizard() {
     <div className="flex min-h-screen flex-col items-center justify-start bg-background px-4 py-10">
       <div className="mb-8 flex items-center gap-2 text-lg font-semibold">
         <span className="rounded-md bg-primary px-2 py-0.5 text-sm text-primary-foreground">
-          MonkeyCode
+          量子平台
         </span>
         <span className="text-muted-foreground">首次启动向导</span>
       </div>

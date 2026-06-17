@@ -11,9 +11,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/llm"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/tasklog"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/pkg/llm"
+	"github.com/ghshhf/quantum-platform/backend/pkg/tasklog"
 )
 
 type fakeTasklogGateway struct {

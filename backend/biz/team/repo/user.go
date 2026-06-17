@@ -9,21 +9,21 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/image"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroup"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgrouphost"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupimage"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmember"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamimage"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammember"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/crypto"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/image"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroup"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgrouphost"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupimage"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupmember"
+	"github.com/ghshhf/quantum-platform/backend/db/teamimage"
+	"github.com/ghshhf/quantum-platform/backend/db/teammember"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg/crypto"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
 )
 
 // TeamGroupUserRepo 团队分组成员数据访问层
@@ -488,7 +488,7 @@ func (r *TeamGroupUserRepo) initTeamImage(ctx context.Context, tx *db.Tx, teamID
 			SetID(uuid.New()).
 			SetUserID(userID).
 			SetName(imageName).
-			SetRemark("MonkeyCode-AI 默认开发环境").
+			SetRemark("Quantum-Platform-AI 默认开发环境").
 			Save(ctx)
 		if err != nil {
 			return err

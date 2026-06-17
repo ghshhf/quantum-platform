@@ -1,9 +1,9 @@
 {
-  "name": "monkeycode-desktop",
+  "name": "quantum-platform-desktop",
   "private": true,
   "version": "260323.0.5",
-  "description": "MonkeyCode 桌面客户端（Electron）",
-  "author": "MonkeyCode",
+  "description": "量子平台 桌面客户端（Electron）",
+  "author": "量子平台",
   "type": "commonjs",
   "main": "electron/main.cjs",
   "scripts": {
@@ -31,8 +31,8 @@
     "wait-on": "^8.0.3"
   },
   "build": {
-    "appId": "com.monkeycode.desktop",
-    "productName": "MonkeyCode",
+    "appId": "com.quantum-platform.desktop",
+    "productName": "量子平台",
     "directories": {
       "output": "release"
     },

@@ -10,14 +10,14 @@ import (
 	"github.com/google/uuid"
 	"github.com/patrickmn/go-cache"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgrouphost"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupimage"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmodel"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupskill"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgrouphost"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupimage"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupmodel"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupskill"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 func TestTeamImageCreateUsesDefaultGroupWhenGroupIDsEmpty(t *testing.T) {

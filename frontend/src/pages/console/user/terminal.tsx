@@ -38,7 +38,7 @@ export default function TerminalPage() {
 
   const [currentTheme, setCurrentTheme] = useState(() => {
     const savedTheme = localStorage.getItem('terminalTheme');
-    return savedTheme ? savedTheme : 'MonkeyCode';
+    return savedTheme ? savedTheme : '量子平台';
   });
 
   // 远程协助相关状态

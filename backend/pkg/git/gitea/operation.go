@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // giteaAPIGet 通用 Gitea API GET 请求

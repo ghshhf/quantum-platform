@@ -3,7 +3,7 @@ package vmidle
 import (
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/vmidle/usecase"
+	"github.com/ghshhf/quantum-platform/backend/biz/vmidle/usecase"
 )
 
 func ProvideVMIdle(i *do.Injector) {

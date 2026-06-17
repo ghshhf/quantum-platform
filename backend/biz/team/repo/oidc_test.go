@@ -10,11 +10,11 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/oidc"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/enttest"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/oidc"
 )
 
 func TestTeamOIDCConfigSchemaPersistsDefaults(t *testing.T) {
@@ -38,7 +38,7 @@ func TestTeamOIDCConfigSchemaPersistsDefaults(t *testing.T) {
 		SetEnabled(true).
 		SetDisplayName("公司账号登录").
 		SetIssuer("https://id.example.com").
-		SetClientID("monkeycode").
+		SetClientID("quantum-platform").
 		SetClientSecretCiphertext("secret").
 		Save(ctx)
 	if err != nil {
@@ -233,7 +233,7 @@ func TestTeamOIDCRepoGetDefaultEnabledConfigReturnsEarliestTeam(t *testing.T) {
 			SetEnabled(tc.enabled).
 			SetDisplayName(tc.displayName).
 			SetIssuer("https://id.example.com/").
-			SetClientID("monkeycode").
+			SetClientID("quantum-platform").
 			Save(ctx)
 		if err != nil {
 			t.Fatal(err)

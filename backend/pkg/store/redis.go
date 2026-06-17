@@ -6,7 +6,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/config"
 )
 
 func NewRedisCli(cfg *config.Config) *redis.Client {

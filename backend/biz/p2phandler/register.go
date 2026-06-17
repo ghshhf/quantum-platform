@@ -5,8 +5,8 @@ import (
 
 	"github.com/samber/do"
 
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/p2phandler/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/p2p"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/p2phandler/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/pkg/p2p"
 )
 
 // Provide P2P 模块

@@ -743,7 +743,7 @@ export interface DomainLicenseMachineCodeResp {
   generated_at?: string;
   /** 客户部署实例 ID */
   installation_id?: string;
-  /** 产品标识，首版固定为 monkeycode-enterprise */
+  /** 产品标识，首版固定为 quantum-platform-enterprise */
   product?: DomainLicenseProduct;
   /** 当前私有化产品版本 */
   product_version?: string;
@@ -752,7 +752,7 @@ export interface DomainLicenseMachineCodeResp {
 }
 
 export enum DomainLicenseProduct {
-  LicenseProductMonkeyCodeEnterprise = "monkeycode-enterprise",
+  LicenseProduct量子平台Enterprise = "quantum-platform-enterprise",
 }
 
 export enum DomainLicenseState {
@@ -903,7 +903,7 @@ export interface DomainMCPTool {
   name?: string;
   namespaced_name?: string;
   price?: number;
-  scope?: GithubComChaitinMonkeyCodeBackendDbMcptoolScope;
+  scope?: GithubComChaitin量子平台BackendDbMcptoolScope;
 }
 
 export interface DomainMCPUpstream {
@@ -916,7 +916,7 @@ export interface DomainMCPUpstream {
   id?: string;
   last_synced_at?: number;
   name?: string;
-  scope?: GithubComChaitinMonkeyCodeBackendDbMcpupstreamScope;
+  scope?: GithubComChaitin量子平台BackendDbMcpupstreamScope;
   slug?: string;
   sync_status?: string;
   tools?: DomainMCPTool[];
@@ -2119,7 +2119,7 @@ export interface DomainVMResource {
 }
 
 export interface DomainVirtualMachine {
-  conditions?: GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition[];
+  conditions?: GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesCondition[];
   cores?: number;
   created_at?: number;
   environment_id?: string;
@@ -2150,7 +2150,7 @@ export interface DomainWallet {
   id?: string;
 }
 
-export interface GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition {
+export interface GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesCondition {
   /** Timestamp when condition last changed (Unix ms) */
   last_transition_time?: number;
   /** Human-readable message */
@@ -2160,20 +2160,20 @@ export interface GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition {
   /** Machine-readable reason code (CamelCase) */
   reason?: string;
   /** Condition status<br> - 0: unknown 1: in progress 2: completed 3: failed */
-  status?: GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionStatus;
+  status?: GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionStatus;
   /** Condition<br> - Scheduled: Task has been scheduled<br>- ImagePulled: Base image has been pulled<br>- ProjectCloned: Project repository has been cloned<br> - ImageBuilt: Agent image has been built<br> - ContainerCreated: Container has been created<br>- ContainerStarted: Container has been started<br>- Ready: Environment is ready<br>- Failed: Environment creation failed */
-  type?: GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType;
+  type?: GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType;
 }
 
 /** @format int32 */
-export enum GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionStatus {
+export enum GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionStatus {
   ConditionStatusCONDITIONSTATUSUNKNOWN = 0,
   ConditionStatusCONDITIONSTATUSINPROGRESS = 1,
   ConditionStatusCONDITIONSTATUSTRUE = 2,
   ConditionStatusCONDITIONSTATUSFALSE = 3,
 }
 
-export enum GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType {
+export enum GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType {
   ConditionTypeScheduled = "Scheduled",
   ConditionTypeImagePulled = "ImagePulled",
   ConditionTypeProjectCloned = "ProjectCloned",
@@ -2196,17 +2196,17 @@ export interface GithubComGoYokoWebResp {
   message?: string;
 }
 
-export enum GithubComChaitinMonkeyCodeBackendDbMcptoolScope {
+export enum GithubComChaitin量子平台BackendDbMcptoolScope {
   ScopeUser = "user",
   ScopePlatform = "platform",
 }
 
-export enum GithubComChaitinMonkeyCodeBackendDbMcpupstreamScope {
+export enum GithubComChaitin量子平台BackendDbMcpupstreamScope {
   ScopeUser = "user",
   ScopePlatform = "platform",
 }
 
-export interface GithubComChaitinMonkeyCodeBackendDomainIDReqGithubComGoogleUuidUUID {
+export interface GithubComChaitin量子平台BackendDomainIDReqGithubComGoogleUuidUUID {
   id: string;
 }
 
@@ -2475,11 +2475,11 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title MonkeyCode AI
+ * @title 量子平台 AI
  * @version 1.0
  * @contact
  *
- * MonkeyCode AI
+ * 量子平台 AI
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
   api = {
@@ -2634,7 +2634,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       }),
 
     /**
-     * @description 私有化部署直接上传 license.lic 文件。SaaS 环境仅用于生成 Swagger 文档，实际业务由 MonkeyCodePro 实现。
+     * @description 私有化部署直接上传 license.lic 文件。SaaS 环境仅用于生成 Swagger 文档，实际业务由 量子平台Pro 实现。
      *
      * @tags 【License】License
      * @name V1LicenseImportCreate
@@ -2668,7 +2668,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       }),
 
     /**
-     * @description 私有化部署导出 machine-code.json。SaaS 环境仅用于生成 Swagger 文档，实际业务由 MonkeyCodePro 实现。
+     * @description 私有化部署导出 machine-code.json。SaaS 环境仅用于生成 Swagger 文档，实际业务由 量子平台Pro 实现。
      *
      * @tags 【License】License
      * @name V1LicenseMachineCodeList
@@ -2692,7 +2692,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       }),
 
     /**
-     * @description 私有化部署查看当前 license 状态。SaaS 环境仅用于生成 Swagger 文档，实际业务由 MonkeyCodePro 实现。
+     * @description 私有化部署查看当前 license 状态。SaaS 环境仅用于生成 Swagger 文档，实际业务由 量子平台Pro 实现。
      *
      * @tags 【License】License
      * @name V1LicenseStatusList
@@ -2739,7 +2739,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       }),
 
     /**
-     * @description 获取当前登录用户绑定的百知云平台用户信息，包括百知云账号和对应的MonkeyCode账号详情
+     * @description 获取当前登录用户绑定的百知云平台用户信息，包括百知云账号和对应的量子平台账号详情
      *
      * @tags 【用户】OAuth
      * @name OauthGetBoundUsers
@@ -5582,7 +5582,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       }),
 
     /**
-     * @description 处理身份源回调并创建 MonkeyCode 登录会话
+     * @description 处理身份源回调并创建 量子平台 登录会话
      *
      * @tags 【用户】企业团队成员认证
      * @name V1UsersOidcCallbackList
@@ -7188,7 +7188,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @secure
      */
     v1UsersTasksStopUpdate: (
-      id: GithubComChaitinMonkeyCodeBackendDomainIDReqGithubComGoogleUuidUUID,
+      id: GithubComChaitin量子平台BackendDomainIDReqGithubComGoogleUuidUUID,
       params: RequestParams = {},
     ) =>
       this.request<GithubComGoYokoWebResp, any>({

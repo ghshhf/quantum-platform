@@ -5,8 +5,8 @@ import (
 
     "github.com/samber/do"
 
-    v1 "github.com/ghshhf/MonkeyCode/backend/biz/localmodel/handler/v1"
-    "github.com/ghshhf/MonkeyCode/backend/pkg/modeldownloader"
+    v1 "github.com/ghshhf/quantum-platform/backend/biz/localmodel/handler/v1"
+    "github.com/ghshhf/quantum-platform/backend/pkg/modeldownloader"
 )
 
 // ProvideLocalModel 注册本地模型管理模块

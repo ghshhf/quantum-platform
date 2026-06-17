@@ -4,7 +4,7 @@
 
 **Goal:** 将现有 TTL 过期机制替换为基于空闲检测的自动休眠（10 分钟）和回收（7 天）策略。
 
-**Architecture:** taskflow 监控 TaskStream 活动并通过 EventReport HTTP 回调上报 MonkeyCode；MonkeyCode 使用三个 Redis DelayQueue（sleep/notify/recycle）管理空闲计时器，用户活跃时刷新所有队列的 score。
+**Architecture:** taskflow 监控 TaskStream 活动并通过 EventReport HTTP 回调上报 量子平台；量子平台 使用三个 Redis DelayQueue（sleep/notify/recycle）管理空闲计时器，用户活跃时刷新所有队列的 score。
 
 **Tech Stack:** Go, Redis DelayQueue (ZSet), gRPC, HTTP callbacks
 
@@ -14,7 +14,7 @@
 
 ## 文件结构
 
-### MonkeyCode (`/Users/yoko/chaitin/ai/MonkeyCode/backend`)
+### 量子平台 (`/Users/yoko/chaitin/ai/量子平台/backend`)
 
 | 操作 | 文件 | 职责 |
 |------|------|------|
@@ -36,7 +36,7 @@
 
 ---
 
-## Task 1: 定义数据结构与接口（MonkeyCode）
+## Task 1: 定义数据结构与接口（量子平台）
 
 **Files:**
 - Modify: `domain/host.go`
@@ -81,7 +81,7 @@ git commit -m "feat(idle): define VmIdleInfo struct and sleeping status"
 
 ---
 
-## Task 2: 创建空闲队列基础设施（MonkeyCode）
+## Task 2: 创建空闲队列基础设施（量子平台）
 
 **Files:**
 - Create: `pkg/delayqueue/vmidlequeue.go`
@@ -99,7 +99,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // VMSleepQueue 10 分钟空闲休眠队列
@@ -155,7 +155,7 @@ git commit -m "feat(idle): add idle queue factory functions"
 
 ---
 
-## Task 3: 实现 RefreshIdleTimers 和三个消费者（MonkeyCode）
+## Task 3: 实现 RefreshIdleTimers 和三个消费者（量子平台）
 
 **Files:**
 - Modify: `biz/host/usecase/host.go`
@@ -398,7 +398,7 @@ git commit -m "feat(idle): report VM activity on TaskStream messages"
 
 ---
 
-## Task 6: MonkeyCode 接收 VMActivity 回调
+## Task 6: 量子平台 接收 VMActivity 回调
 
 **Files:**
 - Modify: `biz/host/handler/v1/internal.go`
@@ -464,7 +464,7 @@ git commit -m "feat(idle): add VMActivity callback endpoint"
 
 ---
 
-## Task 7: VM Handler 中调用 RefreshIdleTimers（MonkeyCode）
+## Task 7: VM Handler 中调用 RefreshIdleTimers（量子平台）
 
 **Files:**
 - Modify: `biz/host/handler/v1/host.go`
@@ -504,7 +504,7 @@ git commit -m "feat(idle): refresh idle timers on VM interactions"
 
 ---
 
-## Task 8: CreateVM/DeleteVM 对接空闲队列（MonkeyCode）
+## Task 8: CreateVM/DeleteVM 对接空闲队列（量子平台）
 
 **Files:**
 - Modify: `biz/host/usecase/host.go`
@@ -544,7 +544,7 @@ git commit -m "feat(idle): wire idle queues into CreateVM/DeleteVM"
 
 ---
 
-## Task 9: 移除旧 TTL 机制（MonkeyCode）
+## Task 9: 移除旧 TTL 机制（量子平台）
 
 **Files:**
 - Modify: `biz/host/usecase/host.go`
@@ -585,7 +585,7 @@ git commit -m "refactor(idle): remove legacy TTL expiration mechanism"
 
 ---
 
-## Task 10: DI 注册更新（MonkeyCode）
+## Task 10: DI 注册更新（量子平台）
 
 **Files:**
 - Modify: `pkg/register.go:101-106`

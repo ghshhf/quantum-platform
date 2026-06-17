@@ -3,8 +3,8 @@ package connector
 import (
 	"github.com/samber/do"
 
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/connector/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/connector/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
 )
 
 // Provide 注册 connector 模块依赖。

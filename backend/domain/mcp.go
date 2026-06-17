@@ -3,10 +3,10 @@ package domain
 import (
 	"context"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/mcptool"
-	"github.com/ghshhf/MonkeyCode/backend/db/mcpupstream"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/cvt"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/mcptool"
+	"github.com/ghshhf/quantum-platform/backend/db/mcpupstream"
+	"github.com/ghshhf/quantum-platform/backend/pkg/cvt"
 	"github.com/google/uuid"
 )
 

@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db"
 )
 
 type TeamOIDCUsecase interface {

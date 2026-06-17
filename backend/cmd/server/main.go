@@ -10,11 +10,11 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz"
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/pkg"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/service"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/store"
+	"github.com/ghshhf/quantum-platform/backend/biz"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/pkg"
+	"github.com/ghshhf/quantum-platform/backend/pkg/service"
+	"github.com/ghshhf/quantum-platform/backend/pkg/store"
 )
 
 func main() {
@@ -72,7 +72,7 @@ type server struct {
 	addr string
 }
 
-func (s *server) Name() string { return "MonkeyCode Service" }
+func (s *server) Name() string { return "量子平台 Service" }
 func (s *server) Start() error { return s.w.Run(s.addr) }
 func (s *server) Stop() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)

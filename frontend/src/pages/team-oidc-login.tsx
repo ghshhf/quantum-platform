@@ -40,7 +40,7 @@ export default function TeamOIDCLoginPage() {
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
         <Link to="/">
-          <h1 className="mb-6 text-2xl hover:font-bold">MonkeyCode 智能开发平台</h1>
+          <h1 className="mb-6 text-2xl hover:font-bold">量子平台 智能开发平台</h1>
         </Link>
         <Card>
           <CardHeader>

@@ -55,7 +55,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="monkeycode-theme">
+    <ThemeProvider defaultTheme="system" storageKey="quantum-platform-theme">
       <TooltipProvider>
         <BrowserRouter>
           <ThemePathListener />

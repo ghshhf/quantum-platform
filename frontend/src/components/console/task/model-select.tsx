@@ -30,17 +30,17 @@ import { useMemo, useState } from "react"
 
 const BUILTIN_MODEL_OPTIONS = [
   {
-    model: "monkeycode-basic",
+    model: "quantum-platform-basic",
     label: "基础模型",
     badge: "免费使用",
   },
   {
-    model: "monkeycode-pro",
+    model: "quantum-platform-pro",
     label: "专业模型",
     badge: "专业会员可免费使用",
   },
   {
-    model: "monkeycode-ultra",
+    model: "quantum-platform-ultra",
     label: "旗舰模型",
     badge: "旗舰会员可免费使用",
   },
@@ -75,10 +75,10 @@ export default function ModelSelect({
         key: option.model,
         label: option.label,
         badge: option.badge,
-        badgeVariant: option.model === "monkeycode-basic" ? "default" as const : "secondary" as const,
-        iconName: option.model === "monkeycode-basic"
+        badgeVariant: option.model === "quantum-platform-basic" ? "default" as const : "secondary" as const,
+        iconName: option.model === "quantum-platform-basic"
           ? "gift"
-          : option.model === "monkeycode-pro"
+          : option.model === "quantum-platform-pro"
             ? "vip-1"
             : "vip-2",
         models: supportedModels.filter((model) => getBuiltinModelName(model.model) === option.model),
@@ -189,9 +189,9 @@ export default function ModelSelect({
       : normalizedModelName
 
     if (
-      (builtinModelName === "monkeycode-basic" && nestedModelName === "qwen3.5-plus")
-      || (builtinModelName === "monkeycode-pro" && nestedModelName === "qwen3.6-plus")
-      || (builtinModelName === "monkeycode-ultra" && nestedModelName === "gpt-5.5")
+      (builtinModelName === "quantum-platform-basic" && nestedModelName === "qwen3.5-plus")
+      || (builtinModelName === "quantum-platform-pro" && nestedModelName === "qwen3.6-plus")
+      || (builtinModelName === "quantum-platform-ultra" && nestedModelName === "gpt-5.5")
     ) {
       return "推荐"
     }

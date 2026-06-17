@@ -12,11 +12,11 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/model"
-	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
-	"github.com/ghshhf/MonkeyCode/backend/db/task"
-	"github.com/ghshhf/MonkeyCode/backend/db/taskmodelswitch"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/db/model"
+	"github.com/ghshhf/quantum-platform/backend/db/predicate"
+	"github.com/ghshhf/quantum-platform/backend/db/task"
+	"github.com/ghshhf/quantum-platform/backend/db/taskmodelswitch"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
 	"github.com/google/uuid"
 )
 

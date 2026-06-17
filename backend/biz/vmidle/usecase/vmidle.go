@@ -13,14 +13,14 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/delayqueue"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/entx"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/notify/dispatcher"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/delayqueue"
+	"github.com/ghshhf/quantum-platform/backend/pkg/entx"
+	"github.com/ghshhf/quantum-platform/backend/pkg/notify/dispatcher"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 type VMIdleRefresher interface {

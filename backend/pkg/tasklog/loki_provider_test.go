@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/tasklog"
+	"github.com/ghshhf/quantum-platform/backend/pkg/tasklog"
 )
 
 func TestLokiProviderQueryTurnsForwardUnsupported(t *testing.T) {

@@ -8,7 +8,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // GithubAccessTokenUsecase GitHub token 管理（仅 PAT 模式）

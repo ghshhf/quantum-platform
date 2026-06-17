@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/oss"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/pkg/oss"
 	"github.com/google/uuid"
 )
 
@@ -64,13 +64,13 @@ func TestUploadPrefixSelectsRepoPrefix(t *testing.T) {
 
 func TestRequestObjectStorageClientUsesConfiguredAccessEndpoint(t *testing.T) {
 	h := &UploaderHandler{cfg: &config.Config{}}
-	h.cfg.ObjectStorage.AccessEndpoint = "https://monkeycode.example.com/oss"
-	h.cfg.ObjectStorage.Bucket = "monkeycode-private"
+	h.cfg.ObjectStorage.AccessEndpoint = "https://quantum-platform.example.com/oss"
+	h.cfg.ObjectStorage.Bucket = "quantum-platform-private"
 	client, err := oss.NewS3Compatible(context.Background(), config.ObjectStorageConfig{
 		Endpoint:        "http://internal:9000",
 		AccessKey:       "ak",
 		AccessKeySecret: "sk",
-		Bucket:          "monkeycode-private",
+		Bucket:          "quantum-platform-private",
 	}, oss.S3Option{ForcePathStyle: true})
 	if err != nil {
 		t.Fatal(err)
@@ -79,7 +79,7 @@ func TestRequestObjectStorageClientUsesConfiguredAccessEndpoint(t *testing.T) {
 	req := httptest.NewRequest("POST", "http://internal:8888/api/v1/uploader/presign", nil)
 
 	got := h.requestClient(req).GetURL("tmp", "a.txt")
-	if got != "https://monkeycode.example.com/oss/monkeycode-private/tmp/a.txt" {
+	if got != "https://quantum-platform.example.com/oss/quantum-platform-private/tmp/a.txt" {
 		t.Fatalf("url = %q", got)
 	}
 }

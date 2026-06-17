@@ -7,7 +7,7 @@ const LINKS = [
     links: [
       {
         title: "产品文档",
-        href: "https://github.com/ghshhf/MonkeyCode#readme"
+        href: "https://github.com/ghshhf/quantum-platform#readme"
       },
       {
         title: "技术论坛",
@@ -15,7 +15,7 @@ const LINKS = [
       },
       {
         title: "开源仓库",
-        href: "https://github.com/ghshhf/MonkeyCode/"
+        href: "https://github.com/ghshhf/quantum-platform/"
       },
       {
         title: "模型广场",
@@ -57,10 +57,10 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <h3 className="text-background flex flex-row items-center gap-4">
             <img src="/logo.png" className="size-8" />
-            MonkeyCode 智能开发平台
+            量子平台 智能开发平台
           </h3>
           <p className="text-background/50 text-sm max-w-[350px]">
-          MonkeyCode 不是 AI 编程工具，是对传统研发模式的变革，是全新的 AI 编程体验，让你的研发团队效率 Max。
+          量子平台 不是 AI 编程工具，是对传统研发模式的变革，是全新的 AI 编程体验，让你的研发团队效率 Max。
           </p>
         </div>
         {LINKS.map((link) => (

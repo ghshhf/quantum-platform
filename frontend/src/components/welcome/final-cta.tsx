@@ -11,7 +11,7 @@ const FinalCTA = () => {
             START
           </div>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-            先不限额度免费用，再判断 MonkeyCode 是否适合你
+            先不限额度免费用，再判断 量子平台 是否适合你
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
             它首先是在线 AI 编程平台，其次才是各种概念包装。先直接免费跑一次真实任务、用一次云开发环境，再决定要不要把它放进日常研发里。
@@ -24,7 +24,7 @@ const FinalCTA = () => {
               </Link>
             </Button>
             <Button size="lg" variant="secondary" className="pixel-button h-12 border-slate-950 px-6 bg-white text-slate-900 hover:bg-slate-50" asChild>
-              <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank" rel="noreferrer">
+              <a href="https://github.com/ghshhf/quantum-platform#readme" target="_blank" rel="noreferrer">
                 <IconBook2 className="size-4" />
                 查看文档
               </a>

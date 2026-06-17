@@ -10,12 +10,12 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/captcha"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/pkg/captcha"
 )
 
 // AuthHandler 认证处理器
@@ -103,7 +103,7 @@ func (h *AuthHandler) OIDCLogin(c *web.Context, req domain.TeamOIDCLoginReq) err
 // OIDCCallback 处理团队 OIDC 回调
 //
 //	@Summary		处理团队 OIDC 回调
-//	@Description	处理身份源回调并创建 MonkeyCode 登录会话
+//	@Description	处理身份源回调并创建 量子平台 登录会话
 //	@Tags			【用户】企业团队成员认证
 //	@Accept			json
 //	@Produce		json
@@ -118,7 +118,7 @@ func (h *AuthHandler) OIDCCallback(c *web.Context, req domain.TeamOIDCCallbackRe
 	if err != nil {
 		return err
 	}
-	_, err = h.authMiddleware.Session.Save(c, consts.MonkeyCodeAISession, user.ID, user)
+	_, err = h.authMiddleware.Session.Save(c, consts.QuantumPlatformAISession, user.ID, user)
 	if err != nil {
 		h.logger.ErrorContext(c.Request().Context(), "save oidc session failed", "error", err)
 		return errcode.ErrInternalServer
@@ -192,7 +192,7 @@ func (h *AuthHandler) PasswordLogin(c *web.Context, req domain.TeamLoginReq) err
 		return errcode.ErrUserBlocked
 	}
 
-	_, err = h.authMiddleware.Session.Save(c, consts.MonkeyCodeAISession, user.ID, user)
+	_, err = h.authMiddleware.Session.Save(c, consts.QuantumPlatformAISession, user.ID, user)
 	if err != nil {
 		h.logger.ErrorContext(ctx, "save session failed", "error", err)
 		return errcode.ErrInternalServer
@@ -208,7 +208,7 @@ func (h *AuthHandler) PasswordLogin(c *web.Context, req domain.TeamLoginReq) err
 //	@Tags			【用户】用户
 //	@Accept			multipart/form-data
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			name		formData	string	false	"昵称"
 //	@Param			avatar_url	formData	string	false	"OSS 头像地址"
 //	@Success		200			{object}	web.Resp{data=domain.UpdateUserResp}
@@ -239,7 +239,7 @@ func (h *AuthHandler) Update(c *web.Context, req domain.UpdateUserReq) error {
 //	@Tags			【用户】用户
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Success		200	{object}	web.Resp{data=domain.TeamMembersResp}	"成功"
 //	@Failure		401	{object}	web.Resp								"未授权"
 //	@Failure		500	{object}	web.Resp								"服务器内部错误"
@@ -293,7 +293,7 @@ func (h *AuthHandler) MemberList(c *web.Context, _ domain.UserMemberListReq) err
 //	@Tags			【用户】认证
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			req	body		domain.ChangePasswordReq	true	"修改密码请求"
 //	@Success		200	{object}	web.Resp{}
 //	@Router			/api/v1/users/passwords/change [put]
@@ -335,7 +335,7 @@ func (h *AuthHandler) Logout(c *web.Context) error {
 		return errcode.ErrUnauthorized
 	}
 
-	err := h.authMiddleware.Session.Del(c, consts.MonkeyCodeAISession, user.ID)
+	err := h.authMiddleware.Session.Del(c, consts.QuantumPlatformAISession, user.ID)
 	if err != nil {
 		h.logger.ErrorContext(ctx, "delete session failed", "error", err)
 	}
@@ -510,7 +510,7 @@ func (h *AuthHandler) ResetPassword(c *web.Context, req domain.ResetUserPassword
 	}
 	h.logger.InfoContext(c.Request().Context(), "delete redis key success", "userID", userID, "key", key)
 
-	if err := h.authMiddleware.Session.Trunc(c.Request().Context(), consts.MonkeyCodeAISession, id); err != nil {
+	if err := h.authMiddleware.Session.Trunc(c.Request().Context(), consts.QuantumPlatformAISession, id); err != nil {
 		return err
 	}
 
@@ -524,7 +524,7 @@ func (h *AuthHandler) ResetPassword(c *web.Context, req domain.ResetUserPassword
 //	@Tags			【用户】邮箱绑定
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			req	body		domain.SendBindEmailVerificationReq	true	"邮箱绑定请求"
 //	@Success		200	{object}	web.Resp{}
 //	@Failure		401	{object}	web.Resp	"未授权"

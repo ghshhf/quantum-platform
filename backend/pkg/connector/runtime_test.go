@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
 )
 
 // TestHTTPExecutor_Basic 测试 HTTP 执行后端的基本功能：
@@ -155,11 +155,11 @@ func TestShellExecutor_Basic(t *testing.T) {
 
 	// 执行 echo action
 	result, err := rt.Execute(context.Background(),
-		"demo-shell", "echo", map[string]any{"name": "monkey"}, nil)
+		"demo-shell", "echo", map[string]any{"name": "platform"}, nil)
 	assert.NoError(t, err)
 	assert.NotNil(t, result)
 	assert.True(t, result.Success, "shell echo 应该成功")
-	assert.Contains(t, result.Raw, "hello-monkey")
+	assert.Contains(t, result.Raw, "hello-platform")
 }
 
 // TestRegisterJSON 测试从 JSON 字符串注册 connector。

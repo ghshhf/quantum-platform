@@ -1,4 +1,4 @@
-// Package p2p 提供 MonkeyCode 的本地组网、算力共享与模型分发能力
+// Package p2p 提供 量子平台 的本地组网、算力共享与模型分发能力
 // 设计原则：零新增依赖，仅用 Go 标准库 + golang.org/x/crypto
 //
 // 架构概览：

@@ -1,4 +1,4 @@
-# MonkeyCode AI 前端使用文档
+# 量子平台 AI 前端使用文档
 
 本文档基于当前 `frontend` 源码整理，描述的是现在前端已经实现的页面、入口和交互。
 
@@ -61,8 +61,8 @@
 
 说明：
 
-- `文档` / `使用文档` 当前跳转到外部文档站：`https://github.com/ghshhf/MonkeyCode#readme
-- `开源` / GitHub 当前跳转：`https://github.com/ghshhf/MonkeyCode`
+- `文档` / `使用文档` 当前跳转到外部文档站：`https://github.com/ghshhf/quantum-platform#readme
+- `开源` / GitHub 当前跳转：`https://github.com/ghshhf/quantum-platform`
 - 访问首页时如果 URL 带 `?ic=...`，前端会把邀请码写入 `localStorage`，注册登录入口会携带该邀请 ID
 - 移动端导航收纳在抽屉菜单中
 
@@ -70,7 +70,7 @@
 
 首页当前使用 `TerminalNativePage`，主要区块包括：
 
-- Hero：`MonkeyCode` 在线 AI 开发平台介绍
+- Hero：`量子平台` 在线 AI 开发平台介绍
 - 功能与特色：免费即用、云端开发环境、主流模型、移动端支持、开源、私有化离线部署
 - 使用场景：小游戏、需求开发、安全审查、毕业论文、数据分析、技术调研等
 - 和其他 Coding 工具的能力对比
@@ -108,7 +108,7 @@
 
 下载统一跳转：
 
-- `https://github.com/ghshhf/MonkeyCode/releases`
+- `https://github.com/ghshhf/quantum-platform/releases`
 
 但当前首页实际渲染的是新版 `TerminalNativePage`，不再直接展示旧版客户端下载区块。
 
@@ -145,7 +145,7 @@
 
 内容主题包括：
 
-- MonkeyCode AI 产品定位
+- 量子平台 AI 产品定位
 - 需求、设计、编码、审查闭环
 - 智能任务、项目协作和自动 Review
 - 多模型、自定义镜像、自有宿主机和消息通知
@@ -304,7 +304,7 @@
 
 侧边栏包含：
 
-- 顶部 MonkeyCode 标识
+- 顶部 量子平台 标识
 - 未归属任务和项目列表
 - `签到领积分`
 - `技术交流群`
@@ -579,7 +579,7 @@
 
 页面标题：
 
-- `MonkeyCode 智能任务`
+- `量子平台 智能任务`
 
 ### 2. 创建任务
 

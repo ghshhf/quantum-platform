@@ -1,7 +1,7 @@
 /**
  * 轻量 HTTP 客户端。
  *
- * 鉴权沿用 Web 端的会话 Cookie（monkeycode_ai_session）。React Native 的原生网络层
+ * 鉴权沿用 Web 端的会话 Cookie（quantum-platform_ai_session）。React Native 的原生网络层
  * （iOS NSURLSession / Android OkHttp）会自动持久化并回传 Cookie，因此登录成功后
  * 后续请求无需手动携带 token。
  */

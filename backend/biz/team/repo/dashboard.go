@@ -13,17 +13,17 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/project"
-	"github.com/ghshhf/MonkeyCode/backend/db/projectissue"
-	"github.com/ghshhf/MonkeyCode/backend/db/projecttask"
-	"github.com/ghshhf/MonkeyCode/backend/db/task"
-	"github.com/ghshhf/MonkeyCode/backend/db/teamgroupmember"
-	"github.com/ghshhf/MonkeyCode/backend/db/teammember"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/clickhouse"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/project"
+	"github.com/ghshhf/quantum-platform/backend/db/projectissue"
+	"github.com/ghshhf/quantum-platform/backend/db/projecttask"
+	"github.com/ghshhf/quantum-platform/backend/db/task"
+	"github.com/ghshhf/quantum-platform/backend/db/teamgroupmember"
+	"github.com/ghshhf/quantum-platform/backend/db/teammember"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/clickhouse"
 )
 
 type dashboardUsageReader interface {

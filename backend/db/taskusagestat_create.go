@@ -12,7 +12,7 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/taskusagestat"
+	"github.com/ghshhf/quantum-platform/backend/db/taskusagestat"
 	"github.com/google/uuid"
 )
 

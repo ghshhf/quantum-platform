@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/connector"
+	"github.com/ghshhf/quantum-platform/backend/pkg/connector"
 )
 
 // ConnectorEntity 把一个外部 API / 服务（connector.ConnectorSpec）

@@ -1,6 +1,6 @@
 package consts
 
 const (
-	MonkeyCodeAISession     = "monkeycode_ai_session"
-	MonkeyCodeAITeamSession = "monkeycode_ai_team_session"
+	QuantumPlatformAISession     = "quantum_platform_ai_session"
+	QuantumPlatformAITeamSession = "quantum_platform_ai_team_session"
 )

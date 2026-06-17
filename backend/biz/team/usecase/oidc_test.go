@@ -8,9 +8,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 func TestOIDCEmailDomainAllowed(t *testing.T) {
@@ -94,7 +94,7 @@ func logAttrsMap(attrs []any) map[string]any {
 func TestTeamOIDCUsecaseDefaultPublicConfigReturnsLoginURL(t *testing.T) {
 	teamID := uuid.New()
 	cfg := &config.Config{}
-	cfg.Server.BaseURL = "http://monkeycode.example.com/"
+	cfg.Server.BaseURL = "http://quantum-platform.example.com/"
 	u := &TeamOIDCUsecase{
 		repo: &defaultOIDCRepoStub{cfg: &db.TeamOIDCConfig{
 			TeamID:      teamID,
@@ -117,7 +117,7 @@ func TestTeamOIDCUsecaseDefaultPublicConfigReturnsLoginURL(t *testing.T) {
 	if resp.DisplayName != "公司账号登录" {
 		t.Fatalf("display name = %q", resp.DisplayName)
 	}
-	wantURL := "http://monkeycode.example.com/api/v1/users/oidc/login?team_id=" + teamID.String()
+	wantURL := "http://quantum-platform.example.com/api/v1/users/oidc/login?team_id=" + teamID.String()
 	if resp.LoginURL != wantURL {
 		t.Fatalf("login url = %q, want %q", resp.LoginURL, wantURL)
 	}

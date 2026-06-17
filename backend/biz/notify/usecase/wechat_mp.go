@@ -12,14 +12,14 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/notifychannel"
-	"github.com/ghshhf/MonkeyCode/backend/db/user"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/msgpush"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/notifychannel"
+	"github.com/ghshhf/quantum-platform/backend/db/user"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/pkg/msgpush"
 )
 
 const (
@@ -213,7 +213,7 @@ func (u *WechatMPUsecaseImpl) HandleBindEvent(ctx context.Context, scene, mpOpen
 			ToUser: mpOpenID,
 			Data: map[string]msgpush.TemplateMessageData{
 				"thing2": {Value: "绑定成功"},
-				"thing5": {Value: "您已成功绑定 MonkeyCode 通知，后续将收到任务进度提醒。"},
+				"thing5": {Value: "您已成功绑定 量子平台 通知，后续将收到任务进度提醒。"},
 				"time3":  {Value: time.Now().Format("2006-01-02 15:04:05")},
 			},
 		}
@@ -222,7 +222,7 @@ func (u *WechatMPUsecaseImpl) HandleBindEvent(ctx context.Context, scene, mpOpen
 		}
 	}
 
-	return fmt.Sprintf("已绑定 MonkeyCode 账号 “%s”，你将在这里收到任务执行通知", userName), nil
+	return fmt.Sprintf("已绑定 量子平台 账号 “%s”，你将在这里收到任务执行通知", userName), nil
 }
 
 // HandleUnsubscribe 处理取消关注事件

@@ -155,7 +155,7 @@ export default function LoginScreen() {
           <Pressable onPress={onLogoTap} hitSlop={10}>
             <Image source={t.dark ? LOGO_DARK : LOGO_LIGHT} style={{ width: 104, height: 104, marginBottom: 10 }} resizeMode="contain" />
           </Pressable>
-          <Text style={{ fontSize: 27, fontWeight: '800', color: t.tx, letterSpacing: -0.5 }}>MonkeyCode</Text>
+          <Text style={{ fontSize: 27, fontWeight: '800', color: t.tx, letterSpacing: -0.5 }}>量子平台</Text>
           <Text style={{ fontSize: 13, color: t.tx3, marginTop: 3 }}>智能开发平台</Text>
         </View>
 
@@ -201,7 +201,7 @@ export default function LoginScreen() {
               ) : null}
 
               <Text style={{ fontSize: 13, color: t.tx2, marginBottom: 8 }}>账号</Text>
-              <TextInput value={email} onChangeText={setEmail} placeholder="monkeycode@example.com" placeholderTextColor={t.tx3}
+              <TextInput value={email} onChangeText={setEmail} placeholder="quantum-platform@example.com" placeholderTextColor={t.tx3}
                 autoCapitalize="none" autoCorrect={false} keyboardType="email-address" editable={!busy} style={fieldStyle('email')} {...focusProps('email')} />
 
               <Text style={{ fontSize: 13, color: t.tx2, marginBottom: 8, marginTop: 16 }}>密码</Text>

@@ -667,7 +667,7 @@ export const TaskFileExplorer = ({
       <AceEditor
         mode={getLanguageMode(currentFile.path)}
         readOnly
-        theme="monkeycode"
+        theme="quantum-platform"
         width="100%"
         height="100%"
         value={currentFile.content || ''}

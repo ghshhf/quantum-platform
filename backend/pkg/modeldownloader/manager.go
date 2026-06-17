@@ -25,13 +25,13 @@ type Manager struct {
 }
 
 // NewManager 创建一个下载管理器
-// rootDir：模型下载存储根目录（如 ~/.monkeycode/models）
+// rootDir：模型下载存储根目录（如 ~/.quantum-platform/models）
 // ollamaURL：Ollama API 地址（如 http://127.0.0.1:11434）
 func NewManager(rootDir, ollamaURL string) (*Manager, error) {
     if rootDir == "" {
         home, err := os.UserHomeDir()
         if err != nil { return nil, err }
-        rootDir = filepath.Join(home, ".monkeycode", "models")
+        rootDir = filepath.Join(home, ".quantum-platform", "models")
     }
     if err := os.MkdirAll(rootDir, 0o755); err != nil {
         return nil, fmt.Errorf("mkdir models root: %w", err)

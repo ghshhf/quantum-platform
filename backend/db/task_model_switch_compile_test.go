@@ -3,7 +3,7 @@ package db_test
 import (
 	"testing"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db"
 )
 
 func TestTaskModelSwitchGeneratedFieldsCompile(t *testing.T) {

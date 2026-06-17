@@ -18,10 +18,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/modelapikey"
-	"github.com/ghshhf/MonkeyCode/backend/db/taskvirtualmachine"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/modelusage"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/modelapikey"
+	"github.com/ghshhf/quantum-platform/backend/db/taskvirtualmachine"
+	"github.com/ghshhf/quantum-platform/backend/pkg/modelusage"
 )
 
 const upstreamFailureMessage = "连接上游模型失败，请检查模型配置，或重试"

@@ -3,7 +3,7 @@ package subscription
 import (
 	"github.com/samber/do"
 
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/subscription/handler/v1"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/subscription/handler/v1"
 )
 
 func ProvideSubscription(i *do.Injector) {

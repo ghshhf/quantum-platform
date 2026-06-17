@@ -43,7 +43,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { IconTrash } from "@tabler/icons-react";
-import { type DomainVirtualMachine, GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType, TaskflowVirtualMachineStatus } from "@/api/Api";
+import { type DomainVirtualMachine, GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType, TaskflowVirtualMachineStatus } from "@/api/Api";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -259,7 +259,7 @@ export default function VmsPage() {
                   {vm.life_time_seconds === 0 ? "永不回收" : `${humanTime(vm.life_time_seconds as number)}后回收`}
                 </>}
                 {vm.status === TaskflowVirtualMachineStatus.VirtualMachineStatusOffline && <>
-                  {getLastCondition(vm)?.type === GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeFailed ? (
+                  {getLastCondition(vm)?.type === GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeFailed ? (
                       getVmMessage(vm)
                     ) : (
                       '已离线'

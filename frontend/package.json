@@ -1,9 +1,9 @@
 {
-  "name": "monkeycode-ai",
+  "name": "quantum-platform-ai",
   "private": true,
   "version": "260323.0.5",
-  "description": "MonkeyCode Web 前端",
-  "author": "MonkeyCode",
+  "description": "量子平台 Web 前端",
+  "author": "量子平台",
   "type": "module",
   "scripts": {
     "dev": "vite",

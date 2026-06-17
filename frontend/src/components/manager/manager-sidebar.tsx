@@ -22,9 +22,9 @@ export default function ManagerSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="/">
-                <img src="/logo-light.png" alt="MonkeyCode AI" className="size-8" />
+                <img src="/logo-light.png" alt="量子平台 AI" className="size-8" />
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">MonkeyCode</span>
+                  <span className="truncate font-medium">量子平台</span>
                   <span className="truncate text-xs">智能开发平台</span>
                 </div>
               </a>

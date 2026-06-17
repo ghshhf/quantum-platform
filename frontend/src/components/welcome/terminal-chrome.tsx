@@ -4,11 +4,11 @@ import { IconArrowRight, IconMenu2, IconPointFilled } from "@tabler/icons-react"
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DOCS_LINK = "https://github.com/ghshhf/MonkeyCode#readme";
-const GITHUB_LINK = "https://github.com/ghshhf/MonkeyCode/";
+const DOCS_LINK = "https://github.com/ghshhf/quantum-platform#readme";
+const GITHUB_LINK = "https://github.com/ghshhf/quantum-platform/";
 const FORUM_LINK = "#";
 const MODEL_SQUARE_LINK = "#";
-const SHOWCASE_LINK = "https://showcase.monkeycode-ai.online/";
+const SHOWCASE_LINK = "https://showcase.quantum-platform-ai.online/";
 const CHAITIN_LINK = "#";
 const BAIZHI_LINK = "#";
 
@@ -35,9 +35,9 @@ const communityCards = [
 function LogoWordmark({ href }: { href: string }) {
   return (
     <a href={href} className="inline-flex items-center gap-3">
-      <img src="/logo-dark.png" alt="MonkeyCode" className="size-10" />
+      <img src="/logo-dark.png" alt="量子平台" className="size-10" />
       <span className="text-[17px] font-semibold tracking-[-0.02em] text-white">
-        Monkey<span className="text-[var(--a-accent)]">Code</span>
+        platform<span className="text-[var(--a-accent)]">Code</span>
       </span>
     </a>
   );
@@ -261,7 +261,7 @@ export function TerminalFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-dashed border-[var(--a-line-2)] pt-5 text-[11px] tracking-[0.06em] text-[var(--a-fg-mute)] sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 MonkeyCode · 版权所有：北京长亭科技有限公司 · 本应用由 MonkeyCode 开发</span>
+          <span>© 2026 量子平台 · 版权所有：北京长亭科技有限公司 · 本应用由 量子平台 开发</span>
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" className="transition-colors hover:text-[var(--a-fg)]">
             京ICP备2024055124号-12
           </a>

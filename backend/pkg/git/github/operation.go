@@ -14,7 +14,7 @@ import (
 
 	"github.com/google/go-github/v74/github"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/domain"
 )
 
 // treeCommitInfoPath 为 GitHub 专属的「树+最近提交信息」接口

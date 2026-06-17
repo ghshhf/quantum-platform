@@ -15,10 +15,10 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 // FileHandler VM 内文件管理处理器
@@ -94,7 +94,7 @@ func wraperr(err error, path string) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	query		domain.FilePathReq				false	"参数"
 //	@Success		200		{object}	web.Resp{data=[]taskflow.File}	"成功"
 //	@Router			/api/v1/users/folders [get]
@@ -120,7 +120,7 @@ func (f *FileHandler) ListFolder(c *web.Context, req domain.FilePathReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	body		domain.FilePathReq	false	"参数"
 //	@Success		200		{object}	web.Resp{}			"成功"
 //	@Router			/api/v1/users/folders [post]
@@ -147,7 +147,7 @@ func (f *FileHandler) Mkdir(c *web.Context, req domain.FilePathReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	body		domain.FileChangeReq	false	"参数"
 //	@Success		200		{object}	web.Resp{}				"成功"
 //	@Router			/api/v1/users/files/move [put]
@@ -174,7 +174,7 @@ func (f *FileHandler) Move(c *web.Context, req domain.FileChangeReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	body		domain.FileChangeReq	false	"参数"
 //	@Success		200		{object}	web.Resp{}				"成功"
 //	@Router			/api/v1/users/files/copy [post]
@@ -201,7 +201,7 @@ func (f *FileHandler) Copy(c *web.Context, req domain.FileChangeReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	query		domain.FilePathReq	false	"参数"
 //	@Success		200		{object}	web.Resp{}			"成功"
 //	@Router			/api/v1/users/files [delete]
@@ -227,7 +227,7 @@ func (f *FileHandler) Delete(c *web.Context, req domain.FilePathReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param	body		domain.FileSaveReq	false	"参数"
 //	@Success		200		{object}	web.Resp{}			"成功"
 //	@Router			/api/v1/users/files/save [put]
@@ -254,7 +254,7 @@ func (f *FileHandler) Save(c *web.Context, req domain.FileSaveReq) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			id		query		string		true	"虚拟机 id"
 //	@Param			path	query		string		true	"文件上传的绝对地址"
 //	@Param			file	formData	file		true	"文件"
@@ -384,7 +384,7 @@ func (f *FileHandler) Upload(c *web.Context) error {
 //	@Tags			【用户】文件管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			param		query		domain.FilePathReq	false	"参数"
 //	@Param			filename	query		string				false	"下载文件名"
 //	@Success		200			{object}	web.Resp{}			"成功"

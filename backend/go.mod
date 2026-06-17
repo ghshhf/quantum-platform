@@ -1,4 +1,4 @@
-module github.com/ghshhf/MonkeyCode/backend
+module github.com/ghshhf/quantum-platform/backend
 
 go 1.25.0
 

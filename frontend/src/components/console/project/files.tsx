@@ -483,7 +483,7 @@ export const ProjectFileManager = ({ project, onFileSelect, onLoaded, className 
             ) : (
               <AceEditor
                 mode={languageMode}
-                theme="monkeycode"
+                theme="quantum-platform"
                 width="100%"
                 height="100%"
                 readOnly={true}

@@ -179,13 +179,13 @@ export default function TasksPage() {
     if (reposList.length > 0) {
       return reposList.filter((repo, idx, arr) => arr.indexOf(repo) === idx)
     } else {
-      return ["https://github.com/chaitin/monkeycode-practise"]
+      return ["https://github.com/chaitin/quantum-platform-practise"]
     } 
   }, [tasks])
 
   return (
     <div className="flex flex-col flex-1 items-center">
-      <h1 className="text-4xl pt-30 pb-10">MonkeyCode 智能任务</h1>
+      <h1 className="text-4xl pt-30 pb-10">量子平台 智能任务</h1>
       <div className="max-w-[800px] w-full py-10">
         <TaskInput repos={repos} onTaskCreated={() => { setPage(1); setHasMore(true); fetchTasks(1, false); reloadProjects(); reloadUnlinkedTasks(); }} />
       </div>

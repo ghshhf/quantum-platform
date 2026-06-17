@@ -271,7 +271,7 @@ export default function VmAddDialog({
                   <SelectContent>
                     <SelectItem value={"public_host"}>
                       <div className="flex items-center gap-2">
-                        <span>MonkeyCode</span>
+                        <span>量子平台</span>
                         <Badge variant="outline">平台内置</Badge>
                       </div>
                     </SelectItem>
@@ -305,7 +305,7 @@ export default function VmAddDialog({
             <Field className="col-span-2">
               <FieldLabel>仓库地址</FieldLabel>
               <FieldContent>
-                <Input value={repoUrl} onChange={(e) => setRepoUrl(e.target.value)} placeholder="https://github.com/chaitin/monkeycode" />
+                <Input value={repoUrl} onChange={(e) => setRepoUrl(e.target.value)} placeholder="https://github.com/chaitin/quantum-platform" />
               </FieldContent>
             </Field>
             <Field>

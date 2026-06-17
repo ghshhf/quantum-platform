@@ -86,7 +86,7 @@ export default function AutoReviewDialog({
             </div>
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed">
-            开启后会自动配置对应仓库的 Webhook，当提交新的 Pull Request 或 Merge Request 时，MonkeyCode 会自动启动 Review 任务。
+            开启后会自动配置对应仓库的 Webhook，当提交新的 Pull Request 或 Merge Request 时，量子平台 会自动启动 Review 任务。
           </p>
         </div>
       </DialogContent>

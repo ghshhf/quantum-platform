@@ -8,7 +8,7 @@ import {
   shouldHidePointsActivity,
 } from "./points-activity-visibility"
 
-const ESSAY_ACTIVITY_URL = "https://github.com/ghshhf/MonkeyCode#readme"
+const ESSAY_ACTIVITY_URL = "https://github.com/ghshhf/quantum-platform#readme"
 
 export default function NavEssay() {
   const [hidden, setHidden] = React.useState(() => shouldHidePointsActivity(POINTS_ACTIVITY_STORAGE_KEYS.essay))

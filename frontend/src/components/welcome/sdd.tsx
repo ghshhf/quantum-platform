@@ -6,7 +6,7 @@ const modules = [
     code: "MOD-01",
     title: "在线 AI 编程平台",
     description:
-      "MonkeyCode 的核心不是一个聊天框，也不是本地插件，而是一个支持不限额度免费使用、可以直接创建任务并持续推进的在线 AI 编程入口。",
+      "量子平台 的核心不是一个聊天框，也不是本地插件，而是一个支持不限额度免费使用、可以直接创建任务并持续推进的在线 AI 编程入口。",
   },
   {
     icon: IconCloudCode,
@@ -33,7 +33,7 @@ const SDD = () => {
             CORE VALUE
           </div>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-            三个关键词，概括 MonkeyCode 最值得宣传的点
+            三个关键词，概括 量子平台 最值得宣传的点
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
             首页不需要堆太多概念。把“它是什么”“为什么容易开始”“为什么值得信任”讲清楚，转化会比空泛口号更有效。

@@ -4,8 +4,8 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
 )
 
 // TeamImageHandler 团队镜像处理器
@@ -40,7 +40,7 @@ func NewTeamImageHandler(i *do.Injector) (*TeamImageHandler, error) {
 //	@Tags			【Team 管理员】镜像管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Success		200	{object}	web.Resp{data=domain.ListTeamImagesResp}	"成功"
 //	@Failure		401	{object}	web.Resp									"未授权"
 //	@Failure		500	{object}	web.Resp									"服务器内部错误"
@@ -61,7 +61,7 @@ func (h *TeamImageHandler) List(c *web.Context) error {
 //	@Tags			【Team 管理员】镜像管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Param			req	body		domain.AddTeamImageReq			true	"请求参数"
 //	@Success		200	{object}	web.Resp{data=domain.TeamImage}	"成功"
 //	@Failure		401	{object}	web.Resp						"未授权"
@@ -83,7 +83,7 @@ func (h *TeamImageHandler) Add(c *web.Context, req domain.AddTeamImageReq) error
 //	@Tags			【Team 管理员】镜像管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Param			image_id	path		string							true	"镜像ID"
 //	@Param			req			body		domain.UpdateTeamImageReq		true	"请求参数"
 //	@Success		200			{object}	web.Resp{data=domain.TeamImage}	"成功"
@@ -106,7 +106,7 @@ func (h *TeamImageHandler) Update(c *web.Context, req domain.UpdateTeamImageReq)
 //	@Tags			【Team 管理员】镜像管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAITeamAuth
+//	@Security		QuantumPlatformAITeamAuth
 //	@Param			image_id	path		string		true	"镜像ID"
 //	@Success		200			{object}	web.Resp{}	"成功"
 //	@Failure		401			{object}	web.Resp	"未授权"

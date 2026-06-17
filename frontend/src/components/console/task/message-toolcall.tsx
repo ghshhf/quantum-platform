@@ -26,11 +26,11 @@ type ToolCallRenderer = {
 }
 
 const imageAnalysisCreateTaskTitles = new Set([
-  "monkeycode-ai_MonkeyCode__image_analysis_create_task",
+  "quantum-platform-ai_量子平台__image_analysis_create_task",
 ])
 
 const imageAnalysisGetResultTitles = new Set([
-  "monkeycode-ai_MonkeyCode__image_analysis_get_result",
+  "quantum-platform-ai_量子平台__image_analysis_get_result",
 ])
 
 const getPatchUpdatedFileLabel = (message: MessageType) => {
@@ -75,7 +75,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_internal__report_user_abuse"
+      && message.data.title === "quantum-platform-ai_internal__report_user_abuse"
     ),
     renderTitle: internalReportUserAbuseRender.renderTitle,
     renderDetail: internalReportUserAbuseRender.renderDetail,
@@ -157,7 +157,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_MonkeyCode__websearch_aisearch"
+      && message.data.title === "quantum-platform-ai_量子平台__websearch_aisearch"
     ),
     renderTitle: internalWebsearchRender.renderTitle,
     renderDetail: internalWebsearchRender.renderDetail,
@@ -165,7 +165,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_MonkeyCode__websearch_search"
+      && message.data.title === "quantum-platform-ai_量子平台__websearch_search"
     ),
     renderTitle: internalWebsearchRender.renderTitle,
     renderDetail: internalWebsearchRender.renderDetail,
@@ -173,7 +173,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_MonkeyCode__imgsearch_search"
+      && message.data.title === "quantum-platform-ai_量子平台__imgsearch_search"
     ),
     renderTitle: internalImgsearchRender.renderTitle,
     renderDetail: internalImgsearchRender.renderDetail,
@@ -181,7 +181,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_MonkeyCode__image_generate_text_to_image"
+      && message.data.title === "quantum-platform-ai_量子平台__image_generate_text_to_image"
     ),
     renderTitle: (message) => {
       const prompt = message.data.rawInput?.prompt ?? message.data.rawInput?.query ?? message.data.rawInput?.description
@@ -195,7 +195,7 @@ const toolCallRenderers: ToolCallRenderer[] = [
   {
     match: (message) => (
       message.data.kind === "other"
-      && message.data.title === "monkeycode-ai_MonkeyCode__image_generate_query_task"
+      && message.data.title === "quantum-platform-ai_量子平台__image_generate_query_task"
     ),
     renderTitle: () => "查询图片生成进度",
     renderDetail: fallbackRender.renderDetail,

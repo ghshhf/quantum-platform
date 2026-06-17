@@ -13,9 +13,9 @@ import (
 
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/templates"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/templates"
 )
 
 type EmailClient struct {
@@ -77,7 +77,7 @@ func (s *Smtp) Send(subject, receiver, content string) error {
 	defer c.Close()
 
 	header := make(map[string]string)
-	header["From"] = "MonkeyCode-AI" + "<" + s.cfg.SMTP.From + ">"
+	header["From"] = "Quantum-Platform-AI" + "<" + s.cfg.SMTP.From + ">"
 	header["To"] = receiver
 	header["Subject"] = subject
 	header["Content-Type"] = "text/html; charset=UTF-8"

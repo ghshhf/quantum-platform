@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# MonkeyCode - 一键本地部署脚本
+# 量子平台 - 一键本地部署脚本
 # -----------------------------------------------------------------------------
 # 兼容：Linux x86_64 / aarch64、macOS (Intel / Apple Silicon)
 # 用法：bash install.sh [--dir /path] [--no-ollama] [--yes]
@@ -28,7 +28,7 @@ die()       { log_error "$*"; exit 1; }
 # 1. 打印 Banner
 # -----------------------------------------------------------------------------
 printf "${BOLD}%s${NC}\n" "======================================================"
-printf "${BOLD}%s${NC}\n" "   🦍  MonkeyCode 本地一键部署脚本  "
+printf "${BOLD}%s${NC}\n" "   🦍  量子平台 本地一键部署脚本  "
 printf "${BOLD}%s${NC}\n" "   一条命令，在本机拉一套完整 AI 开发平台  "
 printf "${BOLD}%s${NC}\n" "======================================================"
 echo
@@ -36,7 +36,7 @@ echo
 # -----------------------------------------------------------------------------
 # 2. 解析参数
 # -----------------------------------------------------------------------------
-INSTALL_DIR="$HOME/.monkeycode"
+INSTALL_DIR="$HOME/.quantum-platform"
 NO_OLLAMA=0
 AUTO_YES=0
 
@@ -59,7 +59,7 @@ while [ $# -gt 0 ]; do
       cat <<'HELP'
 用法: bash install.sh [选项]
 
-  --dir <path>    自定义安装目录 (默认 ~/.monkeycode)
+  --dir <path>    自定义安装目录 (默认 ~/.quantum-platform)
   --no-ollama     不启动本地 Ollama 服务
   --yes, -y       跳过所有交互，使用默认值
   --help, -h      显示本帮助
@@ -67,7 +67,7 @@ while [ $# -gt 0 ]; do
 示例:
   bash install.sh                            # 默认安装 + 交互
   bash install.sh --no-ollama                # 不启动 Ollama
-  bash install.sh --dir /opt/monkeycode --yes  # 指定目录 + 全自动
+  bash install.sh --dir /opt/quantum-platform --yes  # 指定目录 + 全自动
 HELP
       exit 0
       ;;
@@ -172,7 +172,7 @@ log_ok "数据目录: $INSTALL_DIR/data"
 # -----------------------------------------------------------------------------
 log_info ">>> 拉取部署模板（docker-compose.local.yml / .env.local）"
 
-GITHUB_RAW_BASE="https://raw.githubusercontent.com/ghshhf/MonkeyCode/main/backend"
+GITHUB_RAW_BASE="https://raw.githubusercontent.com/ghshhf/quantum-platform/main/backend"
 COMPOSE_LOCAL_FILE="$INSTALL_DIR/docker-compose.local.yml"
 ENV_LOCAL_FILE="$INSTALL_DIR/.env.local"
 
@@ -323,7 +323,7 @@ log_info ">>> 生成 $INSTALL_DIR/.env.local"
 
 cat > "$ENV_LOCAL_FILE" <<ENV_EOF
 # =====================================================================
-# MonkeyCode 本地局域网部署 - 环境变量
+# 量子平台 本地局域网部署 - 环境变量
 # 由 install.sh 在 $(date '+%Y-%m-%d %H:%M:%S') 自动生成
 # =====================================================================
 
@@ -331,8 +331,8 @@ cat > "$ENV_LOCAL_FILE" <<ENV_EOF
 INSTALL_DIR=$INSTALL_DIR
 
 # ---- PostgreSQL 配置 ----
-POSTGRES_DB=monkeycode
-POSTGRES_USER=monkeycode
+POSTGRES_DB=quantum-platform
+POSTGRES_USER=quantum-platform
 POSTGRES_PASSWORD=$POSTGRES_PASSWORD
 
 # ---- Redis 配置 ----
@@ -342,8 +342,8 @@ REDIS_PASSWORD=$REDIS_PASSWORD
 LOCAL_IP=$LOCAL_IP
 
 # ---- 镜像 ----
-BACKEND_IMAGE=ghcr.io/ghshhf/monkeycode/backend:latest
-FRONTEND_IMAGE=ghcr.io/ghshhf/monkeycode/frontend:latest
+BACKEND_IMAGE=ghcr.io/ghshhf/quantum-platform/backend:latest
+FRONTEND_IMAGE=ghcr.io/ghshhf/quantum-platform/frontend:latest
 
 # ---- 初始团队账号（backend 首次启动时自动创建）----
 MCAI_INIT_TEAM_EMAIL=$INIT_EMAIL
@@ -359,7 +359,7 @@ log_ok ".env.local 已写入"
 # 同时把账号 / 密码保存一份为可读文本，便于用户事后查找
 CREDS_FILE="$INSTALL_DIR/.credentials.txt"
 cat > "$CREDS_FILE" <<CREDS_EOF
-MonkeyCode 本地部署 - 首次访问信息
+量子平台 本地部署 - 首次访问信息
 生成时间: $(date '+%Y-%m-%d %H:%M:%S')
 
 Web 地址 : http://$LOCAL_IP:8080
@@ -458,7 +458,7 @@ SUN_L="🌻  🌻  🌻"
 
 echo
 printf "${GREEN}${BOLD}%s${NC}\n" "$BOX_L"
-printf "${GREEN}${BOLD}%s${NC}\n" "  部署完成！ 🎉  MonkeyCode 正在你的机器上运行。"
+printf "${GREEN}${BOLD}%s${NC}\n" "  部署完成！ 🎉  量子平台 正在你的机器上运行。"
 printf "${GREEN}${BOLD}%s${NC}\n" "$BOX_L"
 echo
 
@@ -480,7 +480,7 @@ printf "    ① 进入「设置 - 模型」，配置大模型 API Key\n"
 printf "         （GLM / Kimi / MiniMax / Qwen / DeepSeek / OpenAI 兼容）\n"
 if [ "$NO_OLLAMA" -ne 1 ]; then
   printf "    ② 在宿主机执行下方命令下载本地大模型：\n"
-  printf "         ${BOLD}docker exec -it monkeycode-local-ollama ollama pull qwen2.5:7b${NC}\n"
+  printf "         ${BOLD}docker exec -it quantum-platform-local-ollama ollama pull qwen2.5:7b${NC}\n"
 fi
 printf "    ③ 为企业内网伙伴分享：http://%s:8080\n" "$LOCAL_IP"
 printf "    ④ 如需启用 P2P 组网 / 外网访问，参考 README 的高级部署章节\n"

@@ -97,7 +97,7 @@ function UserConsoleContent() {
                       href="/console"
                       className="whitespace-nowrap"
                     >
-                      MonkeyCode AI
+                      量子平台 AI
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   {breadcrumbSegments.map((segment, index) => {

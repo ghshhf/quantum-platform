@@ -114,7 +114,7 @@ export function EditGitBotDialog({ open, onOpenChange, bot, onSuccess }: EditGit
               <SelectContent>
                 <SelectItem value={"public_host"}>
                   <div className="flex items-center gap-2">
-                    <span>MonkeyCode</span>
+                    <span>量子平台</span>
                     <Badge variant="outline">平台内置</Badge>
                   </div>
                 </SelectItem>

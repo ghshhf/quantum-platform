@@ -7,9 +7,9 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/errcode"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/errcode"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
 )
 
 // ModelHandler 模型配置处理器
@@ -54,7 +54,7 @@ func NewModelHandler(i *do.Injector) (*ModelHandler, error) {
 //	@Accept			json
 //	@Produce		json
 //	@Param			page	query	domain.CursorReq	true	"创建模型配置请求"
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Success		200	{object}	web.Resp{data=domain.ListModelResp}	"成功"
 //	@Failure		401	{object}	web.Resp							"未授权"
 //	@Failure		500	{object}	web.Resp							"服务器内部错误"
@@ -79,7 +79,7 @@ func (h *ModelHandler) List(c *web.Context, req domain.CursorReq) error {
 //	@Tags			【用户】模型管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			req	body		domain.CreateModelReq		true	"创建模型配置请求"
 //	@Success		200	{object}	web.Resp{data=domain.Model}	"成功"
 //	@Failure		400	{object}	web.Resp					"请求参数错误"
@@ -103,7 +103,7 @@ func (h *ModelHandler) Create(c *web.Context, req domain.CreateModelReq) error {
 //	@Tags			【用户】模型管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			id	path		string		true	"模型配置ID"
 //	@Success		200	{object}	web.Resp{}	"成功"
 //	@Failure		400	{object}	web.Resp	"请求参数错误"
@@ -127,7 +127,7 @@ func (h *ModelHandler) Delete(c *web.Context, req domain.DeleteModelConfigReq) e
 //	@Tags			【用户】模型管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			id		path		string					true	"模型配置ID"
 //	@Param			request	body		domain.UpdateModelReq	true	"更新模型配置请求"
 //	@Success		200		{object}	web.Resp{}				"成功"
@@ -175,7 +175,7 @@ func (h *ModelHandler) GetProviderModelList(c *web.Context, req domain.GetProvid
 //	@Tags			【用户】模型管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			id	path		string									true	"模型配置ID"
 //	@Success		200	{object}	web.Resp{data=domain.CheckModelResp}	"成功"
 //	@Failure		400	{object}	web.Resp								"请求参数错误"
@@ -203,7 +203,7 @@ func (h *ModelHandler) CheckByID(c *web.Context, req domain.CheckModelReq) error
 //	@Tags			【用户】模型管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		QuantumPlatformAIAuth
 //	@Param			req	body		domain.CheckByConfigReq					true	"检查模型配置请求"
 //	@Success		200	{object}	web.Resp{data=domain.CheckModelResp}	"成功"
 //	@Failure		400	{object}	web.Resp								"请求参数错误"

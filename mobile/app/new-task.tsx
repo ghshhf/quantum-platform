@@ -10,7 +10,7 @@ import { ConcurrentLimitModal } from '@/components/ConcurrentLimitModal';
 import { Icons, providerIconForUrl } from '@/components/Icons';
 import { MicButton } from '@/components/MicButton';
 import { ModelSheet, RepoUrlSheet } from '@/components/sheets';
-import { Card, IconButton, MonkeyLogo, PickerSheet, PrimaryButton, type PickerOption } from '@/components/ui';
+import { Card, IconButton, PlatformLogo, PickerSheet, PrimaryButton, type PickerOption } from '@/components/ui';
 import { useSpeechToText } from '@/speech/useSpeechToText';
 import { DEFAULT_SKILL_IDS, modelLabel, pickDefaultImage, pickDefaultModel, TASK_DEFAULTS } from '@/config';
 import { spacing, useTheme, type Theme } from '@/theme';
@@ -169,7 +169,7 @@ export default function NewTaskScreen() {
         <ScrollView contentContainerStyle={{ paddingHorizontal: spacing.pad, paddingTop: 14, paddingBottom: insets.bottom + 100 }} keyboardShouldPersistTaps="handled">
           {/* headline */}
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-            <MonkeyLogo size={40} />
+            <PlatformLogo size={40} />
             <Text style={{ fontSize: 18, fontWeight: '800', letterSpacing: -0.3, color: t.tx }}>你想让我做什么呢？</Text>
           </View>
 

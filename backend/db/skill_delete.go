@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
-	"github.com/ghshhf/MonkeyCode/backend/db/skill"
+	"github.com/ghshhf/quantum-platform/backend/db/predicate"
+	"github.com/ghshhf/quantum-platform/backend/db/skill"
 )
 
 // SkillDelete is the builder for deleting a Skill entity.

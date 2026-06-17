@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/request"
 )
 
 // giteeAuthOpts 根据 isOAuth 返回认证相关的请求选项和 query 参数

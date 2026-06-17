@@ -14,8 +14,8 @@ import (
 	"github.com/GoYoko/web"
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	taskflowpkg "github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	taskflowpkg "github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 type taskLogStoreRepoStub struct {

@@ -57,7 +57,7 @@ export default function Terminal({
   onUserNameChanged = null,
   onConnectionStatusChanged = null,
 }: TerminalProps) {
-  // 验证 theme 是否为合法值，如果不是则从 localStorage 读取，再不行就设置为 MonkeyCode
+  // 验证 theme 是否为合法值，如果不是则从 localStorage 读取，再不行就设置为 量子平台
   const validTheme = React.useMemo(() => {
     // 如果传入的 theme 是合法值，直接使用
     if (theme && theme in themes) {
@@ -69,7 +69,7 @@ export default function Terminal({
       return savedTheme;
     }
     // 最后使用默认值
-    return 'MonkeyCode';
+    return '量子平台';
   }, [theme]);
 
   const terminalDiv = React.useRef(null);

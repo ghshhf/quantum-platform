@@ -165,11 +165,11 @@ import (
 	"github.com/GoYoko/web"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/middleware"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/ws"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/middleware"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/pkg/ws"
 )
 
 // Control 控制 WebSocket 接口
@@ -184,7 +184,7 @@ import (
 //	@Tags			【用户】任务管理
 //	@Accept			json
 //	@Produce		json
-//	@Security		MonkeyCodeAIAuth
+//	@Security		量子平台AIAuth
 //	@Param			taskId	query		string		true	"任务 ID"
 //	@Success		200		{object}	web.Resp{}	"成功"
 //	@Failure		500		{object}	web.Resp	"服务器内部错误"

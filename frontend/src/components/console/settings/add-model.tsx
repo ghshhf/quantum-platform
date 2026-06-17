@@ -344,7 +344,7 @@ export default function AddModel({
                 asChild
                 className="h-auto p-0 text-foreground"
               >
-                <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">
+                <a href="https://github.com/ghshhf/quantum-platform#readme" target="_blank">
                   <CircleQuestionMark />如何获得
                 </a>
               </Button>

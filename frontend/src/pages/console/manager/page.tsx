@@ -88,7 +88,7 @@ export default function ManagerConsolePage() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    MonkeyCode AI
+                    量子平台 AI
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 {breadcrumbSegments.map((segment, index) => {

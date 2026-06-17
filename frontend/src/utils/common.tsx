@@ -4,7 +4,7 @@ import Icon from "@/components/common/Icon"
 import { IconAssembly, IconBrandChrome, IconBrandPython, IconBug, IconDeviceGamepad2, IconFileText, IconHelpHexagon, IconPalette, IconPuzzle, IconShieldChevron, IconTerminal2, IconTestPipe } from "@tabler/icons-react"
 import Cap from "@cap.js/widget"
 import { HoverCardContent } from "@/components/ui/hover-card"
-import { ConstsGitPlatform, ConstsHostStatus, ConstsInterfaceType, ConstsModelProvider, ConstsOwnerType, ConstsProjectIssueStatus, GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType, TaskflowVirtualMachineStatus, type DomainGitIdentity, type DomainHost, type DomainImage, type DomainModel, type DomainOwner, type DomainProjectTask, type DomainProviderModelListItem, type DomainSubscriptionResp, type DomainUser, type DomainVirtualMachine, type GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition } from "@/api/Api"
+import { ConstsGitPlatform, ConstsHostStatus, ConstsInterfaceType, ConstsModelProvider, ConstsOwnerType, ConstsProjectIssueStatus, GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType, TaskflowVirtualMachineStatus, type DomainGitIdentity, type DomainHost, type DomainImage, type DomainModel, type DomainOwner, type DomainProjectTask, type DomainProviderModelListItem, type DomainSubscriptionResp, type DomainUser, type DomainVirtualMachine, type GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesCondition } from "@/api/Api"
 import { apiRequest } from "./requestUtils"
 import { githubAppName, githubAppDevName } from "./config"
 import { remark } from "remark"
@@ -142,15 +142,15 @@ export function getModelDisplayName(modelName?: string | null): string {
   }
 
   const builtinModelName = getBuiltinModelName(modelName);
-  if (builtinModelName === 'monkeycode-basic') {
+  if (builtinModelName === 'quantum-platform-basic') {
     return '基础模型';
   }
 
-  if (builtinModelName === 'monkeycode-pro') {
+  if (builtinModelName === 'quantum-platform-pro') {
     return '专业模型';
   }
 
-  if (builtinModelName === 'monkeycode-ultra') {
+  if (builtinModelName === 'quantum-platform-ultra') {
     return '旗舰模型';
   }
 
@@ -158,7 +158,7 @@ export function getModelDisplayName(modelName?: string | null): string {
 }
 
 export function stripBuiltinPublicModelPackagePrefix(modelName?: string | null): string {
-  return modelName?.trim().replace(/^monkeycode-[^/]+\//, '') || '';
+  return modelName?.trim().replace(/^quantum-platform-[^/]+\//, '') || '';
 }
 
 export function getModelDisplayNameForModel(model?: Pick<DomainModel, 'model' | 'remark'> | null): string {
@@ -170,22 +170,22 @@ export function getModelDisplayNameForModel(model?: Pick<DomainModel, 'model' | 
   return getModelDisplayName(model?.model);
 }
 
-export function getBuiltinModelName(modelName?: string | null): "monkeycode-basic" | "monkeycode-pro" | "monkeycode-ultra" | undefined {
+export function getBuiltinModelName(modelName?: string | null): "quantum-platform-basic" | "quantum-platform-pro" | "quantum-platform-ultra" | undefined {
   const normalizedModelName = modelName?.trim().toLowerCase();
   if (!normalizedModelName) {
     return undefined;
   }
 
-  if (normalizedModelName.startsWith('monkeycode-basic')) {
-    return 'monkeycode-basic';
+  if (normalizedModelName.startsWith('quantum-platform-basic')) {
+    return 'quantum-platform-basic';
   }
 
-  if (normalizedModelName.startsWith('monkeycode-pro')) {
-    return 'monkeycode-pro';
+  if (normalizedModelName.startsWith('quantum-platform-pro')) {
+    return 'quantum-platform-pro';
   }
 
-  if (normalizedModelName.startsWith('monkeycode-ultra')) {
-    return 'monkeycode-ultra';
+  if (normalizedModelName.startsWith('quantum-platform-ultra')) {
+    return 'quantum-platform-ultra';
   }
 
   return undefined;
@@ -220,7 +220,7 @@ export const modelPricingList: readonly ModelPricingItem[] = [
   { model: "qwen3.6-plus", credits: 300, score: 751, tags: ["长上下文"] },
 ]
 
-export const TASK_PROMPT_PLACEHOLDER = "你想让 MonkeyCode 做什么？例如：开发一个小游戏、实现一个新功能、做数据分析、做技术调研、写毕业论文等等。。。"
+export const TASK_PROMPT_PLACEHOLDER = "你想让 量子平台 做什么？例如：开发一个小游戏、实现一个新功能、做数据分析、做技术调研、写毕业论文等等。。。"
 
 export function getModelPricingItem(modelName?: string): ModelPricingItem | undefined {
   if (!modelName) {
@@ -563,11 +563,11 @@ export function canUseModelBySubscription(model?: DomainModel, subscription?: Do
   }
 
   const builtinModelName = getBuiltinModelName(model.model)
-  if (builtinModelName === "monkeycode-pro") {
+  if (builtinModelName === "quantum-platform-pro") {
     return subscription?.plan === "pro" || subscription?.plan === "flagship" || subscription?.plan === "ultra"
   }
 
-  if (builtinModelName === "monkeycode-ultra") {
+  if (builtinModelName === "quantum-platform-ultra") {
     return subscription?.plan === "flagship" || subscription?.plan === "ultra"
   }
 
@@ -624,7 +624,7 @@ export function getHostBadges(host?: DomainHost): React.ReactNode {
   </>
 }
 
-export function getLastCondition(vm: DomainVirtualMachine | undefined): GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition | undefined {
+export function getLastCondition(vm: DomainVirtualMachine | undefined): GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesCondition | undefined {
   if (!vm) {
     return undefined
   }
@@ -642,28 +642,28 @@ export function getVmMessage(vm: DomainVirtualMachine | undefined): string {
   return lastCondition?.message || ''
 }
 
-export function getConditionTypeText(conditions: GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesCondition[] | undefined): string {
+export function getConditionTypeText(conditions: GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesCondition[] | undefined): string {
   if (!conditions) {
     return '未知状态'
   }
 
   const lastCondition = conditions?.[conditions.length - 1]
   switch (lastCondition?.type) {
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeScheduled:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeScheduled:
       return '正在初始化'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeImagePulled:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeImagePulled:
       return '正在拉取系统镜像'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeProjectCloned:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeProjectCloned:
       return '正在克隆代码仓库'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeImageBuilt:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeImageBuilt:
       return '正在构建系统镜像'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeContainerCreated:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeContainerCreated:
       return '正在创建开发环境'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeContainerStarted:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeContainerStarted:
       return '正在启动开发环境'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeReady:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeReady:
       return '开发环境已准备好'
-    case GitInChaitinNetAiMonkeycodeMonkeycodeAiEntTypesConditionType.ConditionTypeFailed:
+    case GitInChaitinNetAiQuantumPlatformQuantumPlatformAiEntTypesConditionType.ConditionTypeFailed:
       return '无法创建开发环境'
     default:
       return '未知状态'
@@ -813,10 +813,10 @@ export function getFileExtension(filename: string): string {
 
 export function selectPreferredTaskModel(models: DomainModel[], subscription?: DomainSubscriptionResp | null): string {
   const planPreferredModel = subscription?.plan === "pro"
-    ? "monkeycode-pro"
+    ? "quantum-platform-pro"
     : subscription?.plan === "flagship" || subscription?.plan === "ultra"
-      ? "monkeycode-ultra"
-      : "monkeycode-basic"
+      ? "quantum-platform-ultra"
+      : "quantum-platform-basic"
   const planModel = models
     .filter((model) => (
       model.id

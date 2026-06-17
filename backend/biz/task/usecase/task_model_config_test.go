@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 func TestOpencodeNpmPackage(t *testing.T) {
@@ -171,7 +171,7 @@ func TestGetCodingConfigsOpenCodeRendersUltraForceReasoning(t *testing.T) {
 	uc := &TaskUsecase{}
 	model := &db.Model{
 		BaseURL:         "https://example.com/v1",
-		Model:           "monkeycode-ultra-preview",
+		Model:           "quantum-platform-ultra-preview",
 		APIKey:          "sk-test",
 		InterfaceType:   string(consts.InterfaceTypeOpenAIResponse),
 		ThinkingEnabled: true,
@@ -184,7 +184,7 @@ func TestGetCodingConfigsOpenCodeRendersUltraForceReasoning(t *testing.T) {
 
 	config := opencodeConfig(t, cfs)
 	provider := opencodeProvider(t, config)
-	renderedModel := opencodeModel(t, provider, "monkeycode-ultra-preview")
+	renderedModel := opencodeModel(t, provider, "quantum-platform-ultra-preview")
 	if compat, ok := renderedModel["compat"]; ok {
 		t.Fatalf("compat = %v, want absent", compat)
 	}
@@ -301,9 +301,9 @@ func opencodeProvider(t *testing.T, config map[string]any) map[string]any {
 	if !ok {
 		t.Fatalf("provider = %v, want object", config["provider"])
 	}
-	provider, ok := providers["monkeycode-ai"].(map[string]any)
+	provider, ok := providers["quantum-platform-ai"].(map[string]any)
 	if !ok {
-		t.Fatalf("provider monkeycode-ai = %v, want object", providers["monkeycode-ai"])
+		t.Fatalf("provider quantum-platform-ai = %v, want object", providers["quantum-platform-ai"])
 	}
 	return provider
 }

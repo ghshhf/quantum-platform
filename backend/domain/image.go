@@ -5,8 +5,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
 )
 
 // ImageUsecase 镜像配置业务逻辑接口
@@ -71,7 +71,7 @@ func (i *Image) From(src *db.Image) *Image {
 		i.Owner = &Owner{
 			ID:   src.Edges.User.ID.String(),
 			Type: consts.OwnerTypePublic,
-			Name: consts.MonkeyCodeAITeamName,
+			Name: consts.QuantumPlatformAITeamName,
 		}
 		return i
 	}

@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/ghshhf/MonkeyCode/backend/db/predicate"
-	"github.com/ghshhf/MonkeyCode/backend/db/projectissue"
+	"github.com/ghshhf/quantum-platform/backend/db/predicate"
+	"github.com/ghshhf/quantum-platform/backend/db/projectissue"
 )
 
 // ProjectIssueDelete is the builder for deleting a ProjectIssue entity.

@@ -76,6 +76,6 @@ jobs:
           context: frontend/docker
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/monkeycode-frontend:${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/monkeycode-frontend:latest
+            ghcr.io/${{ github.repository_owner }}/quantum-platform-frontend:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/quantum-platform-frontend:latest
           platforms: linux/amd64

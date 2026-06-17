@@ -3,19 +3,19 @@ import type { Image, Model, Skill } from '@/api/types';
 
 /** 默认技能 ID（与 Web 端 src/utils/config.tsx 一致），始终勾选、不可取消。 */
 export const DEFAULT_SKILL_IDS = [
-  'MonkeyCodeOfficialPlugins/main/skills/feature-design',
-  'MonkeyCodeOfficialPlugins/main/skills/project-wiki',
-  'MonkeyCodeOfficialPlugins/main/skills/feature-implementer',
-  'MonkeyCodeOfficialPlugins/main/skills/implementation-planner',
+  '量子平台OfficialPlugins/main/skills/feature-design',
+  '量子平台OfficialPlugins/main/skills/project-wiki',
+  '量子平台OfficialPlugins/main/skills/feature-implementer',
+  '量子平台OfficialPlugins/main/skills/implementation-planner',
 ];
 
-const BUILTIN_META = new Set(['monkeycode-basic', 'monkeycode-pro', 'monkeycode-ultra']);
+const BUILTIN_META = new Set(['quantum-platform-basic', 'quantum-platform-pro', 'quantum-platform-ultra']);
 
-function builtinName(model?: string): 'monkeycode-basic' | 'monkeycode-pro' | 'monkeycode-ultra' | undefined {
+function builtinName(model?: string): 'quantum-platform-basic' | 'quantum-platform-pro' | 'quantum-platform-ultra' | undefined {
   const n = (model || '').toLowerCase();
-  if (n.startsWith('monkeycode-basic')) return 'monkeycode-basic';
-  if (n.startsWith('monkeycode-pro')) return 'monkeycode-pro';
-  if (n.startsWith('monkeycode-ultra')) return 'monkeycode-ultra';
+  if (n.startsWith('quantum-platform-basic')) return 'quantum-platform-basic';
+  if (n.startsWith('quantum-platform-pro')) return 'quantum-platform-pro';
+  if (n.startsWith('quantum-platform-ultra')) return 'quantum-platform-ultra';
   return undefined;
 }
 
@@ -25,9 +25,9 @@ function builtinName(model?: string): 'monkeycode-basic' | 'monkeycode-pro' | 'm
  */
 export function translateBuiltinNames(text: string): string {
   return text
-    .replace(/monkeycode-ultra/gi, '旗舰模型')
-    .replace(/monkeycode-pro/gi, '专业模型')
-    .replace(/monkeycode-basic/gi, '基础模型')
+    .replace(/quantum-platform-ultra/gi, '旗舰模型')
+    .replace(/quantum-platform-pro/gi, '专业模型')
+    .replace(/quantum-platform-basic/gi, '基础模型')
     .replace(/\s*\/\s*/g, ' / ');
 }
 
@@ -43,16 +43,16 @@ export function modelLabel(model?: { model?: string; remark?: string } | null): 
   if (remark) return translateBuiltinNames(remark);
   // 无备注则按内置名翻译为「基础/专业/旗舰模型」
   const name = (model.model || '').toLowerCase();
-  if (name.startsWith('monkeycode-basic')) {
-    const nested = (model.model || '').slice('monkeycode-basic'.length).replace(/^\/+/, '');
+  if (name.startsWith('quantum-platform-basic')) {
+    const nested = (model.model || '').slice('quantum-platform-basic'.length).replace(/^\/+/, '');
     return nested ? `基础模型 / ${nested}` : '基础模型';
   }
-  if (name.startsWith('monkeycode-pro')) {
-    const nested = (model.model || '').slice('monkeycode-pro'.length).replace(/^\/+/, '');
+  if (name.startsWith('quantum-platform-pro')) {
+    const nested = (model.model || '').slice('quantum-platform-pro'.length).replace(/^\/+/, '');
     return nested ? `专业模型 / ${nested}` : '专业模型';
   }
-  if (name.startsWith('monkeycode-ultra')) {
-    const nested = (model.model || '').slice('monkeycode-ultra'.length).replace(/^\/+/, '');
+  if (name.startsWith('quantum-platform-ultra')) {
+    const nested = (model.model || '').slice('quantum-platform-ultra'.length).replace(/^\/+/, '');
     return nested ? `旗舰模型 / ${nested}` : '旗舰模型';
   }
   return translateBuiltinNames(model.model || '');
@@ -65,8 +65,8 @@ export function usableModels(models: Model[]): Model[] {
 
 /** 会员等级能否使用该内置档（基础/专业/旗舰）。 */
 function planAllowsBuiltin(builtin: ReturnType<typeof builtinName>, plan?: string): boolean {
-  if (builtin === 'monkeycode-pro') return plan === 'pro' || plan === 'flagship' || plan === 'ultra';
-  if (builtin === 'monkeycode-ultra') return plan === 'flagship' || plan === 'ultra';
+  if (builtin === 'quantum-platform-pro') return plan === 'pro' || plan === 'flagship' || plan === 'ultra';
+  if (builtin === 'quantum-platform-ultra') return plan === 'flagship' || plan === 'ultra';
   return true;
 }
 
@@ -89,10 +89,10 @@ const byWeightThenName = (a: Model, b: Model) => {
  */
 export function pickDefaultModel(models: Model[], plan?: string): string {
   const planBuiltin = plan === 'pro'
-    ? 'monkeycode-pro'
+    ? 'quantum-platform-pro'
     : plan === 'flagship' || plan === 'ultra'
-      ? 'monkeycode-ultra'
-      : 'monkeycode-basic';
+      ? 'quantum-platform-ultra'
+      : 'quantum-platform-basic';
 
   const planModel = models
     .filter((m) => m.id && builtinName(m.model) === planBuiltin && planAllowsModel(m, plan))
@@ -134,9 +134,9 @@ export interface ModelGroup {
 export function groupModels(models: Model[], plan?: string): ModelGroup[] {
   const supported = models.filter((m) => m.id && m.model && !m.is_hidden);
   const builtin: ModelGroup[] = ([
-    { key: 'monkeycode-basic', label: '基础模型', badge: '免费使用' },
-    { key: 'monkeycode-pro', label: '专业模型', badge: '专业会员免费' },
-    { key: 'monkeycode-ultra', label: '旗舰模型', badge: '旗舰会员免费' },
+    { key: 'quantum-platform-basic', label: '基础模型', badge: '免费使用' },
+    { key: 'quantum-platform-pro', label: '专业模型', badge: '专业会员免费' },
+    { key: 'quantum-platform-ultra', label: '旗舰模型', badge: '旗舰会员免费' },
   ] as const)
     .filter((o) => Platform.OS !== 'ios' || planAllowsBuiltin(o.key, plan))
     .map((o) => ({ ...o, models: supported.filter((m) => builtinName(m.model) === o.key) }));

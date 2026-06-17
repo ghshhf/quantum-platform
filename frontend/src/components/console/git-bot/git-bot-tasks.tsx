@@ -120,7 +120,7 @@ export const GitBotTasks = forwardRef<GitBotTasksRef>(function GitBotTasks(_, re
                 刷新
               </Button>
               <Button variant="default" asChild>
-                <a href="https://github.com/ghshhf/MonkeyCode#readme" target="_blank">
+                <a href="https://github.com/ghshhf/quantum-platform#readme" target="_blank">
                   <BookOpenIcon />
                   如何使用？
                 </a>

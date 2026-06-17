@@ -682,7 +682,7 @@ export const TaskChatInputBox = ({ taskId, streamStatus, availableCommands, onSe
                             <div className="font-bold text-xs">发布 Web 应用</div>
                           </div>
                           <div className="max-w-full truncate pl-6 text-xs text-muted-foreground">
-                            将你制作的 Web 应用发布到可公开访问的 MonkeyCode 用户作品集。
+                            将你制作的 Web 应用发布到可公开访问的 量子平台 用户作品集。
                           </div>
                         </DropdownMenuItem>
                       )}

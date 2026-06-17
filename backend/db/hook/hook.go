@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ghshhf/MonkeyCode/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db"
 )
 
 // The AuditFunc type is an adapter to allow the use of ordinary

@@ -9,7 +9,7 @@ import { obtainCaptchaToken } from '@/api/captcha';
 import type { InvitationItem, Subscription, Wallet } from '@/api/types';
 import { useAuth } from '@/auth/AuthContext';
 import { Icons } from '@/components/Icons';
-import { BigTitle, Card, GlassTop, MonkeyLogo, Pill, Row, Toast } from '@/components/ui';
+import { BigTitle, Card, GlassTop, PlatformLogo, Pill, Row, Toast } from '@/components/ui';
 import { ACCENTS, ACCENT_KEYS, spacing, useTheme, useThemePrefs, type Theme, type ThemeMode } from '@/theme';
 
 
@@ -55,11 +55,11 @@ function Appearance({ t }: { t: Theme }) {
   );
 }
 
-// 产品相关入口（开源、AI 编程助手 MonkeyCode）
+// 产品相关入口（开源、量子平台）
 const ABOUT_LINKS: { icon: string; label: string; sub: string; url: string }[] = [
   { icon: 'globe', label: '当前服务器', sub: 'localhost:11180', url: 'http://localhost:11180' },
-  { icon: 'file', label: '帮助文档', sub: 'github.com/ghshhf/MonkeyCode', url: 'https://github.com/ghshhf/MonkeyCode#readme' },
-  { icon: 'github', label: 'GitHub 开源仓库', sub: 'ghshhf/MonkeyCode', url: 'https://github.com/ghshhf/MonkeyCode' },
+  { icon: 'file', label: '帮助文档', sub: 'github.com/ghshhf/quantum-platform', url: 'https://github.com/ghshhf/quantum-platform#readme' },
+  { icon: 'github', label: 'GitHub 开源仓库', sub: 'ghshhf/quantum-platform', url: 'https://github.com/ghshhf/quantum-platform' },
 ];
 
 function About({ t }: { t: Theme }) {
@@ -109,10 +109,10 @@ function About({ t }: { t: Theme }) {
       <Text style={{ fontSize: 12, fontWeight: '700', color: t.tx3, letterSpacing: 0.5, marginBottom: 13 }}>关于</Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
         <View style={[{ width: 46, height: 46, borderRadius: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: t.dark ? t.bg3 : '#fff' }, t.shCard]}>
-          <MonkeyLogo size={36} />
+          <PlatformLogo size={36} />
         </View>
         <View style={{ flex: 1, minWidth: 0 }}>
-          <Text style={{ fontSize: 16, fontWeight: '800', color: t.tx }}>MonkeyCode</Text>
+          <Text style={{ fontSize: 16, fontWeight: '800', color: t.tx }}>量子平台</Text>
           <Text style={{ fontSize: 12.5, color: t.tx3, marginTop: 2 }}>开源 AI 编程助手 · 长亭科技</Text>
         </View>
       </View>
@@ -353,7 +353,7 @@ export default function ProfileScreen() {
             <View style={[{ width: 60, height: 60, borderRadius: 99, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', backgroundColor: avatarUrl && !avatarBroken ? t.ac : t.dark ? t.bg3 : '#fff' }, t.shCard]}>
               {avatarUrl && !avatarBroken
                 ? <Image source={{ uri: avatarUrl }} onError={() => setAvatarBroken(true)} style={{ width: 60, height: 60, borderRadius: 99 }} />
-                : <MonkeyLogo size={52} />}
+                : <PlatformLogo size={52} />}
             </View>
             <View style={{ flex: 1, minWidth: 0 }}>
               <Text numberOfLines={1} style={{ fontSize: 18, fontWeight: '700', color: t.tx }}>{name}</Text>
@@ -432,7 +432,7 @@ export default function ProfileScreen() {
             </Pressable>
           ) : null}
 
-          <Text style={{ textAlign: 'center', color: t.tx3, fontSize: 12, marginTop: 4 }}>Building with MonkeyCode</Text>
+          <Text style={{ textAlign: 'center', color: t.tx3, fontSize: 12, marginTop: 4 }}>Building with 量子平台</Text>
         </View>
       </ScrollView>
 

@@ -3,10 +3,10 @@ package host
 import (
 	"github.com/samber/do"
 
-	"github.com/ghshhf/MonkeyCode/backend/biz/di"
-	v1 "github.com/ghshhf/MonkeyCode/backend/biz/host/handler/v1"
-	"github.com/ghshhf/MonkeyCode/backend/biz/host/repo"
-	"github.com/ghshhf/MonkeyCode/backend/biz/host/usecase"
+	"github.com/ghshhf/quantum-platform/backend/biz/di"
+	v1 "github.com/ghshhf/quantum-platform/backend/biz/host/handler/v1"
+	"github.com/ghshhf/quantum-platform/backend/biz/host/repo"
+	"github.com/ghshhf/quantum-platform/backend/biz/host/usecase"
 )
 
 // Module 描述 host 模块的 DI 注册行为。

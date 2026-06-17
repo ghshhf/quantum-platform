@@ -1,7 +1,7 @@
 {
-  "name": "monkeycode-mobile-expo",
+  "name": "quantum-platform-mobile-expo",
   "version": "1.0.0",
-  "description": "MonkeyCode 移动端（Expo / React Native 原生重构）",
+  "description": "量子平台 移动端（Expo / React Native 原生重构）",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",

@@ -6,7 +6,7 @@ import (
 	"database/sql"
 	"log/slog"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/config"
 )
 
 // Client 数据库客户端

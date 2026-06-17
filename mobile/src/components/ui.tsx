@@ -25,12 +25,12 @@ import { Glass } from '@/components/glass';
 import { Icons, Spinner } from '@/components/Icons';
 import { radius, spacing, statusInfo, toneColors, useTheme, type Theme } from '@/theme';
 
-// MonkeyCode 猴子 logo（随主题：浅色主题用深色猴子，深色主题用亮色猴子）
-const MONKEY_LIGHT = require('../../assets/logo-light.png'); // 深色猴子(透明底) → 浅色背景
-const MONKEY_DARK = require('../../assets/logo-dark.png');   // 亮色猴子(深色圆底) → 深色背景
-export function MonkeyLogo({ size = 40, style }: { size?: number; style?: StyleProp<ImageStyle> }) {
+// 量子平台 量子平台 logo（随主题：浅色主题用深色量子平台，深色主题用亮色量子平台）
+const platform_LIGHT = require('../../assets/logo-light.png'); // 深色量子平台(透明底) → 浅色背景
+const platform_DARK = require('../../assets/logo-dark.png');   // 亮色量子平台(深色圆底) → 深色背景
+export function PlatformLogo({ size = 40, style }: { size?: number; style?: StyleProp<ImageStyle> }) {
   const t = useTheme();
-  return <Image source={t.dark ? MONKEY_DARK : MONKEY_LIGHT} style={[{ width: size, height: size }, style]} resizeMode="contain" />;
+  return <Image source={t.dark ? platform_DARK : platform_LIGHT} style={[{ width: size, height: size }, style]} resizeMode="contain" />;
 }
 
 // ── 弹窗点击关闭区：去掉全屏灰色/毛玻璃遮罩（BlurView 实时模糊开销大，也是弹出变慢的主因）。
@@ -381,7 +381,7 @@ export function EmptyView({ title, subtitle, icon = 'sparkle' }: { title: string
           <I size={28} color={t.tx3} sw={1.8} />
         </View>
       ) : (
-        <MonkeyLogo size={76} style={{ marginBottom: 6, opacity: 0.92 }} />
+        <PlatformLogo size={76} style={{ marginBottom: 6, opacity: 0.92 }} />
       )}
       <Text style={{ color: t.tx, fontSize: 15, fontWeight: '600' }}>{title}</Text>
       {subtitle ? <Text style={{ color: t.tx2, fontSize: 13, textAlign: 'center', lineHeight: 19 }}>{subtitle}</Text> : null}

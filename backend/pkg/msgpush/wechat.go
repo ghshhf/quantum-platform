@@ -17,14 +17,14 @@ import (
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/sync/singleflight"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/request"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/pkg/request"
 )
 
 // access_token Redis 共享缓存相关常量。
 //
 // 微信公众号 access_token 对每个 AppID 全局唯一，后取作废先取。如果 binary 内有
-// 多份 WechatClient 实例（如内部 monkeycode-ai 桥接出的实例 + backend do 容器
+// 多份 WechatClient 实例（如内部 quantum-platform-ai 桥接出的实例 + backend do 容器
 // 实例），各自维护进程内缓存会互相把对方的 token 顶失效，进入 40001 抢夺循环。
 //
 // 解法：把 token 放 Redis，key 用 AppID 做命名空间（兼容未来多公众号）；

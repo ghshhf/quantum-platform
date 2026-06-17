@@ -4,7 +4,7 @@
  *   - 收起（minimize）：面板滑到屏幕外但 WebView 保持挂载，再次展开秒回、无需重载；
  *     收起后由 composer 上方的「在线预览」条充当最小化入口，点它即可重新展开。
  *   - 真正关闭（onClose）：卸载 WebView。
- * 预览地址是独立公网 URL，不携带 MonkeyCode 的会话 Cookie / Basic Auth（避免 cookie 泄漏到预览域名）。
+ * 预览地址是独立公网 URL，不携带 量子平台 的会话 Cookie / Basic Auth（避免 cookie 泄漏到预览域名）。
  */
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Animated, BackHandler, Linking, Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';

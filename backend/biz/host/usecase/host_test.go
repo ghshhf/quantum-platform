@@ -14,12 +14,12 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/redis/go-redis/v9"
 
-	"github.com/ghshhf/MonkeyCode/backend/config"
-	"github.com/ghshhf/MonkeyCode/backend/consts"
-	"github.com/ghshhf/MonkeyCode/backend/db"
-	"github.com/ghshhf/MonkeyCode/backend/db/enttest"
-	"github.com/ghshhf/MonkeyCode/backend/domain"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/config"
+	"github.com/ghshhf/quantum-platform/backend/consts"
+	"github.com/ghshhf/quantum-platform/backend/db"
+	"github.com/ghshhf/quantum-platform/backend/db/enttest"
+	"github.com/ghshhf/quantum-platform/backend/domain"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 func TestGetInstallCommandStoresTokenForTwoHours(t *testing.T) {
@@ -35,7 +35,7 @@ func TestGetInstallCommandStoresTokenForTwoHours(t *testing.T) {
 			Server: struct {
 				Addr    string `mapstructure:"addr"`
 				BaseURL string `mapstructure:"base_url"`
-			}{BaseURL: "http://monkeycode.local"},
+			}{BaseURL: "http://quantum-platform.local"},
 		},
 		redis: rdb,
 	}
@@ -76,7 +76,7 @@ func TestInstallScriptDefaultsToOnlineInstaller(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(script, "github.com/ghshhf/MonkeyCode/raw/main/runner/$ARCH/installer") {
+	if !strings.Contains(script, "github.com/ghshhf/quantum-platform/raw/main/runner/$ARCH/installer") {
 		t.Fatalf("script missing online installer: %s", script)
 	}
 	if !strings.Contains(script, "--env GRPC_URL=121.41.208.82:50443") {
@@ -104,7 +104,7 @@ func TestInstallScriptUsesOfflineBundle(t *testing.T) {
 			Server: struct {
 				Addr    string `mapstructure:"addr"`
 				BaseURL string `mapstructure:"base_url"`
-			}{BaseURL: "http://monkeycode.local"},
+			}{BaseURL: "http://quantum-platform.local"},
 			TaskFlow: config.TaskFlow{GrpcURL: "121.41.208.82:50443"},
 			StaticFiles: config.StaticFilesConfig{
 				RoutePrefix: "/static",
@@ -124,10 +124,10 @@ func TestInstallScriptUsesOfflineBundle(t *testing.T) {
 	if !strings.Contains(script, "GRPC_URL=\"121.41.208.82:50443\"") {
 		t.Fatalf("script missing grpc url: %s", script)
 	}
-	if !strings.Contains(script, "INSTALLER_URL=\"http://monkeycode.local/static/installer/{{.arch}}/installer\"") {
+	if !strings.Contains(script, "INSTALLER_URL=\"http://quantum-platform.local/static/installer/{{.arch}}/installer\"") {
 		t.Fatalf("script missing installer url: %s", script)
 	}
-	if !strings.Contains(script, "BASE_URL=\"http://monkeycode.local\"") || !strings.Contains(script, "MCAI_BASE_URL=\"$BASE_URL\"") {
+	if !strings.Contains(script, "BASE_URL=\"http://quantum-platform.local\"") || !strings.Contains(script, "MCAI_BASE_URL=\"$BASE_URL\"") {
 		t.Fatalf("script missing base url: %s", script)
 	}
 	if !strings.Contains(script, "HOST_BUNDLE_PATH=\"/static/installer/{{.arch}}/host.tgz\"") || !strings.Contains(script, "HOST_BUNDLE_PATH=${HOST_BUNDLE_PATH//\\{\\{.arch\\}\\}/$ARCH}") || !strings.Contains(script, "MCAI_HOST_BUNDLE_PATH=\"$HOST_BUNDLE_PATH\"") {
@@ -143,7 +143,7 @@ func TestInstallScriptUsesOfflineBundle(t *testing.T) {
 		t.Fatalf("bootstrap script should not install host directly: %s", script)
 	}
 	if strings.Contains(script, "release.baizhi.cloud") ||
-		strings.Contains(script, "monkeycode-ai.com") ||
+		strings.Contains(script, "quantum-platform-ai.com") ||
 		strings.Contains(script, "your-server.example.com") {
 		t.Fatalf("script should use dynamic server URL, not hardcoded: %s", script)
 	}

@@ -51,7 +51,7 @@ func SetLocalChat(fn func(context.Context, ChatRequest) (*ChatResponse, error)) 
 func NewNode(opt NodeOption) (*Node, error) {
 	if opt.StorageDir == "" {
 		home, _ := os.UserHomeDir()
-		opt.StorageDir = home + "/.monkeycode/p2p"
+		opt.StorageDir = home + "/.quantum-platform/p2p"
 	}
 	if opt.Name == "" {
 		opt.Name, _ = os.Hostname()

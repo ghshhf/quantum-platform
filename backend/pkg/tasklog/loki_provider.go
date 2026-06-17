@@ -10,8 +10,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/ghshhf/MonkeyCode/backend/pkg/loki"
-	"github.com/ghshhf/MonkeyCode/backend/pkg/taskflow"
+	"github.com/ghshhf/quantum-platform/backend/pkg/loki"
+	"github.com/ghshhf/quantum-platform/backend/pkg/taskflow"
 )
 
 type LokiProvider struct {
