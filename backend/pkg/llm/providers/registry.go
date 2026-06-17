@@ -48,3 +48,11 @@ func Registered() []string {
 	}
 	return names
 }
+
+// IsRegistered 判断 name 是否是一个已注册的 provider
+func IsRegistered(name string) bool {
+	registryMu.RLock()
+	defer registryMu.RUnlock()
+	_, ok := factories[name]
+	return ok
+}

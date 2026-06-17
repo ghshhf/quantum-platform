@@ -145,7 +145,7 @@ func (b *Bridge) Ask(ctx context.Context, session *Session, question string) (*A
 		invoked = append(invoked, r.Profile.Name)
 	}
 
-	content, err := b.synthesizeAnswer(ctx, question, results)
+	content, err := b.synthesizeAnswer(ctx, question, results, session)
 	if err != nil {
 		// LLM 失败时，降级为原始片段拼接，避免整个系统挂
 		content = synthesizeFallback(question, results)
@@ -223,30 +223,100 @@ func buildContext(s *Session) string {
 	return sb.String()
 }
 
-// synthesizeAnswer 用 LLM 把各 Entity 的片段汇总成自然语言回答。
-func (b *Bridge) synthesizeAnswer(ctx context.Context, question string, results []EntityResult) (string, error) {
-	if b.llm == nil {
-		return synthesizeFallback(question, results), nil
+// synthesizeAnswer 汇总多来源信息，生成自然语言回答。
+//
+// 优先级：
+//  1. 如果 session 里注册了 LLMEntity（用户自己添加的免费 AI）→ 用它做总结
+//  2. 否则如果 Bridge 初始化时带了全局 provider → 用它
+//  3. 否则 fallback：纯片段拼接（不依赖任何 AI）
+func (b *Bridge) synthesizeAnswer(ctx context.Context, question string, results []EntityResult, session *Session) (string, error) {
+	// 1) 从 session 里找第一个 LLMEntity（用户自己注册的 AI）
+	for _, e := range session.Entities {
+		if llmE, ok := e.(*LLMEntity); ok {
+			// 让它做"信息整合"：把所有 Entity 的结果当上下文
+			frags := buildFragments(results)
+			query := EntityQuery{
+				Question: "请根据以下信息，回答我的问题：" + question,
+				Context:  frags,
+			}
+			res := llmE.Execute(ctx, query)
+			if len(res.Fragments) > 0 {
+				return res.Fragments[0].Content, nil
+			}
+			if res.Error != "" {
+				return "", fmtError("llm(%s): %s", llmE.name, res.Error)
+			}
+		}
 	}
+	// 2) 全局 provider（老方式）
+	if b.llm != nil {
+		var sb strings.Builder
+		sb.WriteString("以下是多个数据源（Entity）针对问题返回的信息片段。\n\n")
+		sb.WriteString("用户问题: ")
+		sb.WriteString(question)
+		sb.WriteString("\n\n各数据源返回的内容:\n\n")
+		for i, r := range results {
+			sb.WriteString(fmt.Sprintf("【来源 %d：%s (%s)】\n", i+1, r.Profile.Label, r.Profile.Name))
+			if r.Error != "" {
+				sb.WriteString("  (失败: ")
+				sb.WriteString(r.Error)
+				sb.WriteString(")\n")
+				continue
+			}
+			for _, frag := range r.Fragments {
+				sb.WriteString("  - ")
+				if frag.SourceRef != "" {
+					sb.WriteString("[")
+					sb.WriteString(frag.SourceRef)
+					sb.WriteString("] ")
+				}
+				sb.WriteString(frag.Content)
+				sb.WriteString("\n")
+			}
+			sb.WriteString("\n")
+		}
+		sb.WriteString("请基于以上信息，以自然语言的方式回答用户的问题。")
+		sb.WriteString("如果多个来源的信息有冲突，请在回答中明确指出。")
+		sb.WriteString("请保持回答简洁，并尽量引用来源标识。\n")
+		req := providers.ChatRequest{
+			Messages: []providers.Message{
+				{Role: "system", Content: "你是一个数据整合助手，能综合多个来源的信息生成连贯的回答。"},
+				{Role: "user", Content: sb.String()},
+			},
+			MaxTokens:   1500,
+			Temperature: 0.3,
+		}
+		resp, err := b.llm.Chat(ctx, req)
+		if err != nil {
+			return "", err
+		}
+		return resp.Content, nil
+	}
+	// 3) 无 AI：降级为纯片段拼接
+	return synthesizeFallback(question, results), nil
+}
 
-	// 构造 prompt：列出每个 Entity 的贡献
+func fmtError(format string, args ...interface{}) error {
+	return fmt.Errorf(format, args...)
+}
+
+// buildFragments 把 EntityResults 整理成一段给 LLM 看的上下文文字。
+func buildFragments(results []EntityResult) string {
+	if len(results) == 0 {
+		return ""
+	}
 	var sb strings.Builder
-	sb.WriteString("以下是多个数据源（Entity）针对问题返回的信息片段。\n\n")
-	sb.WriteString("用户问题: ")
-	sb.WriteString(question)
-	sb.WriteString("\n\n")
-	sb.WriteString("各数据源返回的内容:\n\n")
-
+	sb.WriteString("（已调用的信息源：\n")
 	for i, r := range results {
-		sb.WriteString(fmt.Sprintf("【来源 %d：%s (%s)】\n", i+1, r.Profile.Label, r.Profile.Name))
+		sb.WriteString(fmt.Sprintf("  [%d] %s / %s\n", i+1, r.Profile.Label, r.Profile.Name))
 		if r.Error != "" {
-			sb.WriteString("  (失败: ")
+			sb.WriteString("      错误: ")
 			sb.WriteString(r.Error)
-			sb.WriteString(")\n")
+			sb.WriteString("\n")
 			continue
 		}
 		for _, frag := range r.Fragments {
-			sb.WriteString("  - ")
+			sb.WriteString("      ")
 			if frag.SourceRef != "" {
 				sb.WriteString("[")
 				sb.WriteString(frag.SourceRef)
@@ -255,26 +325,9 @@ func (b *Bridge) synthesizeAnswer(ctx context.Context, question string, results 
 			sb.WriteString(frag.Content)
 			sb.WriteString("\n")
 		}
-		sb.WriteString("\n")
 	}
-	sb.WriteString("请基于以上信息，以自然语言的方式回答用户的问题。")
-	sb.WriteString("如果多个来源的信息有冲突，请在回答中明确指出。")
-	sb.WriteString("请保持回答简洁，并尽量引用来源标识。\n")
-
-	req := providers.ChatRequest{
-		Messages: []providers.Message{
-			{Role: "system", Content: "你是一个数据整合助手，能综合多个来源的信息生成连贯的回答。"},
-			{Role: "user", Content: sb.String()},
-		},
-		MaxTokens:   1500,
-		Temperature: 0.3,
-	}
-
-	resp, err := b.llm.Chat(ctx, req)
-	if err != nil {
-		return "", err
-	}
-	return resp.Content, nil
+	sb.WriteString("）\n")
+	return sb.String()
 }
 
 // synthesizeFallback 当 LLM 不可用时的降级回答：直接拼接各 Entity 返回的片段。

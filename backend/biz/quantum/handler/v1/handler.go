@@ -42,7 +42,7 @@ func NewQuantumHandler(i *do.Injector) (*QuantumHandler, error) {
 	g.DELETE("/platforms/:id", web.BindHandler(h.deletePlatform))
 	g.POST("/platforms/:id/entities", web.BindHandler(h.addEntity))
 	g.POST("/platforms/:id/ask", web.BindHandler(h.ask))
-
+	g.GET("/catalog", web.BindHandler(h.getCatalog))
 	return h, nil
 }
 
@@ -77,15 +77,37 @@ type createPlatformReq struct {
 
 type addEntityReq struct {
 	ID   string `param:"id"`
-	// kind: "document" | "connector"
+	// kind: "document" | "connector" | "llm"
 	Kind        string          `json:"kind" validate:"required"`
 	Name        string          `json:"name" validate:"required"`
 	Label       string          `json:"label"`
 	Description string          `json:"description"`
-	Content     string          `json:"content"`
-	Connector   json.RawMessage `json:"connector"`
-	ChunkSize   int             `json:"chunk_size"`
-	Overlap     int             `json:"overlap"`
+
+	// kind=document: 文档内容与 chunk 参数
+	Content   string `json:"content"`
+	ChunkSize int    `json:"chunk_size"`
+	Overlap   int    `json:"overlap"`
+
+	// kind=connector: 完整的 ConnectorSpec JSON
+	Connector json.RawMessage `json:"connector"`
+
+	// kind=llm: LLM 接入参数（都走 OpenAI-compatible）
+	LLM LLMParams `json:"llm"`
+}
+
+// LLMParams 描述一个 LLM 接入点
+type LLMParams struct {
+	// 从免费 AI 目录里选 name：deepseek | siliconflow | groq | ark | qwen | zhipu | ollama-local
+	// 如果填写了 CatalogName，则 baseURL/model 会自动从目录里填好
+	CatalogName string `json:"catalog_name"`
+
+	// 自定义（用户自己贴 baseURL/apiKey/model 也可）
+	BaseURL string `json:"base_url"`
+	APIKey  string `json:"api_key"`
+	Model   string `json:"model"`
+
+	// 给用户看的提示（如"免费额度"、"新用户试用"）
+	Hint string `json:"hint"`
 }
 
 type askReq struct {
@@ -240,11 +262,41 @@ func (h *QuantumHandler) addEntity(c *web.Context, req addEntityReq) error {
 		if spec.Name == "" {
 			spec.Name = req.Name
 		}
-		// 注册到 connector runtime，并包装为 Entity
 		h.connRT.Register(&spec)
 		entity = quantum.NewConnectorEntity(h.connRT, &spec, nil)
+	case "llm":
+		baseURL := req.LLM.BaseURL
+		model := req.LLM.Model
+		apiKey := req.LLM.APIKey
+		hint := req.LLM.Hint
+		label := firstOr(req.Label, req.Name)
+		// 如果用户用了"目录 name"，自动补上 baseURL/model
+		if req.LLM.CatalogName != "" {
+			if spec, ok := quantum.FindFreeProviderByName(req.LLM.CatalogName); ok {
+				if baseURL == "" {
+					baseURL = spec.BaseURL
+				}
+				if model == "" {
+					model = spec.DefaultModel
+				}
+				if hint == "" {
+					hint = spec.FreeTier
+				}
+				if label == req.Name {
+					label = spec.Label
+				}
+			}
+		}
+		if baseURL == "" {
+			return c.JSON(400, map[string]string{"error": "llm kind requires either catalog_name or base_url"})
+		}
+		provider, err := quantum.ProviderFromConfig(req.Name, baseURL, apiKey, model, nil)
+		if err != nil {
+			return c.JSON(500, map[string]string{"error": err.Error()})
+		}
+		entity = quantum.NewLLMEntity(req.Name, label, provider, model, hint)
 	default:
-		return c.JSON(400, map[string]string{"error": "unknown entity kind: " + req.Kind + " (supported: document, connector)"})
+		return c.JSON(400, map[string]string{"error": "unknown entity kind: " + req.Kind + " (supported: document, connector, llm)"})
 	}
 
 	p.Entities = append(p.Entities, entity)
@@ -306,6 +358,24 @@ func (h *QuantumHandler) ask(c *web.Context, req askReq) error {
 		Sources:         sources,
 		LatencyMs:       ans.LatencyMs,
 	})
+}
+
+func (h *QuantumHandler) getCatalog(c *web.Context, req struct{}) error {
+	catalog := quantum.FreeProviderCatalogue()
+	out := make([]map[string]any, 0, len(catalog))
+	for _, p := range catalog {
+		out = append(out, map[string]any{
+			"name":          p.Name,
+			"label":         p.Label,
+			"base_url":      p.BaseURL,
+			"default_model": p.DefaultModel,
+			"auth_mode":     p.AuthMode,
+			"free_tier":     p.FreeTier,
+			"strength_tags": p.StrengthTags,
+			"note":          p.Note,
+		})
+	}
+	return c.Success(out)
 }
 
 func firstOr(a, b string) string {
