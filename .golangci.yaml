@@ -1,0 +1,91 @@
+# ─── golangci-lint 配置 ────────────────────────────────────────────────────────
+# quantum-platform 后端 Go 代码统一 lint 配置
+#
+# 参考: cloudflared 以及社区最佳实践的平衡配置
+# - 启用常用 linter，禁用噪音过大的规则
+# - 适配 Go 1.25 的特性
+
+version: "2"
+
+linters:
+  default: none
+  enable:
+    # ---- 必开 ----
+    - errcheck      # 检查未处理的 error
+    - gosimple      # 简化代码
+    - govet         # go vet 增强版
+    - ineffassign   # 无效赋值
+    - staticcheck   # 静态分析
+    - unused        # 未使用的代码
+
+    # ---- 推荐 ----
+    - bodyclose     # HTTP response body 未关闭
+    - copyloopvar   # 循环变量拷贝问题
+    - gocritic      # 代码风格检查
+    - gosec         # 安全扫描
+    - misspell      # 拼写检查
+    - nolintlint    # nolint 注释规范性检查
+    - revive        # 可替代 golint 的检查器
+    - stylecheck    # 代码风格检查
+
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+    gosec:
+      excludes:
+        - G404  # 不强制使用 crypto/rand（测试代码可用 math/rand）
+    revive:
+      rules:
+        - name: blank-imports
+        - name: context-as-argument
+        - name: context-keys-type
+        - name: dot-imports
+        - name: error-return
+        - name: error-strings
+        - name: error-naming
+        - name: exported
+        - name: if-return
+        - name: increment-decrement
+        - name: var-naming
+        - name: var-declaration
+        - name: package-comments
+        - name: range
+        - name: receiver-naming
+        - name: time-naming
+        - name: unexported-return
+        - name: indent-error-flow
+        - name: errorf
+        - name: empty-block
+        - name: superfluous-else
+        - name: unused-parameter
+        - name: unreachable-code
+        - name: redefines-builtin-id
+
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
