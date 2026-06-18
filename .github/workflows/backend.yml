@@ -1,0 +1,91 @@
+# ─── Backend CI ───────────────────────────────────────────────────────────────
+# Go 后端构建、lint、测试自动化流水线
+#
+# 参考: cloudflared CI 配置模式
+#   - workflow_dispatch 支持手动触发
+#   - lint+test+build 并行 job 加速
+#   - race detector + codecov 兼容
+
+name: Backend CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: backend
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache-dependency-path: backend/go.sum
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          working-directory: backend
+          args: --timeout=5m
+
+      - name: go vet
+        run: go vet ./...
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache-dependency-path: backend/go.sum
+
+      - name: Unit tests
+        run: go test -race -count=1 -timeout=120s ./...
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5
+        if: github.ref == 'refs/heads/main'
+        with:
+          directory: backend
+          fail_ci_if_error: false
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache-dependency-path: backend/go.sum
+
+      - name: Build all packages
+        run: go build ./...
+
+      - name: Build server binary
+        run: |
+          mkdir -p bin
+          go build -o bin/quantum-server ./cmd/server
