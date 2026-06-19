@@ -49,6 +49,7 @@ export enum ConstsModelProvider {
   ModelProviderBaiLian = "BaiLian",
   ModelProviderVolcengine = "Volcengine",
   ModelProviderGoogle = "Gemini",
+  ModelProviderOther = "Other",
 }
 
 export enum ConstsNotifyChannelKind {

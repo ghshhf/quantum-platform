@@ -7,21 +7,11 @@
 // 路由: /chat
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { apiRequest } from "@/utils/requestUtils";
 import {
   IconSend,
   IconPaperclip,
@@ -33,7 +23,6 @@ import {
   IconMoon,
   IconRefresh,
 } from "@tabler/icons-react";
-import { AuthProvider, useAuth } from "@/components/auth-provider";
 import { useTheme } from "@/components/theme-provider";
 
 // ─── 类型定义 ──────────────────────────────────────────────────────────────
@@ -70,7 +59,6 @@ const MODELS: ModelOption[] = [
 // ─── 组件 ──────────────────────────────────────────────────────────────────
 
 function ChatPage() {
-  const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
   const [messages, setMessages] = useState<ChatMessage[]>([
     {

@@ -1162,7 +1162,7 @@ export const modelProviderPresets: Record<ConstsModelProvider, { baseUrl: string
 }
 
 // 按 Provider 列出的品牌模型列表（如果 API 有 /models 问题或需要预设模型名时使用）
-export const modelProviderBrandList: Record<ConstsModelProvider, DomainProviderModelListItem[]> = {
+export const modelProviderBrandList: Partial<Record<ConstsModelProvider, DomainProviderModelListItem[]>> = {
   [ConstsModelProvider.ModelProviderAzureOpenAI]: [
     {"model": "gpt-4"},
     {"model": "gpt-4o"},

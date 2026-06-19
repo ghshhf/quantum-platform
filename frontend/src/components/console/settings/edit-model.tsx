@@ -42,7 +42,7 @@ export default function EditModel({
 }: EditModelProps) {
   const [apiToken, setApiToken] = useState("")
   const [baseUrl, setBaseUrl] = useState("")
-  const [provider, setProvider] = useState<ConstsModelProvider>("")
+  const [provider, setProvider] = useState<ConstsModelProvider>(ConstsModelProvider.ModelProviderOpenAI)
   const [selectedModel, setSelectedModel] = useState("")
   const [remark, setRemark] = useState("")
   const [interfaceType, setInterfaceType] = useState<ConstsInterfaceType>(ConstsInterfaceType.InterfaceTypeOpenAIChat)
