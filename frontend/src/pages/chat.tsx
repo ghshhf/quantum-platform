@@ -24,6 +24,14 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import { useTheme } from "@/components/theme-provider";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { AuthProvider } from "@/components/auth-provider";
 
 // ─── 类型定义 ──────────────────────────────────────────────────────────────
 

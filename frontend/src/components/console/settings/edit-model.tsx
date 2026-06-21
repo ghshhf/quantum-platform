@@ -82,7 +82,7 @@ export default function EditModel({
     if (model && open) {
       setApiToken(model.api_key || "")
       setBaseUrl(model.base_url || "")
-      setProvider(model.provider || ConstsModelProvider.ModelProviderBaiZhiCloud)
+      setProvider((model.provider as ConstsModelProvider) || ConstsModelProvider.ModelProviderBaiZhiCloud)
       setSelectedModel(model.model || "")
       setRemark(model.remark || "")
       setInterfaceType(model.interface_type || ConstsInterfaceType.InterfaceTypeOpenAIChat)
@@ -133,7 +133,7 @@ export default function EditModel({
     setLoadingModels(true)
     await apiRequest('getProviderModelList', {
       api_key: apiToken.trim(),
-      base_url: baseUrl.trim() || model.base_url || "",
+      base_url: baseUrl.trim() || model?.base_url || "",
       provider: model?.provider || provider,
     }, [], (resp) => {
       if (resp.code === 0) {

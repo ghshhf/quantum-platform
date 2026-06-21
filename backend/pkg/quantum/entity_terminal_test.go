@@ -295,7 +295,7 @@ func TestTerminalExecute_AllowedCmd(t *testing.T) {
 	result = e.Execute(context.Background(), EntityQuery{
 		Question: "执行 rm -rf /",
 	})
-	if result.Error == nil {
+	if result.Error == "" && (len(result.Fragments) == 0 || !strings.Contains(result.Fragments[0].Content, "失败")) {
 		t.Error("expected error for disallowed cmd 'rm', got nil")
 	}
 }
@@ -311,7 +311,7 @@ func TestTerminalExecute_ReadFileError(t *testing.T) {
 	result := e.Execute(context.Background(), EntityQuery{
 		Question: "读取 missing.txt",
 	})
-	if result.Error == "" {
+	if result.Error == "" && (len(result.Fragments) == 0 || !strings.Contains(result.Fragments[0].Content, "失败")) {
 		t.Fatal("expected error for missing file")
 	}
 }

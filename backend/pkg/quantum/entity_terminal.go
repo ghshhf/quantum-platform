@@ -260,13 +260,14 @@ func (t *TerminalEntity) Match(question string) float64 {
 func (t *TerminalEntity) Execute(ctx context.Context, query EntityQuery) EntityResult {
 	start := time.Now()
 	profile := t.Profile()
+	result := EntityResult{
+		Profile:   profile,
+		LatencyMs: time.Since(start).Milliseconds(),
+	}
 
 	if t.connector == nil {
-		return EntityResult{
-			Profile:   profile,
-			Error:     "终端连接器未配置（未设置 LocalConnector 或 RemoteConnector）",
-			LatencyMs: time.Since(start).Milliseconds(),
-		}
+		result.Error = "终端连接器未配置（未设置 LocalConnector 或 RemoteConnector）"
+		return result
 	}
 
 	// 从问题中解析意图
@@ -511,17 +512,6 @@ func splitCmd(s string) []string {
 	}
 	// 简单按空格分割（TODO: 需要处理引号内的空格）
 	return strings.Fields(s)
-}
-
-// clamp01 确保值在 [0,1] 范围内
-func clamp01(v float64) float64 {
-	if v < 0 {
-		return 0
-	}
-	if v > 1 {
-		return 1
-	}
-	return v
 }
 
 // compile-time interface check

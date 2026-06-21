@@ -175,7 +175,6 @@ func TestStartStop(t *testing.T) {
 // ===== Send 与 handler 分发 =====
 
 func TestSendAndHandle(t *testing.T) {
-	ctx := context.Background()
 	trA, idA := testTransport(t, "send-a")
 	trB, _ := testTransport(t, "send-b")
 
@@ -212,7 +211,6 @@ func TestSendAndHandle(t *testing.T) {
 // ===== SendWithResponse 请求-响应 =====
 
 func TestSendWithResponse(t *testing.T) {
-	ctx := context.Background()
 	trA, _ := testTransport(t, "req-a")
 	trB, _ := testTransport(t, "req-b")
 
@@ -382,7 +380,7 @@ func TestProcessRelayTTLExpired(t *testing.T) {
 func TestSendViaWithResponseRelay(t *testing.T) {
 	// 场景：A 想发给 C，但只知道 B 知道 C 的地址
 	// A → B(中继) → C
-	ctx := context.Background()
+
 
 	// 创建三个节点
 	trA, _ := testTransport(t, "relay-a")
