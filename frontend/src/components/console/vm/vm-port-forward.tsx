@@ -134,7 +134,7 @@ export function VmPortForwardDialog({
 
     setPortToOpen(port)
 
-    let ip = await getMyIP()
+    const ip = await getMyIP()
     if (!ip) {
       toast.error("获取本机 IP 失败")
       setPortToOpen(0)

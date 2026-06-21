@@ -52,7 +52,7 @@ export const renderTitle = (message: MessageType) => {
 
 
  export const renderDetail = (message: MessageType) => {
-    let cwd = message.data.rawInput?.cwd || ''
+    const cwd = message.data.rawInput?.cwd || ''
     let input = ''
     let output = ''
 
