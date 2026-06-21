@@ -1,6 +1,8 @@
 package team
 
 import (
+	"log/slog"
+
 	"github.com/samber/do"
 
 	v1 "github.com/ghshhf/quantum-platform/backend/biz/team/handler/http/v1"
@@ -44,6 +46,7 @@ func ProvideTeam(i *do.Injector) {
 func InvokeTeam(i *do.Injector) {
 	_, err := do.Invoke[*v1.TeamGroupUserHandler](i)
 	if err != nil {
+		slog.Error("InvokeTeam: failed to invoke TeamGroupUserHandler", "error", err)
 		panic(err)
 	}
 	do.MustInvoke[*v1.AuditHandler](i)

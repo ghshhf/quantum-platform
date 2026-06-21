@@ -184,6 +184,9 @@ func (h *HTTPExecutor) Execute(
 	resp, err := h.client.Do(req)
 	latency := time.Since(start).Milliseconds()
 	if err != nil {
+		if resp != nil {
+			resp.Body.Close()
+		}
 		return &ExecuteResult{
 			Connector:  spec.Name,
 			Action:     action.Action,
